@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="ModelAdd">
 	    <h2 class="sub-header">模型添加</h2>
 	    <el-form ref="form" :model="formData" label-width="80px">
 			  <el-form-item label="模型名称">
@@ -74,6 +74,30 @@
 	}
 </script>
 
-<style>
-
+<style scoped lang="less">
+.ModelAdd{
+	margin-left:100px;
+	.sub-header{
+		font-size:30px;
+		color:#6b7a96;
+        line-height:100px;
+        padding-left:20px;
+	}
+	.el-form{
+		width: 500px;
+		.el-form-item{
+			.el-form-item__label{
+			color:#6b7a96;
+			font-size:20px;
+			line-height:40px;
+			}
+			.el-input,.el-select{
+				font-size:18px;
+				line-height:40px;
+				color:#e3e8e9;
+			}
+		}
+		
+	}
+}
 </style>

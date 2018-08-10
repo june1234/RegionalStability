@@ -1,6 +1,6 @@
 <template>
 	<div class="details">
-		<h1 class="title">模型名称</h1>
+		<h1 class="title">{{modelName}}</h1>
 		<el-button class="moudleEdit" type="primary" icon="el-icon-edit" @click="moudleEdit()"></el-button>
         <el-row>
 		  <el-col :span="5" v-for="data in datas" :key='data.id'> 
@@ -128,7 +128,8 @@ import {moduleList,methodList,moudleById,methodDelete} from '@/api/moudule/Detai
                 	pageNum:1,
                 	pageSize:5
                 },
-                total:0
+                total:0,
+                modelName:''
 	        } 
 		},
 		async created(){
@@ -136,6 +137,7 @@ import {moduleList,methodList,moudleById,methodDelete} from '@/api/moudule/Detai
 			await moudleById(id).then(res=>{
 				this.a = res.data.modelModuleIds
             	this.modelPageVo.modelId = res.data.id
+            	this.modelName=res.data.name
 			})
 	        this.modelId = id
 	        this.listLoading()
@@ -209,7 +211,8 @@ import {moduleList,methodList,moudleById,methodDelete} from '@/api/moudule/Detai
 .details{
 	   width: 100%;
 	   	 .title {
-	   	 	color:#409EFF;
+	   	 	font-size:20px;
+	   	 	color:#6b7a96;
 	   	 	font-weight:normal;
 	   	 	line-height:40px;
 	   	 	display:inline-block;
@@ -228,7 +231,7 @@ import {moduleList,methodList,moudleById,methodDelete} from '@/api/moudule/Detai
                .grid-content{
                     h6{
                     	font-size:18px;
-                    	color:#409EFF;
+                    	color:#6b7a96;
                     	line-height:30px;
                     	font-weight:normal;
                     	text-align:center;

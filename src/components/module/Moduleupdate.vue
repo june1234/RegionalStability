@@ -1,6 +1,6 @@
 <template>
 	<div class="ModuleModification">
-        <h2>模块修改</h2>
+        <h2 class="title">模块修改</h2>
 		<el-form ref="form" label-width="80px" v-for='(data,index) in datas' :key="data.id">
 			 <el-form-item label="模块名称">
 			    <h4>{{data.name}}</h4>
@@ -74,5 +74,13 @@
 </script>
 
 <style>
-
+.ModuleModification{
+	margin-left:300px;
+	.title{
+		font-size:60px;
+		color:#6b7a96;
+        line-height:200px;
+	}
+	
+}
 </style>

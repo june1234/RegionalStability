@@ -5,7 +5,7 @@
         <app-header></app-header>
       </el-header>
       <el-container>
-        <el-aside width="301px">
+        <el-aside width="201px">
           <app-aside></app-aside>
         </el-aside>
         <el-main>
@@ -57,6 +57,6 @@ body,html{
  overflow-y: auto;
 }
 .el-main{
-  margin-left:301px;
+  margin-left:201px;
 }
 </style>

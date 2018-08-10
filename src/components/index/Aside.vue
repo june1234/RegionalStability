@@ -98,13 +98,14 @@
 
 <style scoped lang="less">
 .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 300px;
+    width: 200px;
     min-height: 400px;
   }
   .aside{
     height: 100%;
       .el-menu{
       border-right:0;
+       
     }
   }
 </style>
