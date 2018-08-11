@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import ModelManagement from '@/components/module/ModelManagement.vue'
-import Foo from '@/components/index/Foo.vue'
 import Add from '@/components/module/MoudleAdd.vue'
 import Modelupdate from '@/components/module/Modelupdate.vue'
 import Details from '@/components/module/Details.vue'
@@ -15,12 +14,12 @@ Vue.use(Router)
 export default new Router({
   routes: [
           {
-      	   	path:'/',
-      	   	component:Foo
-      	   },
+            path:'/',
+            component:()=> import('@/components/index/Index.vue')
+           },
           {
-          	path:'/ModelManagement',
-          	component:ModelManagement
+            path:'/ModelManagement',
+            component:ModelManagement
           },
           {
               path:'/ModelManagement/add',
@@ -52,4 +51,3 @@ export default new Router({
           }       
      ]
 })
-

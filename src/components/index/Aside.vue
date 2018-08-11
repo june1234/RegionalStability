@@ -1,5 +1,6 @@
 <template>
   <div class="aside">
+    <p class="title">区域稳定性示范系统</p>
     <el-menu default-active="$route.path" 
     class="el-menu-vertical-demo" 
     background-color="#121a2b" 
@@ -11,7 +12,7 @@
             <i class="el-icon-location"></i>
             <span slot="title">首页</span>
         </el-menu-item>
-        <el-menu-item index="1">
+        <el-menu-item index="">
             <i class="el-icon-location"></i>
             <span slot="title">政治事件分析</span>
         </el-menu-item>
@@ -96,16 +97,6 @@
 	}
 </script>
 
-<style scoped lang="less">
-.el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 200px;
-    min-height: 400px;
-  }
-  .aside{
-    height: 100%;
-      .el-menu{
-      border-right:0;
-       
-    }
-  }
+<style>
+
 </style>

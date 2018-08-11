@@ -1,15 +1,15 @@
 <template>
   <div id="app">
     <el-container>
-      <el-header height="80px">
-        <app-header></app-header>
-      </el-header>
+      <el-aside width="201px">
+        <app-aside></app-aside>
+      </el-aside>
       <el-container>
-        <el-aside width="201px">
-          <app-aside></app-aside>
-        </el-aside>
+        <el-header height="40px">
+           <app-header></app-header>
+        </el-header>
         <el-main>
-           <router-view></router-view>
+            <router-view></router-view>
         </el-main>
       </el-container>
     </el-container>
@@ -33,30 +33,5 @@
 </script>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-}
-body,html{
-   margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-}
-.el-header{
-  padding:0;
-}
-.el-container{
-  height: 100%;
-  width: 100%;
-  overflow-y: auto;
-}
-.el-aside{
-  background-color:#121a2b;
-  position: absolute;
- overflow-y: auto;
-}
-.el-main{
-  margin-left:201px;
-}
+
 </style>

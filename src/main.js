@@ -7,9 +7,11 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import App from './App'
 import service from './utils/request'
+import '@/style/base.less'
 
 /* eslint-disable new-line*/
 Vue.use(ElementUI)
+
 
 Vue.config.productionTip = false
 

@@ -1,6 +1,10 @@
 <template>
 	<div class="header">
-		<h1 class="title">区域稳定性示范系统</h1>
+		<div class="service">
+			<span>用户名：</span>
+			<span>123</span>
+			<el-button type="primary">退出</el-button>
+		</div>
 	</div>
 </template>
 
@@ -14,13 +18,6 @@
 		}
 	}
 </script>
-<style scoped lang="less">
-.header{
-	   background-color:#03f;
-	   line-height:80px;
-	   text-align:center;
-	   .title{
-	   	color:#fff;
-	   }
-	}
+<style>
+
 </style>
