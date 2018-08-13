@@ -28,19 +28,22 @@
 			  </el-col>
 			</el-row>
 		</div>
-		<div class="Countries" style="padding:20px;">
+		<div class="Countries" style="padding:20px 10px;">
 			<el-row :gutter="40">
 			  <el-col :span="8">
-			  	<div class="grid-content bg-purple " id="Countries1" style="width: 300px;height: 300px;">
-			  	</div>
+			  	<h4>朝鲜</h4>
+			  	<div class="grid-content bg-purple " id="Countries1" style="width: 300px;height: 200px;">
+				</div>
 			  </el-col>
 			  <el-col :span="8">
-			  	<div class="grid-content bg-purple " id="Countries2" style="width: 300px;height: 300px;">
-			  	</div>
+				<h4>印度</h4>
+			  	<div class="grid-content bg-purple " id="Countries2" style="width: 300px;height: 200px;">
+				</div>
 			  </el-col>
 			  <el-col :span="8">
-			  	<div class="grid-content bg-purple " id="Countries3" style="width: 300px;height: 300px">
-			  	</div>
+				<h4>日本</h4>
+	  			<div class="grid-content bg-purple " id="Countries3" style="width: 300px;height: 200px">
+				</div>
 			  </el-col>
 			</el-row>
 		</div>
@@ -280,59 +283,162 @@
 				const myChart5 =echarts.init(document.getElementById('hot'))
 
 				myChart1.setOption({
-				    title:{
-				        text: '中国热点图'
-				    },
-				    tooltip: {},
-				    xAxis: {
-				        data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
-				    },
-				    yAxis: {},
-				    series: [{
-				        name: '销量',
-				        type: 'bar',
-				        data: [5, 20, 36, 10, 10, 20]
-				    }]
-				})
+						color: ['#003366', '#006699', '#4cabce'],
+					    legend: {
+					        data:[{
+					        	name:'政治事件'
+					        },{
+					        	name:'经济事件'
+					        },{
+					        	name:'反恐事件'
+					        }]
+					        
+					    },
+					    grid: {
+					        left: '3%',
+					        right: '4%',
+					        bottom: '3%',
+					        containLabel: true
+					    },
+					    tooltip: {
+					    	trigger: 'axis',
+					    	 axisPointer : {           
+							            type : 'shadow' 
+							        }
+					    },
+					    xAxis: {
+					    	name:'月份',
+					    	nameLocation:'end',
+					    	type : 'category',
+					    	 splitLine: {show: false},
+					       axisLabel:{'interval':0, rotate: 40},
+					        data: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']   //月份
+					    },
+					    yAxis: {
+					    	type:'value'
+					    },   //等级
+					    series: [{
+					        name: '政治事件',
+					        type: 'bar',
+					        data: [1,3,5,4,6,7,8,2,4,5,2,3]   //事件种类
+					    },{
+					    	name: '经济事件',
+					        type: 'bar',
+					        data: [1,3,5,4,6,7,8,2,4,5,2,3] 
+					    },{
+					    	name: '反恐事件',
+					        type: 'bar',
+					        data: [1,3,5,4,6,7,8,2,4,5,2,3] 
+					    }]
+					})
 				myChart2.setOption({
-				    title:{
-				        text: '日本热点图'
-				    },
-				    tooltip: {},
-				    xAxis: {
-				        data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
-				    },
-				    yAxis: {},
-				    series: [{
-				        name: '销量',
-				        type: 'bar',
-				        data: [5, 20, 36, 10, 10, 20]
-				    }]
-				})
+					 color: ['#003366', '#006699', '#4cabce', '#e5323e'],
+					    legend: {
+					        data:[{
+					        	name:'政治事件'
+					        },{
+					        	name:'经济事件'
+					        },{
+					        	name:'反恐事件'
+					        }]
+					        
+					    },
+					    grid: {
+					        left: '3%',
+					        right: '4%',
+					        bottom: '3%',
+					        containLabel: true
+					    },
+					    tooltip: {
+					    	trigger: 'axis',
+					    	 axisPointer : {           
+							            type : 'shadow' 
+							        }
+					    },
+					    xAxis: {
+					    	name:'月份',
+					    	nameLocation:'end',
+					    	type : 'category',
+					    	splitLine: {show: false},
+					        axisLabel:{'interval':0,rotate: 40},
+					        data: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']   //月份
+					    },
+					    yAxis: {
+					    	type:'value'
+					    },   //等级
+					    series: [{
+					        name: '政治事件',
+					        type: 'bar',
+					        data: [1,3,5,4,6,7,8,2,4,5,2,3]   //事件种类
+					    },{
+					    	name: '经济事件',
+					        type: 'bar',
+					        data: [1,3,5,4,6,7,8,2,4,5,2,3] 
+					    },{
+					    	name: '反恐事件',
+					        type: 'bar',
+					        data: [1,3,5,4,6,7,8,2,4,5,2,3] 
+					    }]
+					})
 				myChart3.setOption({
-				    title:{
-				        text: '俄罗斯热点图'
-				    },
-				    tooltip: {},
-				    xAxis: {
-				        data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
-				    },
-				    yAxis: {},
-				    series: [{
-				        name: '销量',
-				        type: 'bar',
-				        data: [5, 20, 36, 10, 10, 20]
-				    }]
-				})
+					 color: ['#003366', '#006699', '#4cabce', '#e5323e'],
+					    legend: {
+					        data:[{
+					        	name:'政治事件'
+					        },{
+					        	name:'经济事件'
+					        },{
+					        	name:'反恐事件'
+					        }]
+					        
+					    },
+					    grid: {
+					        left: '3%',
+					        right: '4%',
+					        bottom: '3%',
+					        containLabel: true
+					    },
+					    tooltip: {
+					    	trigger: 'axis',
+					    	 axisPointer : {           
+							            type : 'shadow' 
+							        }
+					    },
+					    xAxis: {
+					    	name:'月份',
+					    	nameLocation:'end',
+					    	type : 'category',
+					    	splitLine: {show: false},
+					       axisLabel:{'interval':0,rotate: 40},
+					        data: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']   
+					    },
+					    yAxis: {
+					    	type:'value'
+					    },   
+					    series: [{
+					        name: '政治事件',
+					        type: 'bar',
+					        data: [1,3,5,4,6,7,8,2,4,5,2,3]
+					    },{
+					    	name: '经济事件',
+					        type: 'bar',
+					        data: [1,3,5,4,6,7,8,2,4,5,2,3] 
+					    },{
+					    	name: '反恐事件',
+					        type: 'bar',
+					        data: [1,3,5,4,6,7,8,2,4,5,2,3] 
+					    }]
+					})
 				myChart4.setOption({
+				    color: ['#003366', '#006699', '#4cabce', '#e5323e'],
 				    title: {
-				        text: '折线图堆叠'
+				        text: '稳定性曲线图'
 				    },
 				    tooltip: {
 				        trigger: 'axis'
 				    },
 				    legend: {
-				        data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+				        data:['朝鲜','印度','日本']  //国家
 				    },
 				    grid: {
 				        left: '3%',
@@ -343,51 +449,42 @@
 				    xAxis: {
 				        type: 'category',
 				        boundaryGap: false,
-				        data: ['周一','周二','周三','周四','周五','周六','周日']
+				        data: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']      //月份
 				    },
 				    yAxis: {
-				        type: 'value'
+				    	name:'稳定性等级',
+				        type: 'value'   //等级
 				    },
 				    series: [
 				        {
-				            name:'邮件营销',
+				            name:'朝鲜',
 				            type:'line',
 				            stack: '总量',
-				            data:[120, 132, 101, 134, 90, 230, 210]
+				            data:[120, 132, 101, 134, 90, 230, 210,120, 132, 101,90, 230]
 				        },
 				        {
-				            name:'联盟广告',
+				            name:'印度',
 				            type:'line',
 				            stack: '总量',
-				            data:[220, 182, 191, 234, 290, 330, 310]
+				            data:[220, 182, 191, 234, 290, 330, 310,120, 132, 101,90, 230]
 				        },
 				        {
-				            name:'视频广告',
+				            name:'日本',
 				            type:'line',
 				            stack: '总量',
-				            data:[150, 232, 201, 154, 190, 330, 410]
+				            data:[150, 232, 201, 154, 190, 330, 410,120, 132, 101,90, 230]
 				        },
-				        {
-				            name:'直接访问',
-				            type:'line',
-				            stack: '总量',
-				            data:[320, 332, 301, 334, 390, 330, 320]
-				        },
-				        {
-				            name:'搜索引擎',
-				            type:'line',
-				            stack: '总量',
-				            data:[820, 932, 901, 934, 1290, 1330, 1320]
-				        }
+				       
+				        
 				    ]
 				})
 				myChart5.setOption({
 					    color: [
-					        '#dd4444', '#fec42c', '#80F1BE'
+					        '#003366', '#006699', '#4cabce'
 					    ],
 					    legend: {
 					        y: 'top',
-					        data: ['北京', '上海', '广州'],
+					        data: ['政治事件', '经济事件', '反恐事件'],
 					        textStyle: {
 					            color: '#1ca1e8',
 					            fontSize: 16
@@ -401,7 +498,7 @@
 					    },
 					    xAxis: {
 					        type: 'value',
-					        name: '日期',
+					        name: '月份',
 					        nameGap: 16,
 					        nameTextStyle: {
 					            color: '#000',
@@ -419,7 +516,7 @@
 					    },
 					    yAxis: {
 					        type: 'value',
-					        name: 'AQI指数',
+					        name: '',
 					        nameLocation: 'end',
 					        nameGap: 20,
 					        nameTextStyle: {
@@ -446,7 +543,7 @@
 					            itemHeight: 120,
 					            calculable: true,
 					            precision: 0.1,
-					            text: ['圆形大小：PM2.5'],
+					            text: ['圆形大小：伤亡人数'],
 					            textGap: 30,
 					            textStyle: {
 					                color: '#000'
@@ -456,11 +553,11 @@
 					            },
 					            outOfRange: {
 					                symbolSize: [10, 70],
-					                color: ['rgba(255,255,255,.2)']
+					                color: ['#4cabce']
 					            },
 					            controller: {
 					                inRange: {
-					                    color: ['#c23531']
+					                    color: ['#4cabce']
 					                },
 					                outOfRange: {
 					                    color: ['#444']
@@ -476,7 +573,7 @@
 					            itemHeight: 120,
 					            calculable: true,
 					            precision: 0.1,
-					            text: ['明暗：二氧化硫'],
+					            text: ['明暗：事件等级'],
 					            textGap: 30,
 					            textStyle: {
 					                color: '#000'
@@ -485,11 +582,11 @@
 					                colorLightness: [1, 0.5]
 					            },
 					            outOfRange: {
-					                color: ['rgba(255,255,255,.2)']
+					                color: ['#4cabce']
 					            },
 					            controller: {
 					                inRange: {
-					                    color: ['#c23531']
+					                    color: ['#4cabce']
 					                },
 					                outOfRange: {
 					                    color: ['#444']

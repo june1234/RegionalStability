@@ -12,19 +12,19 @@
             <i class="el-icon-location"></i>
             <span slot="title">首页</span>
         </el-menu-item>
-        <el-menu-item index="">
+        <el-menu-item index="/PoliticsEvent">
             <i class="el-icon-location"></i>
             <span slot="title">政治事件分析</span>
         </el-menu-item>
-        <el-menu-item index="2">
+        <el-menu-item index="/EconomyEvent">
           <i class="el-icon-menu"></i>
           <span slot="title">经济事件分析</span>
         </el-menu-item>
-        <el-menu-item index="3">
+        <el-menu-item index="/AntiTerrorismEvent">
           <i class="el-icon-document"></i>
           <span slot="title">反恐事件分析</span>
         </el-menu-item>
-        <el-menu-item index="4">
+        <el-menu-item index="/EventTiming">
           <i class="el-icon-setting"></i>
           <span slot="title">事件时序分析</span>
         </el-menu-item>
@@ -44,7 +44,7 @@
             <i class="el-icon-location"></i>
             <span slot="title">后台管理功能</span>
         </el-menu-item>
-        <el-menu-item index="">
+        <el-menu-item index="/UserManage">
             <span slot="title">用户管理</span>
         </el-menu-item>
         <el-submenu index="10">
@@ -52,8 +52,8 @@
             <span slot="title">数据管理</span>
           </template>
           <el-menu-item-group>
-            <el-menu-item index="">新闻数据</el-menu-item>
-            <el-menu-item index="">GTD数据</el-menu-item>
+            <el-menu-item index="/News/newsManage">新闻数据</el-menu-item>
+            <el-menu-item index="/GTD/GTDManage">GTD数据</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
         <el-submenu index="12">
