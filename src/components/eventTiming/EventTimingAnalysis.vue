@@ -57,14 +57,76 @@
       <!-- 时序图 -->
       <div style="float:left;display:block;margin-top:30px;margin-left:10px;">
       	<span>时序图</span>
-      	<div style="width:100%;height:300px;border:1px solid #CF8A67;margin:20px 0 0 60px;">
-      		
-      	</div>
+      	<div>
+            <div class="event_box">
+              <div class="space_div">
+                <p class="left_space"></p>
+                <p class="right_space"></p>
+              </div>
+              <div class="parHd clearfix">
+                <ul>
+                  <li>2016.03.01</li>
+                  <li>2016.05.02</li>
+                  <li>2016.06.03</li>
+                  <li>2016.09.04</li>
+                  <li>2016.11.05</li>
+                  <li>2016.12.06</li>
+                  <li>2017.01.07</li>
+                  <li>2017.02.08</li>
+                </ul>
+                <a class="sPrev"><img src="../../assets/timline/images/left_ico.png" alt="" title=""></a>
+                <a class="sNext"><img src="../../assets/timline/images/right_ico.png" alt="" title=""></a>
+              </div>
+              <div class="parBd clearfix">
+                <div class="slideBox" style="display:none;">
+                  <h4>时间</h4>
+                  <p>地点</p>
+                  <p>事件</p>
+                </div>
+                <div class="slideBox" style="display: none;">
+                  <h4>时间</h4>
+                  <p>地点</p>
+                  <p>事件</p>
+                </div>
+                <div class="slideBox" style="display: none;">
+                  <h4>时间</h4>
+                  <p>地点</p>
+                  <p>事件</p>
+                </div>
+                <div class="slideBox" style="display: none;">
+                  <h4>时间</h4>
+                  <p>地点</p>
+                  <p>事件</p>
+                </div>
+                <div class="slideBox" style="display: none;">
+                  <h4>时间</h4>
+                  <p>地点</p>
+                  <p>事件</p>
+                </div>
+                <div class="slideBox" style="display: none;">
+                  <h4>时间</h4>
+                  <p>地点</p>
+                  <p>事件</p>
+                </div>
+                <div class="slideBox" style="display: none;">
+                  <h4>时间</h4>
+                  <p>地点</p>
+                  <p>事件</p>
+                </div>
+                <div class="slideBox" style="display: none;">
+                  <h4>时间</h4>
+                  <p>地点</p>
+                  <p>事件</p>
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
 	</div>
 </template>
 
 <script>
+ import '../../assets/timline/js/jquery.SuperSlide2.1.2.js'
 	export default{
 		data(){
 			return{
@@ -91,6 +153,14 @@
                   location:'北京',
                 }]
 			}
-		}
+		},
+    mounted(){
+      jQuery(".event_box").slide({ titCell: ".parHd li", mainCell: ".parBd", defaultPlay: false, titOnClassName: "act", prevCell: ".sPrev", nextCell: ".sNext",pnLoop:false });
+        jQuery(".parHd").slide({ mainCell: " ul", vis: 6, effect: "left", defaultPlay: false, prevCell: ".sPrev", nextCell: ".sNext" ,pnLoop:false,autoPage:true}) 
+    }
 	}
 </script>
+
+<style scoped lang="less">
+@import '../../assets/timline/css/index.css';
+</style>
