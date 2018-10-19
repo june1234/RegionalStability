@@ -1,29 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import ModelManagement from '@/components/module/ModelManagement.vue'
-import Add from '@/components/module/MoudleAdd.vue'
-import Modelupdate from '@/components/module/Modelupdate.vue'
-import Details from '@/components/module/Details.vue'
-import Mouduleupdate from '@/components/module/Moduleupdate.vue'
-import FunctionAdd from '@/components/module/FunctionAdd.vue'
-import Parameterupdate from '@/components/module/Parameterupdate.vue'
-import FunctionDetails from '@/components/module/FunctionDetails.vue'
-
-import UserManage from '@/components/user/UserManage.vue'
-import AddUser from '@/components/user/AddUser.vue'
-import UpdateUser from '@/components/user/UpdateUser.vue'
-import UserDetail from '@/components/user/UserDetail.vue'
-import AddRole from '@/components/user/AddRole.vue'
-import AddPower from '@/components/user/AddPower.vue'
-
-import GTDManage from '@/components/data/GTD/GTDManage.vue'
-import NewsManage from '@/components/data/news/NewsManage.vue'
-import CheckNews from '@/components/data/news/CheckNews.vue'
-
-import EventTiming from '@/components/eventTiming/EventTimingAnalysis.vue'
-import EconomyEvent from '@/components/economy/EconomyEventAnalysis.vue'
-import AntiTerrorismEvent from '@/components/anti-terrorism/Anti-terrorismEventAnalysis.vue'
-import PoliticsEvent from '@/components/politics/PoliticsEventAnalysis.vue'
 
 Vue.use(Router)
 
@@ -31,91 +7,185 @@ export default new Router({
   routes: [
           {
             path:'/',
-            component:()=> import('@/components/index/Index.vue')
+            component:() => import('@/components/index/Index.vue')
+           },
+           {
+            path:'/login',
+            component:() => import('@/components/index/Login.vue')
+           },
+           {
+            path:'/report',
+            component:() => import('@/components/SystemSettings/report/Report.vue')
+           },
+           {
+            path:'/zone',
+            component:() => import('@/components/SystemSettings/zonenAalysis/ZoneAnalysis.vue')
+           },
+           {
+            path:'/stage',
+            component:() => import('@/components/SystemSettings/stage/Stage.vue')
+           },
+           {
+            path:'/calculation',
+            component:() => import('@/components/SystemSettings/calculation/Calculation.vue')
+           },
+           {
+            path:'/politicalevents',
+            component:() => import('@/components/eventManagement/PoliticalEvents.vue')
+           },
+           {
+            path:'/economicevents',
+            component:() => import('@/components/eventManagement/EconomicEvents.vue')
+           },{
+            path:'/counterterrorismincidents',
+            component:() => import('@/components/eventManagement/CounterTerrorismIncidents.vue')
            },
           {
             path:'/ModelManagement',
-            component:ModelManagement
+            component:() => import('@/components/SystemSettings/module/ModelManagement.vue')
           },
           {
               path:'/ModelManagement/add',
-              component:Add
+              component:() => import('@/components/SystemSettings/module/MoudleAdd.vue')
           },
           {
               path:'/ModelManagement/update',
-              component:Modelupdate
+              component:() => import('@/components/SystemSettings/module/Modelupdate.vue')
           },
           {
               path:'/ModelManagement/Details',
-              component:Details
+              component:() => import('@/components/SystemSettings/module/Details.vue')
           },
           {
               path:'/ModelManagement/Details/Mouduleupdate',
-              component:Mouduleupdate
+              component:() => import('@/components/SystemSettings/module/Moduleupdate.vue')
           },
           {
               path:'/ModelManagement/Details/FunctionAdd',
-              component:FunctionAdd
+              component:() => import('@/components/SystemSettings/module/FunctionAdd.vue')
           },
           {
               path:'/ModelManagement/Details/Parameterupdate',
-              component:Parameterupdate
+              component:() => import('@/components/SystemSettings/module/Parameterupdate.vue')
           },
           {
               path:'/ModelManagement/Details/FunctionDetails',
-              component:FunctionDetails
+              component:() => import('@/components/SystemSettings/module/FunctionDetails.vue')
+          },
+		      {
+            path:'/region',
+            component:() => import('@/components/region/Region.vue')
           },
           {
+            path:'/region/details',
+            component:() => import('@/components/region/regionDetails.vue')
+           },
+           {
+             path:'/region/modify',
+             component:() => import('@/components/region/argumentModify.vue')
+           },
+           {
+            path:'/region/demesne',
+            component:() => import('@/components/region/Demesne.vue')
+           },
+           {
+              path:'/expert',
+              component:() => import('@/components/expertparameters/ExpertList.vue')
+           },
+           {
+              path:'/expert/details',
+              component:() => import('@/components/expertparameters/expertDetails.vue')
+           },{
              path:'/UserManage',
-             component:UserManage
+             component:()=>import('@/components/user/UserManage.vue')
           },
           {
             path:'/UserManage/addUser',
-            component:AddUser
+            component:()=>import('@/components/user/AddUser.vue')
           },
           {
             path:'/UserManage/updateUser',
-            component:UpdateUser
+            component:()=>import('@/components/user/UpdateUser.vue')
           },
           {
             path:'/UserManage/userDetail',
-            component:UserDetail
+            component:()=>import('@/components/user/UserDetail.vue')
           },
           {
             path:'/UserManage/addRole',
-            component:AddRole
+            component:()=>import('@/components/user/AddRole.vue')
           },
           {
             path:'/UserManage/addPower',
-            component:AddPower
+            component:()=>import('@/components/user/AddPower.vue')
           },
           {
             path:'/GTD/GTDManage',
-            component:GTDManage
+            component:()=>import('@/components/data/GTD/GTDManage.vue')
           },
           {
             path:'/News/newsManage',
-            component:NewsManage
+            component:()=>import('@/components/data/news/NewsManage.vue')
           },
           {
             path:'/News/newsManage/checkNews',
-            component:CheckNews
+            component:()=>import('@/components/data/news/CheckNews.vue')
           },
           {
             path:'/EventTiming',
-            component:EventTiming
+            component:()=>import('@/components/eventTiming/EventTimingAnalysis.vue')
           },
           {
             path:'/EconomyEvent',
-            component:EconomyEvent
+            component:()=>import('@/components/economy/EconomyEventAnalysis.vue')
           },
           {
             path:'/AntiTerrorismEvent',
-            component:AntiTerrorismEvent
+            component:()=>import('@/components/anti-terrorism/Anti-terrorismEventAnalysis.vue')
+          },
+          {
+            path:'/AntiTerrorismEvent/Anti-terrorismEventList',
+            component:()=>import('@/components/anti-terrorism/Anti-terrorismEventList.vue')
           },
           {
             path:'/PoliticsEvent',
-            component:PoliticsEvent
-          }     
+            component:()=>import('@/components/politics/PoliticsEventAnalysis.vue')
+          },
+          {
+            path:'/PoliticsEvent/PoliticsEventList',
+            component:()=>import('@/components/politics/PoliticsEventList.vue')
+          },
+          {
+            path:'/NewsList',
+            component:()=>import('@/components/news/NewsList.vue')
+          },
+          {
+            path:'/NewsList/NewsDetail',
+            component:()=>import('@/components/news/NewsDetail.vue')
+          },
+          {
+            path:'/Log/OpreateLog',
+            component:()=>import('@/components/log/OpreateLog.vue')
+          },
+          {
+            path:'/Log/MessageLog',
+            component:()=>import('@/components/log/MessageLog.vue')
+          },
+          {
+            path:'/ReportContent',
+            component:()=>import('@/components/report/ReportContent.vue')
+          },
+          {
+            path:'/ReportContent/specialReport',
+            component:()=>import('@/components/report/SpecialReport.vue')
+          },
+          {
+            path:'/Error/error404',
+            component:()=>import('@/components/error/error404.vue')
+          },
+          {
+            path:'/Error/error500',
+            component:()=>import('@/components/error/error500.vue')
+          }
      ]
 })

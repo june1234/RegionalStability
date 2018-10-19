@@ -1,5 +1,5 @@
-<template>
-	<div>
+ <template>
+	<div class="UserDetail">
 		<h1 class="sub-header">用户详情</h1>
 		<table border="1" cellspacing="0">
 			<tr>
@@ -17,11 +17,12 @@
 				<td><span>{{userDetailData.insertTime}}</span></td>
 			</tr>
 		</table>
-		<div style="display:block;margin-top:20px;">
-			<el-button type="primary" @click="close">返回</el-button>
+		<div>
+			<el-button @click="close">返回</el-button>
 		</div>
 	</div>
 </template>
+
 <script> 
    import {getUserById} from '@/api/user/FindUser.js'
 	export default{
@@ -31,10 +32,11 @@
 			}
 		},
 		created(){
+			//用户id
 			const {id}=this.$route.query
+			//根据用户id获取用户详情
 			getUserById(id).then(res=>{
 				this.userDetailData=res.data
-				console.log(this.userDetailData)
 			})
 		},
 		methods:{
@@ -43,4 +45,8 @@
 			}
 		}
 	}
-</script>
+</script> 
+
+<style scoped lang="less">
+
+</style>

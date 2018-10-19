@@ -2,9 +2,8 @@
  * @Author: Vincent
  * @Date: 2018-05-06 15:24:27
  * @Last Modified by:   xiaju
- * @Last Modified time: 2018-08-09 10:26:36
+ * @Last Modified time: 2018-10-18 14:02:13
  */
-
 import axios from 'axios'
 import qs from 'qs'
 import { Message } from 'element-ui'
@@ -13,9 +12,9 @@ import store from '../store'
 
 // 创建axios实例
 const service = axios.create({
-  baseURL:'http://192.168.100.202:8080/dev', // api的base_url 服务器地址
+  baseURL:'http://192.168.10.222:8080/dev', // api的base_url 服务器地址
   //baseURL:'http://192.168.100.22:8080/test', //本地地址
-  timeout: 15000 // 请求超时时间
+  timeout: 540000 // 请求超时时间
 })
 
 // request拦截器
