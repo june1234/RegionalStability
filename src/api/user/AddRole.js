@@ -6,11 +6,11 @@
 */
 import request from '@/utils/request'
 
-//添加角色Role接口
-export function addRole(roleFormData){
-	return request({
-		url:'sysrole/add',
-		method:'post',
-		data:roleFormData
-	})
+// 添加角色Role接口
+export function addRole (roleFormData) {
+  return request({
+    url: 'sysrole/add',
+    method: 'post',
+    data: roleFormData
+  })
 }

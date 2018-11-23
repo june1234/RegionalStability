@@ -6,19 +6,19 @@
 */
 import request from '@/utils/request.js'
 
-//获取政党信息
-export function getPartyGroupList(){
-	return request({
-        url:'partygroup/findbypage',
-		method:'post'
-	})
+// 获取政党信息
+export function getPartyGroupList () {
+  return request({
+    url: 'partygroup/findbypage',
+    method: 'post'
+  })
 }
 
-//获取政治事件分页列表信息
-export function getPoliticsEventList(politicsFormData){
-	return request({
-		url:'/information/findbypage',
-		method:'post',
-		data:politicsFormData
-	})
+// 获取政治事件分页列表信息
+export function getPoliticsEventList (politicsFormData) {
+  return request({
+    url: '/information/findbypage',
+    method: 'post',
+    data: politicsFormData
+  })
 }

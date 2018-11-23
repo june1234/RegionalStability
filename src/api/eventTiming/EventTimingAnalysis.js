@@ -7,19 +7,19 @@
 import request from '@/utils/request.js'
 
 // 初始化
-export function findword(eventTimingFormData){
-	return request({
-		url:'word/findword',
-		method:'post',
-		data:eventTimingFormData
-	})
+export function findword (eventTimingFormData) {
+  return request({
+    url: 'word/findword',
+    method: 'post',
+    data: eventTimingFormData
+  })
 }
 
-//关系图谱
-export function paintingweight(eventGroulp){
-	return request({
-		url:'weight/paintingweight',
-		method:'post',
-		data:eventGroulp
-	})
+// 关系图谱
+export function paintingweight (eventGroulp) {
+  return request({
+    url: 'weight/paintingweight',
+    method: 'post',
+    data: eventGroulp
+  })
 }

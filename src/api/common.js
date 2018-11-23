@@ -6,26 +6,26 @@
 */
 import request from '@/utils/request.js'
 
-//获取国家信息
-export function getCountryAll(){
-	return request({
-		url:'hs/findall',
-		method:'post'
-	})
+// 获取国家信息
+export function getCountryAll () {
+  return request({
+    url: 'hs/findall',
+    method: 'post'
+  })
 }
-//获取等级
-export function FindByPage(politicsWeb){
-	return request({
-		url:'grade/findbypage',
-		method:'post',
-		data:politicsWeb
-	})
+// 获取等级
+export function FindByPage (politicsWeb) {
+  return request({
+    url: 'grade/findbypage',
+    method: 'post',
+    data: politicsWeb
+  })
 }
 // 修改等级
-export function updateLevel(gradeVo){
-	return request({
-		url:'grade/update',
-		method:'post',
-		data:gradeVo
-	})
+export function updateLevel (gradeVo) {
+  return request({
+    url: 'grade/update',
+    method: 'post',
+    data: gradeVo
+  })
 }

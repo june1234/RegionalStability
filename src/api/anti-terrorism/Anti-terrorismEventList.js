@@ -6,11 +6,11 @@
 */
 import request from '@/utils/request.js'
 
-//获取反恐事件分页列表信息
-export function getAntiEventList(antiFormData){
-	return request({
-		url:'/information/findbypage',
-		method:'post',
-		data:antiFormData
-	})
+// 获取反恐事件分页列表信息
+export function getAntiEventList (antiFormData) {
+  return request({
+    url: '/information/findbypage',
+    method: 'post',
+    data: antiFormData
+  })
 }

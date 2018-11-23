@@ -8,27 +8,27 @@ import request from '@/utils/request'
 
 // 根据维度，分页查询相应维度的对象
 
-export function findByParam(politicsWeb){
-	return request({
-		url:'politics/findbyparam',
-		method:'post',
-		data:politicsWeb
-	})
+export function findByParam (politicsWeb) {
+  return request({
+    url: 'politics/findbyparam',
+    method: 'post',
+    data: politicsWeb
+  })
 }
 // 批量删除
-export function deleteByIds(politicsWeb){
-	return request({
-		url:'politics/deletebyids',
-		method:'post',
-		data:politicsWeb
-	})
+export function deleteByIds (politicsWeb) {
+  return request({
+    url: 'politics/deletebyids',
+    method: 'post',
+    data: politicsWeb
+  })
 }
 
 // 批量调级
-export function updateByIds(politicsWeb){
-	return request({
-		url:'politics/updatebyids',
-		method:'post',
-		data:politicsWeb
-	})
+export function updateByIds (politicsWeb) {
+  return request({
+    url: 'politics/updatebyids',
+    method: 'post',
+    data: politicsWeb
+  })
 }

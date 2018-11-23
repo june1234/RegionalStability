@@ -4,7 +4,7 @@ export function login (formLabelAlign) {
   return request({
     url: '/login',
     method: 'post',
-    data:formLabelAlign
+    data: formLabelAlign
   })
 }
 

@@ -6,11 +6,11 @@
 */
 import request from '@/utils/request.js'
 
-//获取政治事件分析列表信息
-export function getPoliticsEventListByType(politicsFormData){
-	return request({
-		url:'/information/findbypage',
-		method:'post',
-		data:politicsFormData
-	})
+// 获取政治事件分析列表信息
+export function getPoliticsEventListByType (politicsFormData) {
+  return request({
+    url: '/information/findbypage',
+    method: 'post',
+    data: politicsFormData
+  })
 }

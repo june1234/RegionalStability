@@ -6,11 +6,11 @@
 */
 import request from '@/utils/request'
 
-//添加权限Power接口
-export function addPower(powerFormData){
-	return request({
-		url:'syspower/add',
-		method:'post',
-		data:powerFormData
-	})
+// 添加权限Power接口
+export function addPower (powerFormData) {
+  return request({
+    url: 'syspower/add',
+    method: 'post',
+    data: powerFormData
+  })
 }

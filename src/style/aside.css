@@ -1,0 +1,16 @@
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+  min-height: 400px;
+}
+.aside {
+  height: 100%;
+}
+.aside .title {
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  line-height: 60px;
+}
+.aside .el-menu {
+  border-right: 0;
+}

@@ -6,10 +6,10 @@
 */
 import request from '@/utils/request.js'
 
-export function Parameterupdate(formData){
-	return request({
-		url:'/modelmethod/update',
-		method:'post',
-		data:formData
-	})
+export function Parameterupdate (formData) {
+  return request({
+    url: '/modelmethod/update',
+    method: 'post',
+    data: formData
+  })
 }

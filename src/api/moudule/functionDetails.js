@@ -6,9 +6,9 @@
 */
 import request from '@/utils/request.js'
 
-export function functionDetails(id){
-	return request({
-		url:`modelmethod/findmmpvo/${id}`,
-		method:'post'
-	})
+export function functionDetails (id) {
+  return request({
+    url: `modelmethod/findmmpvo/${id}`,
+    method: 'post'
+  })
 }

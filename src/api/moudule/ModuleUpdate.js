@@ -5,11 +5,11 @@
 * @Last Modified time: 2018-08-08 18:00:23
 */
 import request from '@/utils/request'
- 
-export function  moduleUpdate(modelData){
-	return request({
-		url:'/model/update',
-		method:'post',
-		data:modelData
-	})
+
+export function moduleUpdate (modelData) {
+  return request({
+    url: '/model/update',
+    method: 'post',
+    data: modelData
+  })
 }

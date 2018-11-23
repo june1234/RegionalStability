@@ -6,10 +6,10 @@
 */
 import request from '@/utils/request'
 
-export function MoudleAdd(formData){
-	return request({
-		url:'/model/add',
-		method:'post',
-		data:formData
-	})
+export function MoudleAdd (formData) {
+  return request({
+    url: '/model/add',
+    method: 'post',
+    data: formData
+  })
 }

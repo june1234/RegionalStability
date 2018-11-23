@@ -6,11 +6,11 @@
 */
 import request from '@/utils/request'
 
-//添加用户User接口
-export function addUser(userFormData){
-	return request({
-		url:'sysuser/add',
-		method:'post',
-		data:userFormData
-	})
+// 添加用户User接口
+export function addUser (userFormData) {
+  return request({
+    url: 'sysuser/add',
+    method: 'post',
+    data: userFormData
+  })
 }

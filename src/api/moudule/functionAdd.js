@@ -6,10 +6,10 @@
 */
 import request from '@/utils/request.js'
 
-export function functionAdd(formData){
-	return request({
-		url:'/modelmethod/add',
-		method:'post',
-		data:formData
-	})
+export function functionAdd (formData) {
+  return request({
+    url: '/modelmethod/add',
+    method: 'post',
+    data: formData
+  })
 }

@@ -6,11 +6,11 @@
 */
 import request from '@/utils/request.js'
 
-//获取新闻news信息列表
-export function getNewsList(newsWeb){
-	return request({
-		url:'news/findbypage',
-		method:'post',
-        data:newsWeb
-	})
+// 获取新闻news信息列表
+export function getNewsList (newsWeb) {
+  return request({
+    url: 'news/findbypage',
+    method: 'post',
+    data: newsWeb
+  })
 }

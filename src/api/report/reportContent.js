@@ -6,29 +6,29 @@
 */
 import request from '@/utils/request.js'
 
-//获取政治事件分析列表信息
-export function getPoliticsEventListByType(politicsFormData){
-	return request({
-		url:'/information/findbypage',
-		method:'post',
-		data:politicsFormData
-	})
+// 获取政治事件分析列表信息
+export function getPoliticsEventListByType (politicsFormData) {
+  return request({
+    url: '/information/findbypage',
+    method: 'post',
+    data: politicsFormData
+  })
 }
 
-//获取经济事件分析列表信息
-export function getEconomyEventListByType(economyFormData){
-	return request({
-		url:'/information/findbypage',
-		method:'post',
-		data:economyFormData
-	})
+// 获取经济事件分析列表信息
+export function getEconomyEventListByType (economyFormData) {
+  return request({
+    url: '/information/findbypage',
+    method: 'post',
+    data: economyFormData
+  })
 }
 
-//获取反恐事件分析列表信息
-export function getAntiEventListByType(antiFormData){
-	return request({
-		url:'/information/findbypage',
-		method:'post',
-		data:antiFormData
-	})
+// 获取反恐事件分析列表信息
+export function getAntiEventListByType (antiFormData) {
+  return request({
+    url: '/information/findbypage',
+    method: 'post',
+    data: antiFormData
+  })
 }

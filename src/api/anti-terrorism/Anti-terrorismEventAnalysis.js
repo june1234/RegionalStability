@@ -6,11 +6,11 @@
 */
 import request from '@/utils/request.js'
 
-//获取反恐事件分析列表信息
-export function getAntiEventListByType(eventBasePage){
-	return request({
-		url:'/information/findbypage',
-		method:'post',
-		data:eventBasePage
-	})
+// 获取反恐事件分析列表信息
+export function getAntiEventListByType (eventBasePage) {
+  return request({
+    url: '/information/findbypage',
+    method: 'post',
+    data: eventBasePage
+  })
 }

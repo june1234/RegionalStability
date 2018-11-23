@@ -6,11 +6,11 @@
 */
 import request from '@/utils/request'
 
-//更新用户User信息接口，保存修改信息
-export function updateUser(userFormData){
-	return request({
-		url:'sysuser/update',
-		method:'post',
-		data:userFormData
-	})
+// 更新用户User信息接口，保存修改信息
+export function updateUser (userFormData) {
+  return request({
+    url: 'sysuser/update',
+    method: 'post',
+    data: userFormData
+  })
 }

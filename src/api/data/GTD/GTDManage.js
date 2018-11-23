@@ -6,11 +6,11 @@
 */
 import request from '@/utils/request.js'
 
-//获取GTD信息列表
-export function getGTDList(gtdPage){
-	return request({
-		url:'gtd/findbypage',
-		method:'post',
-        data:gtdPage
-	})
+// 获取GTD信息列表
+export function getGTDList (gtdPage) {
+  return request({
+    url: 'gtd/findbypage',
+    method: 'post',
+    data: gtdPage
+  })
 }

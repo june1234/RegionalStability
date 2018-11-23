@@ -6,10 +6,10 @@
 */
 import request from '@/utils/request'
 
-//根据用户id查询user详情
-export function getUserById(id){
-	return request({
-		url:'sysuser/find/'+id,
-		method:'post'
-	})
+// 根据用户id查询user详情
+export function getUserById (id) {
+  return request({
+    url: 'sysuser/find/' + id,
+    method: 'post'
+  })
 }

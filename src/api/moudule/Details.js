@@ -6,31 +6,31 @@
 */
 import request from '@/utils/request'
 
-export function moduleList() {
-	return request({
-		url:'/modelmodule/findall',
-		method:'post',
-	})
+export function moduleList () {
+  return request({
+    url: '/modelmodule/findall',
+    method: 'post'
+  })
 }
 
-export function methodList(modelPageVo) {
-    return request({
-    	url:'/modelmethod/findall',
-    	method:'post',
-    	data:modelPageVo
-    })
+export function methodList (modelPageVo) {
+  return request({
+    url: '/modelmethod/findall',
+    method: 'post',
+    data: modelPageVo
+  })
 }
 
-export function moudleById (id){
-	return request({
-		url:`/model/find/${id}`,
-		method:'post'
-	})
+export function moudleById (id) {
+  return request({
+    url: `/model/find/${id}`,
+    method: 'post'
+  })
 }
 
-export function methodDelete (id){
-   return request({
-   	url:`modelmethod/delete/${id}`,
-   	method:'post'
-   })
+export function methodDelete (id) {
+  return request({
+    url: `modelmethod/delete/${id}`,
+    method: 'post'
+  })
 }

@@ -6,17 +6,17 @@
 */
 import request from '@/utils/request'
 
-export function getList(modelPageVo){
+export function getList (modelPageVo) {
   return request({
-  	url:'model/findbypage',
-  	method:'post',
-  	data:modelPageVo
+    url: 'model/findbypage',
+    method: 'post',
+    data: modelPageVo
   })
 }
 
-export function deleted(id){
-	return request({
-		url:`model/delete/${id}`,
-		method:'post',
-	})
+export function deleted (id) {
+  return request({
+    url: `model/delete/${id}`,
+    method: 'post'
+  })
 }
