@@ -41,7 +41,7 @@
 		},
 		methods:{
 			close(){
-				this.$router.push('/UserManage')
+				this.$router.push('/admin/UserManage')
 			}
 		}
 	}

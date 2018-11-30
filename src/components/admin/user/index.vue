@@ -302,23 +302,23 @@
       },
       //跳转添加用户信息页面
       addUser(){
-        this.$router.push('/UserManage/addUser')
+        this.$router.push('/admin/UserManage/addUser')
       }, 
       //跳转添加角色信息页面 
       addRole(){
-        this.$router.push('/UserManage/addRole')
+        this.$router.push('/admin/UserManage/addRole')
       },  
       //跳转添加权限信息页面
       addPower(){
-       this.$router.push('/UserManage/addPower')
+       this.$router.push('/admin/UserManage/addPower')
       },
       //跳转用户修改页面
       updateUser(id){
-        this.$router.push('/UserManage/updateUser?id='+id)
+        this.$router.push('/admin/UserManage/updateUser?id='+id)
       },
       //跳转角色修改页面
       updateRole(id){
-        this.$router.push('/UserManage/updateRole?id='+id) 
+        this.$router.push('/admin/UserManage/updateRole?id='+id) 
       },
       //删除用户记录
       deleteUser(row){
@@ -361,7 +361,7 @@
       },
       //跳转用户详情页面
       showUserDeatil(id){
-        this.$router.push('/UserManage/userDetail?id='+id)
+        this.$router.push('/admin/UserManage/userDetail?id='+id)
       },
       //初始化用户密码
       initPassword(id){

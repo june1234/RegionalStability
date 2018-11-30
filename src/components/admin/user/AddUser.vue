@@ -45,11 +45,11 @@
 			//提交form表单，保存数据
 			saveUser(){
 				addUser(this.userFormData).then(res=>{
-               	   this.$router.push('/UserManage')
+               	   this.$router.push('/admin/UserManage')
                })
 			},
 			cancle(){
-				this.$router.push('/UserManage')
+				this.$router.push('/admin/UserManage')
 			}
 		}
 	}

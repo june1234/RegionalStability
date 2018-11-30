@@ -43,23 +43,20 @@ export default {
 
 <style lang='less' scoped>
 .el-menu--horizontal{
-    padding:0 300px;
+     padding:0 200px;
     .el-submenu {
         .el-submenu__title{
-            height:100px;
-            line-height: 100px;
+            height:80px;
+            line-height: 80px;
             font-size: 20px !important;
             padding:0 30px;
         } 
     }
     .el-menu-item{
-        height:100px;
-        line-height: 100px;
+        height:80px;
+        line-height: 80px;
         font-size: 20px;
         padding:0 30px;
-    }
-    .el-menu--horizontal{
-    top:200px;
     }
 }
 </style>

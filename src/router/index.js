@@ -90,7 +90,7 @@ export default new Router({
     {
       path: '/admin',
       name: 'admin',
-      redirect: 'UserManage',
+      // redirect: 'UserManage',
       component: () => import('@/components/admin/admin.vue'),
       children: [
         {

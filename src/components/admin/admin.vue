@@ -1,11 +1,11 @@
 <template>
-    <div>
+    <div class="admin">
         <el-container>
             <el-aside width="201px">
                 <app-aside></app-aside>
             </el-aside>
             <el-container>
-                <el-header height="40px">
+                <el-header height="80px">
                     <app-header></app-header>
                 </el-header>
                 <el-main>

@@ -13,7 +13,7 @@
         <el-menu-item index="/admin/UserManage">
             <span slot="title">用户管理</span>
         </el-menu-item>
-        <el-submenu>
+        <el-submenu index='2'>
           <template slot="title">
             <span slot="title">数据管理</span>
           </template>
@@ -23,7 +23,7 @@
             <el-menu-item index="/admin/WordBank">世界银行数据</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
-        <el-submenu>
+        <el-submenu index='3'>
           <template slot="title">
             <span slot="title">事件管理</span>
           </template>
@@ -33,7 +33,7 @@
             <el-menu-item index="/admin/counterterrorismincidents">反恐事件</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
-        <el-submenu >
+        <el-submenu index='4'>
           <template slot="title">
             <span slot="title">系统参数设置</span>
           </template>
@@ -45,7 +45,7 @@
             <el-menu-item index="/admin/calculation">计算设置</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
-        <el-submenu>
+        <el-submenu index='5'>
           <template slot="title">
             <span slot="title">后台日志管理</span>
           </template>

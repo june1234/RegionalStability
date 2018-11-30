@@ -1,73 +1,5 @@
-.news .bg-purple {
-  background-color: #fff;
-  padding: 10px 20px 10px 10px;
-}
-.news .bg-purple .icon .el-icon-news {
-  width: 60px;
-  line-height: 60px;
-  color: #fff;
-  background-color: #1ca1e8;
-  border-radius: 50%;
-  font-size: 30px;
-  text-align: center;
-}
-.news .bg-purple .title {
-  display: inline-block;
-  padding-left: 24px;
-  width: 100px;
-  line-height: 20px;
-}
-.news .bg-purple .title span {
-  color: #1ca1e8;
-}
-.aside .el-col .bg-purple {
-  padding: 30px;
-  height: 400px;
-  background-color: #fff;
-}
-.aside .el-col .bg-purple h4 {
-  color: #1ca1e8;
-  font-size: 24px;
-  font-weight: normal;
-  line-height: 50px;
-  padding-left: 20px;
-}
-.aside .el-col .bg-purple ul li {
-  float: left;
-  width: 45%;
-  line-height: 40px;
-  font-size: 18px;
-  border: 1px solid #e8ebf0;
-  margin: 10px;
-  padding-left: 10px;
-}
-.aside .el-col .bg-purple ul li .el-icon-menu {
-  color: #fecd77 ;
-  font-size: 20px;
-}
-.aside .el-col .bg-purple-light {
-  padding: 25px 30px;
-  margin-left: 30px;
-  background-color: #fff;
-}
-.aside .el-col .bg-purple-light h4 {
-  color: #1ca1e8;
-  font-size: 24px;
-  font-weight: normal;
-  line-height: 50px;
-  padding-left: 20px;
-}
-.aside .el-col .bg-purple-light ul li {
-  border-left: 1px solid #e8ebf0;
-  border-bottom: 1px solid #e8ebf0;
-  border-right: 1px solid #e8ebf0;
-  width: 100%;
-  line-height: 49px;
-  font-size: 18px;
-  padding-left: 10px;
-}
-.aside .el-col .bg-purple-light ul li:first-child {
-  border-top: 1px solid #e8ebf0;
+.layout .el-container .el-header {
+  padding: 0;
 }
 * {
   margin: 0;
@@ -109,15 +41,15 @@ html {
 */
 .header {
   background-color: #fff;
-  height: 40px;
+  height: 100px;
 }
 .header .service {
-  line-height: 40px;
+  line-height: 100px;
   float: right;
   margin-right: 20px;
 }
 .header .service .el-button {
-  line-height: 20px;
+  line-height: 40px;
   padding: 5px 10px;
 }
 .el-menu-vertical-demo:not(.el-menu--collapse) {
@@ -432,29 +364,30 @@ html {
   font-size: 30px;
   line-height: 60px;
 }
-.counterterrorism .el-tabs .el-tab-pane h4 {
+.counterterrorism .inline {
+  background-color: #fff;
+  padding: 20px;
+}
+.counterterrorism .inline h4 {
   color: #6c7996;
   font-size: 20px;
   line-height: 60px;
 }
-.counterterrorism .el-tabs .el-tab-pane h5 {
+.counterterrorism .inline h5 {
   color: #6c7996;
   font-size: 18px;
   line-height: 40px;
 }
-.counterterrorism .el-tabs .el-tab-pane .el-form .el-form-item .el-select,
-.counterterrorism .el-tabs .el-tab-pane .el-form .el-form-item .el-input {
+.counterterrorism .inline .el-form .el-form-item .el-select,
+.counterterrorism .inline .el-form .el-form-item .el-input {
   width: 150px;
 }
-.counterterrorism .el-tabs .el-tab-pane .el-form .el-form-item .el-form-item__label {
+.counterterrorism .inline .el-form .el-form-item .el-form-item__label {
   color: #6c7996;
   font-size: 20px;
 }
-.counterterrorism .el-tabs .el-tab-pane .btn {
+.counterterrorism .inline .btn {
   padding-bottom: 20px;
-}
-.counterterrorism .el-tabs .el-tab-pane:last-child .el-table {
-  margin: 20px 0;
 }
 .PoliticsEventAnalysis .title {
   color: #6c7996;
@@ -1224,6 +1157,7 @@ body {
   font-size: 14px;
   color: #000;
   font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+  background-color: #e8ebf0;
 }
 a {
   text-decoration: none;
@@ -1247,4 +1181,8 @@ textarea {
   /*清除选中效果*/
   -webkit-appearance: none;
   /*清楚浏览器默认的样式*/
+}
+.w {
+  width: 1280px;
+  margin: 0 auto;
 }

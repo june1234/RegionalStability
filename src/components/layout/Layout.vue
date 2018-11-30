@@ -1,11 +1,11 @@
 <template>
-    <div>
+    <div class="layout">
         <el-container>
-            <el-header style="height:200px;">
+            <el-header style="height:180px;">
                 <app-header></app-header>
                 <app-aside></app-aside>
             </el-header>
-            <el-main>
+            <el-main  class="w">
                 <router-view></router-view>
             </el-main>
         </el-container>

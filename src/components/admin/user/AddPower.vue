@@ -40,7 +40,7 @@
             //提交form表单，保存
             savePower(){
                addPower(this.powerFormData).then(res=>{
-               	   this.$router.push('/UserManage')
+               	   this.$router.push('/admin/UserManage')
                })
             },
 			cancle(){

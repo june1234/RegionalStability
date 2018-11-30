@@ -50,7 +50,7 @@
             //保存用户修改信息
          	saveUser(){
                 updateUser(this.userFormData).then(res=>{
-               	   this.$router.push('/UserManage')
+               	   this.$router.push('/admin/UserManage')
                 })
          	},
          	cancle(){
