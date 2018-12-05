@@ -1,9 +1,9 @@
 <template>
-  <div class="PoliticsEventList">
-    <h1 class="title">政治事件列表</h1>
+  <div class="economyEventList">
+    <h1 class="title">经济事件列表</h1>
     <el-form
       :inline="true"
-      :model="politicsFormData"
+      :model="economyFormData"
       ref="politicsFormData"
       label-width="100px"
     >
@@ -12,7 +12,7 @@
         prop="countryId"
       >
         <el-select
-          v-model="politicsFormData.countryId"
+          v-model="economyFormData.countryId"
           filterable
           placeholder="请选择国家"
         >
@@ -30,7 +30,7 @@
         prop="grade"
       >
         <el-select
-          v-model="politicsFormData.grade"
+          v-model="economyFormData.grade"
           placeholder="请选择等级"
         >
           <el-option
@@ -47,16 +47,15 @@
         prop="keys"
       >
         <el-input
-          v-model="politicsFormData.keywords"
+          v-model="economyFormData.keywords"
           placeholder="请输入关键字"
         ></el-input>
       </el-form-item>
       <el-form-item>
         <el-button
           type="primary"
-          @click="selectPoliticsEvent"
+          @click="selectEconomyEvent"
         >查询</el-button>
-        <el-button @click="resetPoliticsEvent('politicsFormData')">重置</el-button>
       </el-form-item>
     </el-form>
     <div class="content">
@@ -64,7 +63,7 @@
         <el-col :span="24">
           <div class="grid-content">
             <el-table
-              :data="politicsTableData"
+              :data="economyTableData"
               border
               style="width:100%;"
             >
@@ -96,7 +95,7 @@
               ></el-table-column>
               <el-table-column
                 prop="infrastructure"
-                label="建筑物"
+                label="机构"
                 align="center"
                 min-width="100%"
               ></el-table-column>
@@ -136,9 +135,9 @@
             <el-pagination
               @size-change="handleSizeChange"
               @current-change="handleCurrentChange"
-              :current-page="politicsFormData.pageNum"
+              :current-page="economyFormData.pageNum"
               :page-sizes="[20, 100, 150, 200]"
-              :page-size="politicsFormData.pageSize"
+              :page-size="economyFormData.pageSize"
               layout="total, sizes, prev, pager, next, jumper"
               :total="total"
             >
@@ -151,105 +150,87 @@
       </el-row>
     </div>
 
-    <!-- 政治事件修改dialog-->
+    <!-- 经济事件修改dialog-->
     <el-dialog
-      title="政治事件修改"
+      title="经济事件修改"
       style="text-align:center;"
-      :visible.sync="politicsEventUpdateDialog"
+      :visible.sync="economyEventUpdateDialog"
       width="35%"
     >
       <el-form
-        :model="politicsEvent"
+        :model="economyEvent"
         label-width="100px"
         class="PoliticsForm"
       >
         <el-form-item label="事件名称">
           <el-input
-            v-model="politicsEvent.eventName"
+            v-model="economyEvent.eventName"
             placeholder="请修改事件名称"
           ></el-input>
         </el-form-item>
         <el-form-item label="事件发生时间">
           <el-date-picker
             type="date"
-            v-model="politicsEvent.eventTime"
+            v-model="economyEvent.eventTime"
             palceholder="请输入时间"
           ></el-date-picker>
         </el-form-item>
         <el-form-item label="国家">
           <el-input
-            v-model="politicsEvent.countryFullName"
+            v-model="economyEvent.countryFullName"
             palceholder="请输入国家"
           ></el-input>
         </el-form-item>
         <el-form-item label="人物">
           <el-input
-            v-model="politicsEvent.people"
+            v-model="economyEvent.people"
             palceholder="请输入人物"
           ></el-input>
         </el-form-item>
         <el-form-item label="等级">
           <el-select
-            v-model="politicsEvent.grade"
+            v-model="economyEvent.grade"
             placeholder="请选择等级"
           >
           </el-select>
         </el-form-item>
-        <el-form-item label="建筑物">
-          <el-input v-model="politicsEvent.infrastructure"></el-input>
+        <el-form-item label="机构">
+          <el-input v-model="economyEvent.infrastructure"></el-input>
         </el-form-item>
         <el-form-item label="情感分数">
-          <el-input v-model="politicsEvent.militaryfacor"></el-input>
+          <el-input v-model="economyEvent.militaryfacor"></el-input>
         </el-form-item>
         <el-form-item label="影响力">
-          <el-input v-model="politicsEvent.naturefactor"></el-input>
+          <el-input v-model="economyEvent.naturefactor"></el-input>
         </el-form-item>
         <el-form-item>
           <el-button
             type="primary"
             @click="savePoliticsEvent"
           >确认</el-button>
-          <el-button @click="canclePoliticsEvent">取消</el-button>
+          <el-button @click="economyEventUpdateDialog=false">取消</el-button>
         </el-form-item>
       </el-form>
     </el-dialog>
+
   </div>
 </template>
 
 <script>
 import { formatterDateStr } from "@/utils/filter.js";
-import {
-  getPartyGroupList,
-  getPoliticsEventList
-} from "@/api/politics/PoliticsEventList.js";
 export default {
+  name: "",
+
   data() {
     return {
-      politicsEventUpdateDialog: false,
-      //政治查询form表单
-      politicsFormData: {
+      economyFormData: {
         pageNum: 1,
         pageSize: 20,
         type: 1,
         countryId: "",
         keywords: ""
       },
-      //政治事件修改dialog表单数据
-      politicsEvent: {
-        id: "",
-        nid: "",
-        eventName: "",
-        eventTime: "",
-        countryId: "",
-        people: "",
-        grade: "",
-        infrastructure: "",
-        militaryfacor: "",
-        naturefactor: ""
-      },
-      //政治事件记录数
-      total: 0,
-      //国家信息
+      economyTableData: [],
       countries: [
         { value: "1", label: "中国" },
         { value: "2", label: "美国" },
@@ -259,69 +240,39 @@ export default {
         { value: "6", label: "印度" },
         { value: "7", label: "巴基斯坦" }
       ],
-      //政党信息
-      partyGroups: [],
-      //政治事件table数据
-      politicsTableData: [],
-      grades:[]
+      economyEvent: {
+        id: "",
+        nid: "",
+        eventName: "",
+        eventTime: "",
+        countryId: "",
+        people: "",
+        infrastructure: "",
+        militaryfacor: "",
+        naturefactor: ""
+      },
+      economyEventUpdateDialog: false,
+      total: 0,
+      grades: []
     };
   },
-  created() {
-    this.loadPoliticsEventPageList();
-  },
+
   methods: {
-    //加载政治事件列表信息
-    loadPoliticsEventPageList() {
-      getPoliticsEventList(this.politicsFormData).then(res => {
-        this.total = res.data.total;
-        this.politicsTableData = res.data.list;
-      });
+    savePoliticsEvent() {
+      this.economyEventUpdateDialog = false;
     },
+    selectEconomyEvent() {},
     formatterTime(val) {
       return formatterDateStr(val.eventTime);
     },
-    //查询
-    selectPoliticsEvent() {
-      this.loadPoliticsEventPageList();
-    },
-    //重置
-    resetPoliticsEvent(politicsFormData) {
-      this.$refs[politicsFormData].resetFields();
-    },
     handleSizeChange(val) {
-      this.politicsFormData.pageSize = val;
-      this.loadPoliticsEventPageList();
+      this.economyFormData.pageSize = val;
+      //   this.loadPoliticsEventPageList();
     },
     handleCurrentChange(val) {
-      this.politicsFormData.pageNum = val;
-      this.loadPoliticsEventPageList();
+      this.economyFormData.pageNum = val;
+      //   this.loadPoliticsEventPageList();
     },
-    //修改
-    showPoliticsEventUpdateDialog(row) {
-      this.politicsEventUpdateDialog = true;
-      this.politicsEvent.id = row.id;
-      this.politicsEvent.nid = row.nid;
-      this.politicsEvent.eventName = row.eventName;
-      this.politicsEvent.eventTime = row.eventTime;
-      this.politicsEvent.countryId = row.countryId;
-      this.politicsEvent.countryFullName = row.countryFullName;
-      this.politicsEvent.people = row.people;
-      this.politicsEvent.partyGroup = row.partyGroup;
-      this.politicsEvent.grade = row.grade;
-      this.politicsEvent.infrastructure = row.infrastructure;
-      this.politicsEvent.bound = row.bound;
-      this.politicsEvent.militaryfacor = row.militaryfacor;
-      this.politicsEvent.naturefactor = row.naturefactor;
-    },
-    //保存
-    savePoliticsEvent() {
-      this.politicsEventUpdateDialog = false;
-    },
-    //取消
-    canclePoliticsEvent() {
-      this.politicsEventUpdateDialog = false;
-    },
-    //返回
     goBack() {
       this.$router.back();
     }
@@ -329,5 +280,5 @@ export default {
 };
 </script>
 
-<style scoped lang="less">
+<style lang='less' scoped>
 </style>

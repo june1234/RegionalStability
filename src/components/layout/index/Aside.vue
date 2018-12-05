@@ -12,7 +12,7 @@
             <el-menu-item index="/region">区域稳定性</el-menu-item>
             <el-submenu index="1">
                 <template slot="title">事件分析</template>
-                <el-menu-item index="#">原事件分析</el-menu-item>
+                <el-menu-item index="/OriginalEvents">原事件分析</el-menu-item>
                 <el-menu-item index="#">聚类事件分析</el-menu-item>
                 <el-menu-item index="/EventTiming">议题分析</el-menu-item>
             </el-submenu>
@@ -21,7 +21,7 @@
                 <el-menu-item index="/PoliticsEvent">政治事件分析</el-menu-item>
                 <el-menu-item index="/EconomyEvent">经济事件分析</el-menu-item>
                 <el-menu-item index="/AntiTerrorismEvent">反恐事件分析</el-menu-item>
-                <el-menu-item index="#">宏观数据分析</el-menu-item>
+                <el-menu-item index="/MacroData">宏观数据分析</el-menu-item>
             </el-submenu>
             <el-menu-item index="/Report">报告内容</el-menu-item>
             <el-menu-item index="/NewsList">新闻列表</el-menu-item>

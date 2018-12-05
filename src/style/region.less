@@ -1,122 +1,110 @@
-//区域稳定性分析
-
-.region{
-	.title{
-		color:#6c7996;
-		font-size:30px;
-		line-height:100px;
-	}
-	.calculation{
-		background-color:#fff;
-		line-height:30px;
-		color:#6c7996;
-	}
-	.el-form{
-		margin:30px;
-        .el-form-item{
-        	.el-form-item__label{
-				color:#6c7996;
-				font-size:20px;
-			}
+.region {
+  background-color: #fff;
+  padding: 20px;
+  .el-row {
+    h2 {
+      font-size: 30px;
+      line-height: 60px;
+      color: #000080;
+    }
+  }
+  .el-form {
+    padding-left: 20px;
+    border-bottom: 1px solid #eee;
+    .el-form-item {
+      .el-form-item_label {
+        color: #6c7996;
+        font-size: 20px;
+      }
+    }
+  }
+  .stabilityIndex {
+    h6 {
+      font-size: 20px;
+      line-height: 60px;
+      color: #0080ff;
+    }
+    .el-row {
+      .el-col {
+        padding: 100px;
+        font-size: 40px;
+        line-height: 200px;
+        text-align: center;
+        color: #000080;
+        h4 {
+          line-height: 200px;
+          font-size: 40px;
         }
-	}
-	#results{
-		width:100%;
-		height: 400px;
-		padding-bottom:30px;
-		border-bottom:1px solid #6c7996;
-	}
-    .routeBtn{
-    	float:right;
-    	padding:20px;
-    }
-	
-}
-
-//详情
-
-.regionDetails{
-    .title{
-    	color:#6c7996;
-		font-size:30px;
-		line-height:100px;
-    }
-    .message{
-    	margin-bottom:30px;
-    	.eventTitle,.messageTitle,.gradeTitle{
-    		color:#6c7996;
-			font-size:20px;
-			line-height:50px;
-    	}
-    	ul{
-			li{
-				width: 25%;
-				color:#6c7996;
-				font-size:18px;
-				line-height:30px;
-				float:left;
-				span:last-child{
-					color:#1ca1e8;
-				}
-			}
-		}
-    }
- }
-
- //私有化结果
-
- .demesne{
-  	.title{
-  		color:#6c7996;
-		font-size:30px;
-		line-height:100px;
-  	}
-    .list{
-    	padding-bottom:30px;
-        .listTitle{
-        	color:#6c7996;
-			font-size:20px;
-			line-height:50px;
+        p {
+          border: 3px solid #0000a0;
+          border-radius: 50%;
         }
+        &:last-child {
+          padding: 100px 30px;
+          .line {
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(left, rgb(197, 32, 32), #0000a0);
+            position: relative;
+            &::after {
+              content: "";
+              width: 0;
+              height: 0;
+              border-width: 0 10px 10px;
+              border-style: solid;
+              border-color: transparent transparent #ff8000; /*透明 透明  灰*/
+              position: absolute;
+              top: 20px;
+              left: 0;
+            }
+          }
+          p {
+            font-size: 20px;
+            line-height: 40px;
+            color: #000080;
+            border: 0;
+            margin-top: 40px;
+            &:last-child {
+              margin-top: 0;
+            }
+          }
+        }
+      }
     }
-    #results{
-       width: 100%;
-       height: 500px;
+  }
+  .overall {
+    h4 {
+      font-size: 20px;
+      line-height: 60px;
+      color: #0080ff;
     }
-}
-
-//私有化参数修改
-
-.modify{
-	.title{
-		color:#6c7996;
-		font-size:30px;
-		line-height:100px;
-	}
-	h4{
-		color:#6c7996;
-		font-size:20px;
-		line-height:50px;
-		font-weight:normal;
-	}
-    .expert{
-    	.el-button{
-    		font-size:20px;
-    	}
+    .parameter {
+      h6 {
+        font-size: 18px;
+        line-height: 40px;
+        color: #0080ff;
+      }
     }
-    .message{
-    	.el-form{
-    		.el-form-item{
-	    			.el-form-item__label{
-					color:#6c7996;
-					font-size:16px;
-				}
-    		}
-    	}
-    	p{
-    		color:#1b233b;
-			font-size:18px;
-			line-height:30px;
-    	}
+    .matrix {
+      h6 {
+        font-size: 18px;
+        line-height: 40px;
+        color: #0080ff;
+      }
     }
+  }
+  .original{
+    h5{
+      font-size: 20px;
+      line-height: 60px;
+      color: #0080ff;
+    }
+  }
+  .macro{
+    h4{
+      font-size: 20px;
+      line-height: 60px;
+      color: #0080ff;
+    }
+  }
 }

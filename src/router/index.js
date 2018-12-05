@@ -21,21 +21,6 @@ export default new Router({
         component: () => import('@/components/layout/region')
       },
       {
-        path: 'region/details',
-        name: 'regionDetails',
-        component: () => import('@/components/layout/region/regionDetails.vue')
-      },
-      {
-        path: 'region/modify',
-        name: 'regionModify',
-        component: () => import('@/components/layout/region/argumentModify.vue')
-      },
-      {
-        path: 'region/demesne',
-        name: 'regionDemesne',
-        component: () => import('@/components/layout/region/Demesne.vue')
-      },
-      {
         path: 'Report',
         name: 'Report',
         component: () => import('@/components/layout/report')
@@ -61,6 +46,11 @@ export default new Router({
         component: () => import('@/components/layout/economy')
       },
       {
+        path: 'EconomyEvent/economyEventList',
+        name: 'economyEventList',
+        component: () => import('../components/layout/economy/economyEventList.vue')
+      },
+      {
         path: 'AntiTerrorismEvent',
         name: 'AntiTerrorismEvent',
         component: () => import('@/components/layout/anti-terrorism')
@@ -84,6 +74,16 @@ export default new Router({
         path: 'EventTiming',
         name: 'EventTiming',
         component: () => import('@/components/layout/eventTiming')
+      },
+      {
+        path: 'OriginalEvents',
+        name: 'OriginalEvents',
+        component: () => import('@/components/layout/originalEvent')
+      },
+      {
+        path: 'MacroData',
+        name: 'MacroData',
+        component: () => import('../components/layout/MacroData')
       }
       ]
     },
@@ -212,7 +212,7 @@ export default new Router({
           path: 'economicevents',
           name: 'economicevents',
           component: () => import('@/components/admin/eventManagement/EconomicEvents')
-        }, 
+        },
         {
           path: 'counterterrorismincidents',
           name: 'counterterrorismincidents',

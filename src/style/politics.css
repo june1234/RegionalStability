@@ -1,0 +1,91 @@
+.PoliticsEventAnalysis .title {
+  color: #6c7996;
+  font-size: 30px;
+  line-height: 60px;
+}
+.PoliticsEventAnalysis .el-form {
+  margin-top: 20px;
+}
+.PoliticsEventAnalysis .el-form .el-form-item__label {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0080ff;
+}
+.PoliticsEventAnalysis .statistics {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #fff;
+}
+.PoliticsEventAnalysis .statistics .explain {
+  font-size: 30px;
+  line-height: 60px;
+}
+.PoliticsEventAnalysis .statistics .explain .bg-purple {
+  padding: 10px 20px 10px 10px;
+}
+.PoliticsEventAnalysis .statistics .explain .bg-purple .icon .el-icon-news {
+  width: 40px;
+  line-height: 40px;
+  color: #fff;
+  background-color: #1ca1e8;
+  border-radius: 50%;
+  font-size: 20px;
+  text-align: center;
+}
+.PoliticsEventAnalysis .statistics .explain .bg-purple .titl {
+  display: inline-block;
+  padding-left: 10px;
+  width: 140px;
+  line-height: 20px;
+  font-size: 20px;
+}
+.PoliticsEventAnalysis .statistics .explain .bg-purple .titl span {
+  color: #1ca1e8;
+}
+.PoliticsEventAnalysis .statistics h4 {
+  color: '#036';
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 50px;
+  width: 100%;
+}
+.PoliticsEventAnalysis .content {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 10px;
+  margin-top: 30px;
+}
+.PoliticsEventAnalysis .span-title {
+  display: block;
+  font-size: 18px;
+  line-height: 40px;
+}
+.PoliticsEventAnalysis .span-content {
+  width: 80%;
+  display: inline-block;
+  font-size: 18px;
+  text-align: center;
+  margin-left: 40px;
+}
+.PoliticsEventAnalysis .chartClass {
+  width: 100%;
+  height: 300px;
+}
+.PoliticsEventAnalysis .more {
+  float: right;
+  margin-top: 10px;
+}
+.PoliticsEventList {
+  background-color: #fff;
+  padding: 20px;
+}
+.PoliticsEventList .title {
+  color: #6c7996;
+  font-size: 30px;
+  line-height: 60px;
+}
+.PoliticsEventList .el-form .el-form-item__label {
+  font-size: 18px;
+  color: #0080ff;
+}

@@ -13,14 +13,7 @@
 			    </el-select>
 			</el-form-item>
 			<el-form-item prop="type">
-				<el-select v-model="newsFormData.type" placeholder="请选择种类">
-					<el-option
-						v-for="item in types"
-						:key="item.label"
-						:label="item.label"
-						:value="item.value">
-				    </el-option>
-				</el-select>
+				<el-input v-model="newsFormData.keyWord" placeholder="请输入关键字"></el-input>
 			</el-form-item>
 			<el-form-item prop="eventTime">
 		        <el-date-picker v-model="newsFormData.eventTime" type="date" placeholder="开始时间"></el-date-picker>
@@ -65,7 +58,6 @@
 </template>
 
 <script>
-    import {getCountryAll} from '@/api/common.js';
     import {getNewsList} from '@/api/news/NewsList.js'
     import {formatterDateStr,formatterDate} from '@/utils/filter.js';
 	export default{
@@ -76,24 +68,10 @@
 					pageNum:1,
 					pageSize:20,
 					countryId:'',
-					type:'',
+					keyWord:'',
 					eventTime:'',
 					endTime:''
 				},
-				types:[{
-					value:'',
-                    label:'全部'
-				},{
-                    value:1,
-                    label:'政治'
-				},{
-                    value:2,
-                    label:'经济'
-				},{
-                    value:3,
-                    label:'反恐'
-				}],
-
 				//news总记录数
 				total:0,
 				//国家信息
@@ -104,7 +82,6 @@
 		},
 		created(){
 		    this.loadNewsPageList()
-	        this.getCountryAll()
 		},
 		methods:{
 			//加载新闻列表信息
@@ -113,12 +90,6 @@
                 	this.tableNewsData=res.data.list
                     this.total=res.data.total
                 });
-			},
-			//获取国家信息
-			getCountryAll(){
-	            getCountryAll().then(res=>{
-	           	    this.countries=res.data
-	            });
 			},
 			handleSizeChange(val){
 				this.newsFormData.pageSize=val

@@ -1,0 +1,49 @@
+.NewsList {
+  background-color: #fff;
+  padding: 20px;
+}
+.NewsList .title {
+  font-size: 30px;
+  line-height: 60px;
+  color: #000080;
+}
+.NewsList .el-form {
+  width: 100%;
+}
+.NewsList .el-form .el-form-item {
+  margin-bottom: 22px;
+}
+.NewsList .el-form .el-form--inline .el-form-item {
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: top;
+}
+.NewsList .el-form .el-input__inner {
+  font-size: inherit;
+  height: 40px;
+  line-height: 40px;
+}
+.NewsList .content {
+  width: 100%;
+  background-color: #ffffff;
+  margin-top: 30px;
+  padding: 10px;
+}
+.NewsList .content .el-table {
+  width: 100%;
+}
+.NewsDetail {
+  background-color: #fff;
+  padding: 20px;
+}
+.NewsDetail .NewsTitle {
+  font-size: 30px;
+  line-height: 60px;
+  color: #000080;
+}
+.NewsDetail .NewsList {
+  font-size: 18px;
+  line-height: 30px;
+  color: #c0c0c0;
+  text-align: center;
+}

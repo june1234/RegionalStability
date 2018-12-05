@@ -1,77 +1,121 @@
 <template>
   <div class="EventTimingAnalysis">
-    <h1 class="title">事件时序分析</h1>
-    <el-form :inline="true" :model="eventTimingFormData">
+    <el-row>
+      <el-col :span="6">
+        <h2 class="title">议题分析</h2>
+      </el-col>
+      <el-col :span="18">
+        <el-button type="text">说明</el-button>
+      </el-col>
+    </el-row>
+    <el-tabs type="border-card">
+      <el-tab-pane label="事件名称">事件名称</el-tab-pane>
+      <el-tab-pane label="事件名称">事件名称</el-tab-pane>
+    </el-tabs>
+    <el-form
+      :model="eventTimingFormData"
+      ref="form"
+      label-width="100px"
+    >
       <el-form-item label="选择国家">
-        <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange" style="margin-bottom:10px;">全选</el-checkbox>
-      </el-form-item>
-      <el-form-item>
-        <el-checkbox-group v-model="eventTimingFormData.Country" @change="handleCheckedCitiesChange">
-          <el-checkbox-button v-for="country in countrys" :label="country" :key="country">
+        <el-checkbox
+          :indeterminate="isIndeterminate"
+          v-model="checkAll"
+          @change="handleCheckAllChange"
+          style="margin-bottom:10px;"
+        >全选</el-checkbox>
+        <el-checkbox-group
+          v-model="eventTimingFormData.Country"
+          @change="handleCheckedCitiesChange"
+        >
+          <el-checkbox-button
+            v-for="country in countrys"
+            :label="country"
+            :key="country"
+          >
             {{country}}
           </el-checkbox-button>
         </el-checkbox-group>
       </el-form-item>
+      <el-form-item>
+
+      </el-form-item>
       <el-form-item label="选择时间">
-        <el-date-picker v-model="eventTimingFormData.startTime" type="date" placeholder="请输入开始时间" format="yyyy 年 MM 月" value-format="yyyy-MM-dd hh:mm:ss">
+        <el-date-picker
+          v-model="eventTimingFormData.beginDate"
+          type="date"
+          placeholder="请输入开始时间"
+        >
+        </el-date-picker>
+        <el-date-picker
+          v-model="eventTimingFormData.endDate"
+          type="date"
+          placeholder="请输入结束时间"
+        >
         </el-date-picker>
       </el-form-item>
       <el-form-item>
-        <el-date-picker v-model="eventTimingFormData.endTime" type="date" placeholder="请输入结束时间" format="yyyy 年 MM 月" value-format="yyyy-MM-dd hh:mm:ss">
-        </el-date-picker>
+        <el-button
+          type="primary"
+          @click="selectEventTiming"
+        >查询</el-button>
       </el-form-item>
     </el-form>
-    <el-button type="primary" @click="selectEventTiming">查询</el-button>
-    <el-button type="primary" @click="customization=true">个人定制化</el-button>
-    <div class="statistics">
-      <h5>名称</h5>
-      <el-button type="primary">删除</el-button>
-      <el-button type="primary" @click="customization=true">修改</el-button>
-      <el-row :gutter="20">
-        <el-col :span="8">
-        </el-col>
-        <el-col :span="8">
-        </el-col>
-        <el-col :span="8">
-        </el-col>
-      </el-row>
-      <el-table :data="news" style="width: 100%">
-        <el-table-column prop="title" label="标题" min-width="30%">
-        </el-table-column>
-        <el-table-column prop="type" label="类型" min-width="30%">
-        </el-table-column>
-        <el-table-column prop="time" label="时间" min-width="30%">
-        </el-table-column>
-      </el-table>
-    </div>
     <div class="statistics">
       <h5>日本</h5>
       <el-row :gutter="20">
         <el-col :span="8">
-          <div class="grid-content bg-purple wordCloud" style="width: 100%;height: 350px;">
+          <div
+            class="grid-content bg-purple wordCloud"
+            style="width: 100%;height: 350px;"
+          >
           </div>
         </el-col>
         <el-col :span="8">
           <div class="grid-content bg-purple">
             <h4>排名前8的词</h4>
-            <el-row :gutter="20" class="ci">
-              <el-col :span="6" v-for=" item in frequency" :key="item">
+            <el-row
+              :gutter="20"
+              class="ci"
+            >
+              <el-col
+                :span="6"
+                v-for=" item in frequency"
+                :key="item"
+              >
                 <el-button type="text">{{item}}</el-button>
               </el-col>
             </el-row>
-            <div class="line" style="width: 100%;height: 200px;">
-
+            <div
+              class="line"
+              style="width: 100%;height: 200px;"
+            >
             </div>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="grid-content bg-purple">
-            <el-table :data="news" style="width: 100%">
-              <el-table-column prop="title" label="标题" min-width="30%">
+            <el-table
+              :data="news"
+              style="width: 100%"
+            >
+              <el-table-column
+                prop="title"
+                label="标题"
+                min-width="30%"
+              >
               </el-table-column>
-              <el-table-column prop="type" label="类型" min-width="30%">
+              <el-table-column
+                prop="type"
+                label="类型"
+                min-width="30%"
+              >
               </el-table-column>
-              <el-table-column prop="time" label="时间" min-width="30%">
+              <el-table-column
+                prop="time"
+                label="时间"
+                min-width="30%"
+              >
               </el-table-column>
             </el-table>
           </div>
@@ -82,31 +126,59 @@
       <h5>朝鲜</h5>
       <el-row :gutter="20">
         <el-col :span="8">
-          <div class="grid-content bg-purple wordCloud" style="width: 100%;height: 350px;">
+          <div
+            class="grid-content bg-purple wordCloud"
+            style="width: 100%;height: 350px;"
+          >
 
           </div>
         </el-col>
         <el-col :span="8">
           <div class="grid-content bg-purple">
             <h4>排名前8的词</h4>
-            <el-row :gutter="20" class="ci">
-              <el-col :span="6" v-for=" item in frequency" :key="item">
+            <el-row
+              :gutter="20"
+              class="ci"
+            >
+              <el-col
+                :span="6"
+                v-for=" item in frequency"
+                :key="item"
+              >
                 <el-button type="text">{{item}}</el-button>
               </el-col>
             </el-row>
-            <div class="line" style="width: 100%;height: 200px;">
+            <div
+              class="line"
+              style="width: 100%;height: 200px;"
+            >
 
             </div>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="grid-content bg-purple">
-            <el-table :data="news" style="width: 100%">
-              <el-table-column prop="title" label="标题" min-width="30%">
+            <el-table
+              :data="news"
+              style="width: 100%"
+            >
+              <el-table-column
+                prop="title"
+                label="标题"
+                min-width="30%"
+              >
               </el-table-column>
-              <el-table-column prop="type" label="类型" min-width="30%">
+              <el-table-column
+                prop="type"
+                label="类型"
+                min-width="30%"
+              >
               </el-table-column>
-              <el-table-column prop="time" label="时间" min-width="30%">
+              <el-table-column
+                prop="time"
+                label="时间"
+                min-width="30%"
+              >
               </el-table-column>
             </el-table>
           </div>
@@ -117,31 +189,59 @@
       <h5>印度</h5>
       <el-row :gutter="20">
         <el-col :span="8">
-          <div class="grid-content bg-purple wordCloud" style="width: 100%;height: 350px;">
+          <div
+            class="grid-content bg-purple wordCloud"
+            style="width: 100%;height: 350px;"
+          >
 
           </div>
         </el-col>
         <el-col :span="8">
           <div class="grid-content bg-purple">
             <h4>排名前8的词</h4>
-            <el-row :gutter="20" class="ci">
-              <el-col :span="6" v-for=" item  in frequency" :key="item">
+            <el-row
+              :gutter="20"
+              class="ci"
+            >
+              <el-col
+                :span="6"
+                v-for=" item  in frequency"
+                :key="item"
+              >
                 <el-button type="text">{{item}}</el-button>
               </el-col>
             </el-row>
-            <div class="line" style="width: 100%;height: 200px;">
+            <div
+              class="line"
+              style="width: 100%;height: 200px;"
+            >
 
             </div>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="grid-content bg-purple">
-            <el-table :data="news" style="width: 100%">
-              <el-table-column prop="title" label="标题" min-width="30%">
+            <el-table
+              :data="news"
+              style="width: 100%"
+            >
+              <el-table-column
+                prop="title"
+                label="标题"
+                min-width="30%"
+              >
               </el-table-column>
-              <el-table-column prop="type" label="类型" min-width="30%">
+              <el-table-column
+                prop="type"
+                label="类型"
+                min-width="30%"
+              >
               </el-table-column>
-              <el-table-column prop="time" label="时间" min-width="30%">
+              <el-table-column
+                prop="time"
+                label="时间"
+                min-width="30%"
+              >
               </el-table-column>
             </el-table>
           </div>
@@ -152,100 +252,254 @@
       <h5>韩国</h5>
       <el-row :gutter="20">
         <el-col :span="8">
-          <div class="grid-content bg-purple wordCloud" style="width: 100%;height: 350px;">
+          <div
+            class="grid-content bg-purple wordCloud"
+            style="width: 100%;height: 350px;"
+          >
 
           </div>
         </el-col>
         <el-col :span="8">
           <div class="grid-content bg-purple">
             <h4>排名前8的词</h4>
-            <el-row :gutter="20" class="ci">
-              <el-col :span="6" v-for=" item in frequency" :key="item">
+            <el-row
+              :gutter="20"
+              class="ci"
+            >
+              <el-col
+                :span="6"
+                v-for=" item in frequency"
+                :key="item"
+              >
                 <el-button type="text">{{item}}</el-button>
               </el-col>
             </el-row>
-            <div class="line" style="width: 100%;height: 200px;">
+            <div
+              class="line"
+              style="width: 100%;height: 200px;"
+            >
 
             </div>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="grid-content bg-purple">
-            <el-table :data="news" style="width: 100%">
-              <el-table-column prop="title" label="标题" min-width="30%">
+            <el-table
+              :data="news"
+              style="width: 100%"
+            >
+              <el-table-column
+                prop="title"
+                label="标题"
+                min-width="30%"
+              >
               </el-table-column>
-              <el-table-column prop="type" label="类型" min-width="30%">
+              <el-table-column
+                prop="type"
+                label="类型"
+                min-width="30%"
+              >
               </el-table-column>
-              <el-table-column prop="time" label="时间" min-width="30%">
+              <el-table-column
+                prop="time"
+                label="时间"
+                min-width="30%"
+              >
               </el-table-column>
             </el-table>
           </div>
         </el-col>
       </el-row>
     </div>
-    <div id="relational" style="width: 100%;height: 700px;background:#fff;margin-top:20px;">
+    <div class="statistics">
+      <h5>中国</h5>
+      <el-row :gutter="20">
+        <el-col :span="8">
+          <div
+            class="grid-content bg-purple wordCloud"
+            style="width: 100%;height: 350px;"
+          >
+
+          </div>
+        </el-col>
+        <el-col :span="8">
+          <div class="grid-content bg-purple">
+            <h4>排名前8的词</h4>
+            <el-row
+              :gutter="20"
+              class="ci"
+            >
+              <el-col
+                :span="6"
+                v-for=" item in frequency"
+                :key="item"
+              >
+                <el-button type="text">{{item}}</el-button>
+              </el-col>
+            </el-row>
+            <div
+              class="line"
+              style="width: 100%;height: 200px;"
+            >
+
+            </div>
+          </div>
+        </el-col>
+        <el-col :span="8">
+          <div class="grid-content bg-purple">
+            <el-table
+              :data="news"
+              style="width: 100%"
+            >
+              <el-table-column
+                prop="title"
+                label="标题"
+                min-width="30%"
+              >
+              </el-table-column>
+              <el-table-column
+                prop="type"
+                label="类型"
+                min-width="30%"
+              >
+              </el-table-column>
+              <el-table-column
+                prop="time"
+                label="时间"
+                min-width="30%"
+              >
+              </el-table-column>
+            </el-table>
+          </div>
+        </el-col>
+      </el-row>
     </div>
-    <!-- 个性化设置 -->
-    <el-dialog title="个性化设置" :visible.sync="customization">
-      <el-form :model="Customization">
-        <el-form-item label="名称" label-width="120px">
-          <el-input v-model="Customization.name" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="国家" label-width="120px">
-          <el-checkbox-group v-model="Customization.Countrys">
-            <el-checkbox-button v-for="country in countrys" :label="country" :key="country">
-              {{country}}
-            </el-checkbox-button>
-          </el-checkbox-group>
-        </el-form-item>
-        <el-form-item label="选择时间" label-width="120px">
-          <el-date-picker v-model="Customization.startTime" type="date" placeholder="请输入开始时间" format="yyyy 年 MM 月" value-format="yyyy-MM-dd hh:mm:ss">
-          </el-date-picker>
-          <el-date-picker v-model="Customization.endTime" type="date" placeholder="请输入结束时间" format="yyyy 年 MM 月" value-format="yyyy-MM-dd hh:mm:ss">
-          </el-date-picker>
-        </el-form-item>
-        <el-form-item label="关键词1" label-width="120px">
-          <el-input v-model="Customization.keyword1" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="关键词2" label-width="120px">
-          <el-input v-model="Customization.keyword2" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="关键词3" label-width="120px">
-          <el-input v-model="Customization.keyword3" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="关键词4" label-width="120px">
-          <el-input v-model="Customization.keyword4" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="关键词5" label-width="120px">
-          <el-input v-model="Customization.keyword5" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-radio-group v-model="keyWordShow" style="margin-bottom: 20px;">
-          <el-radio-button :label="true">添加更多的关键词</el-radio-button>
-          <el-radio-button :label="false">隐藏</el-radio-button>
-        </el-radio-group>
-        <template v-if="keyWordShow">
-          <el-form-item label="关键词6" label-width="120px">
-            <el-input v-model="Customization.keyword6" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item label="关键词7" label-width="120px">
-            <el-input v-model="Customization.keyword7" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item label="关键词8" label-width="120px">
-            <el-input v-model="Customization.keyword8" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item label="关键词9" label-width="120px">
-            <el-input v-model="Customization.keyword9" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item label="关键词10" label-width="120px">
-            <el-input v-model="Customization.keyword10" autocomplete="off"></el-input>
-          </el-form-item>
-        </template>
-      </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="customization = false">取 消</el-button>
-        <el-button type="primary" @click="customization = false">确 定</el-button>
-      </div>
-    </el-dialog>
+    <div class="statistics">
+      <h5>美国</h5>
+      <el-row :gutter="20">
+        <el-col :span="8">
+          <div
+            class="grid-content bg-purple wordCloud"
+            style="width: 100%;height: 350px;"
+          >
+
+          </div>
+        </el-col>
+        <el-col :span="8">
+          <div class="grid-content bg-purple">
+            <h4>排名前8的词</h4>
+            <el-row
+              :gutter="20"
+              class="ci"
+            >
+              <el-col
+                :span="6"
+                v-for=" item  in frequency"
+                :key="item"
+              >
+                <el-button type="text">{{item}}</el-button>
+              </el-col>
+            </el-row>
+            <div
+              class="line"
+              style="width: 100%;height: 200px;"
+            >
+
+            </div>
+          </div>
+        </el-col>
+        <el-col :span="8">
+          <div class="grid-content bg-purple">
+            <el-table
+              :data="news"
+              style="width: 100%"
+            >
+              <el-table-column
+                prop="title"
+                label="标题"
+                min-width="30%"
+              >
+              </el-table-column>
+              <el-table-column
+                prop="type"
+                label="类型"
+                min-width="30%"
+              >
+              </el-table-column>
+              <el-table-column
+                prop="time"
+                label="时间"
+                min-width="30%"
+              >
+              </el-table-column>
+            </el-table>
+          </div>
+        </el-col>
+      </el-row>
+    </div>
+    <div class="statistics">
+      <h5>巴基斯坦</h5>
+      <el-row :gutter="20">
+        <el-col :span="8">
+          <div
+            class="grid-content bg-purple wordCloud"
+            style="width: 100%;height: 350px;"
+          >
+
+          </div>
+        </el-col>
+        <el-col :span="8">
+          <div class="grid-content bg-purple">
+            <h4>排名前8的词</h4>
+            <el-row
+              :gutter="20"
+              class="ci"
+            >
+              <el-col
+                :span="6"
+                v-for=" item in frequency"
+                :key="item"
+              >
+                <el-button type="text">{{item}}</el-button>
+              </el-col>
+            </el-row>
+            <div
+              class="line"
+              style="width: 100%;height: 200px;"
+            >
+
+            </div>
+          </div>
+        </el-col>
+        <el-col :span="8">
+          <div class="grid-content bg-purple">
+            <el-table
+              :data="news"
+              style="width: 100%"
+            >
+              <el-table-column
+                prop="title"
+                label="标题"
+                min-width="30%"
+              >
+              </el-table-column>
+              <el-table-column
+                prop="type"
+                label="类型"
+                min-width="30%"
+              >
+              </el-table-column>
+              <el-table-column
+                prop="time"
+                label="时间"
+                min-width="30%"
+              >
+              </el-table-column>
+            </el-table>
+          </div>
+        </el-col>
+      </el-row>
+    </div>
   </div>
 </template>
 
@@ -263,7 +517,7 @@ export default {
     return {
       //form表单查询条件
       eventTimingFormData: {
-        Country: ["日本", "朝鲜", "印度", "韩国"],
+        Country: ["印度"],
         startTime: "2018-01-01 00:00:00",
         endTime: "2018-06-30 00:00:00",
         num: 20
@@ -273,7 +527,7 @@ export default {
         end: "2018-01-03",
         word: "中国"
       },
-      countrys: ["日本", "朝鲜", "印度", "韩国"],
+      countrys: ["日本", "朝鲜", "印度", "韩国", "中国", "美国", "巴基斯坦"],
       isIndeterminate: false,
       checkAll: true,
       news: [],
@@ -283,25 +537,25 @@ export default {
       frequency: [],
       months: [],
       graphs: [],
-      a: [],
-      customization: false,
-      Customization: {
-        name: "",
-        Countrys: [],
-        startTime: "",
-        endTime: "",
-        keyword1: "",
-        keyword2: "",
-        keyword3: "",
-        keyword4: "",
-        keyword5: "",
-        keyword6: "",
-        keyword7: "",
-        keyword8: "",
-        keyword9: "",
-        keyword10: ""
-      },
-      keyWordShow: false
+      a: []
+      // customization: false,
+      // Customization: {
+      //   name: "",
+      //   Countrys: [],
+      //   startTime: "",
+      //   endTime: "",
+      //   keyword1: "",
+      //   keyword2: "",
+      //   keyword3: "",
+      //   keyword4: "",
+      //   keyword5: "",
+      //   keyword6: "",
+      //   keyword7: "",
+      //   keyword8: "",
+      //   keyword9: "",
+      //   keyword10: ""
+      // },
+      // keyWordShow: false
     };
   },
   created() {
@@ -469,92 +723,6 @@ export default {
           mychart.resize();
         });
       }
-    },
-    // 事件关联图谱
-    graph() {
-      const a = JSON.parse(this.graphs);
-      var categories = [];
-      for (var i = 0; i < a.my_node.length; i++) {
-        categories.push(a.my_node[i].category);
-      }
-      categories = Array.from(new Set(categories));
-      a.my_node.forEach(function(node) {
-        node.value = node.label;
-        node.label = {
-          normal: {
-            show: node.size > 0
-          }
-        };
-        node.y = Math.random() * 300;
-        node.x = Math.random() * 300;
-        categories.forEach(function(element, index) {
-          if (element == node.category) {
-            node.category = index;
-          }
-        });
-      });
-      a.my_edge.forEach(function(edge, index) {
-        edge.id = index;
-        edge.source = edge.sourceID;
-        edge.target = edge.targetID;
-        edge.name = null;
-        edge.lineStyle = {
-          normal: {
-            width: edge.weight * 10
-          }
-        };
-      });
-      const graph = document.querySelector("#relational");
-      const mychart = echarts.init(graph);
-      mychart.setOption({
-        title: {
-          text: "事件关系图谱"
-        },
-        tooltip: {},
-        legend: [
-          {
-            data: categories
-          }
-        ],
-        animationDuration: 1500,
-        animationEasingUpdate: "quinticInOut",
-        series: [
-          {
-            name: "事件关系",
-            type: "graph",
-            layout: "none",
-            data: a.my_node,
-            links: a.my_edge,
-            categories: categories,
-            roam: true,
-            focusNodeAdjacency: true,
-            itemStyle: {
-              normal: {
-                borderColor: "#fff",
-                borderWidth: 1,
-                shadowBlur: 10,
-                shadowColor: "rgba(0, 0, 0, 0.3)"
-              }
-            },
-            label: {
-              position: "right",
-              formatter: "{b}"
-            },
-            lineStyle: {
-              color: "source",
-              curveness: 0.3
-            },
-            emphasis: {
-              lineStyle: {
-                width: 10
-              }
-            }
-          }
-        ]
-      });
-      window.addEventListener("resize", function() {
-        mychart.resize();
-      });
     }
   }
 };
