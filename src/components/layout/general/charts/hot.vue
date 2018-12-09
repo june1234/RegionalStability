@@ -8,7 +8,7 @@
 import echarts from "echarts";
 export default {
   name: "hotCharts",
-  
+
   data() {
     return {
       dataBJ: [
@@ -55,90 +55,94 @@ export default {
       ]
     };
   },
-  mounted(){
-    this.hot()
+  mounted() {
+    this.hot();
   },
   methods: {
     hot() {
-        const mychart = echarts.init(this.$el);
-        mychart.setOption({
-          color: ["#003366", "#006699", "#4cabce"],
-          legend: {
-            data: ["北京", "上海", "广州"],
-            textStyle: {
-              color: "#fff",
-              fontSize: 16
+      const mychart = echarts.init(this.$el);
+      mychart.setOption({
+        color: ["#003366", "#006699", "#4cabce"],
+        legend: {
+          data: ["北京", "上海", "广州"],
+          textStyle: {
+            color: "#fff",
+            fontSize: 16
+          }
+        },
+        xAxis: {
+          type: "value",
+          name: "时间",
+          nameGap: 30,
+          nameLocation: "center",
+          nameTextStyle: {
+            color: "#000",
+            fontSize: 14
+          },
+          max: 12,
+          splitLine: {
+            show: false
+          },
+          axisLine: {
+            lineStyle: {
+              color: "#1ca1e8"
+            }
+          }
+        },
+        yAxis: {
+          type: "value",
+          name: "分数",
+          nameLocation: "end",
+          nameGap: 20,
+          nameTextStyle: {
+            color: "#000",
+            fontSize: 16
+          },
+          axisLine: {
+            lineStyle: {
+              color: "#1ca1e8"
             }
           },
-          xAxis: {
-            type: "value",
-            name: "时间",
-            nameGap: 30,
-            nameLocation: "center",
-            nameTextStyle: {
-              color: "#000",
-              fontSize: 14
-            },
-            max: 12,
-            splitLine: {
-              show: false
-            },
-            axisLine: {
-              lineStyle: {
-                color: "#1ca1e8"
-              }
-            }
+          splitLine: {
+            show: false
+          }
+        },
+        series: [
+          {
+            name: "北京",
+            type: "scatter",
+            itemStyle: this.itemStyle,
+            data: this.dataBJ
           },
-          yAxis: {
-            type: "value",
-            name: "分数",
-            nameLocation: "end",
-            nameGap: 20,
-            nameTextStyle: {
-              color: "#000",
-              fontSize: 16
-            },
-            axisLine: {
-              lineStyle: {
-                color: "#1ca1e8"
-              }
-            },
-            splitLine: {
-              show: false
-            }
+          {
+            name: "上海",
+            type: "scatter",
+            itemStyle: this.itemStyle,
+            data: this.dataSH
           },
-          series: [
-            {
-              name: "北京",
-              type: "scatter",
-              itemStyle: this.itemStyle,
-              data: this.dataBJ
-            },
-            {
-              name: "上海",
-              type: "scatter",
-              itemStyle: this.itemStyle,
-              data: this.dataSH
-            },
-            {
-              name: "广州",
-              type: "scatter",
-              itemStyle: this.itemStyle,
-              data: this.dataGZ
-            }
-          ]
-        });
-        window.addEventListener("resize", function() {
-          mychart.resize();
-        });
+          {
+            name: "广州",
+            type: "scatter",
+            itemStyle: this.itemStyle,
+            data: this.dataGZ
+          }
+        ]
+      });
+      window.addEventListener("resize", function() {
+        mychart.resize();
+      });
     }
   }
 };
 </script>
 
 <style lang='less' scoped>
-.hot{
-    width: 100%;
-    height: 500px;
+.hot {
+  width: 100%;
+  height: 550px;
+  background-color: #f8f8f8;
+  box-shadow: 10px 10px 10px #d2d2d2;
+  border:1px solid #fff;
+  padding:20px;
 }
 </style>

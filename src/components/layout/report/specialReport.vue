@@ -1,43 +1,274 @@
 <template>
-	<div style="width:100%;padding:20px;">
-		<span style="width:100%;height:30px;text-align:center;display:block;font-size:22px;">标题</span>
-		<span style="line-height:20px;">文字说明</span>
-		<div style="width:100%;">
-	        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
-	        Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor.
-	        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-	        Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+  <div class="showcase">
+    <div id="pdfDom">
+    <h5>报告内容</h5>
+    <div class="content">
+      <h4>报告标题</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
+        Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor.
+        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+        Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+      </p>
+      <div class="topic">
+        <h6>议题</h6>
+        <line-charts></line-charts>
+      </div>
+      <div class="news">
+        <h6>新闻统计</h6>
+        <line-charts></line-charts>
+        <h6>新闻统计说明</h6>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
+          Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor.
+          Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+          Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+        </p>
+      </div>
+      <div class="B">
+        <h6>事件统计</h6>
+        <div>
+          <h6>政治事件</h6>
+          <hot-charts></hot-charts>
+          <h6>事件列表</h6>
+          <el-table
+            ref="multipleTable"
+            :data="tableData"
+            border
+            style="width: 100%"
+          >
+            <el-table-column
+              prop="eventName"
+              label="事件名称"
+              align="center"
+              min-width="100%"
+            ></el-table-column>
+            <el-table-column
+              prop="eventTime"
+              label="事件发生时间"
+              :formatter="formatterTime"
+              align="center"
+              min-width="100%"
+            >
+            </el-table-column>
+            <el-table-column
+              prop="countryFullName"
+              label="国家"
+              align="center"
+              min-width="100%"
+            ></el-table-column>
+            <el-table-column
+              prop="people"
+              label="人物"
+              align="center"
+              min-width="100%"
+            ></el-table-column>
+            <el-table-column
+              prop="infrastructure"
+              label="建筑物"
+              align="center"
+              min-width="100%"
+            ></el-table-column>
+            <el-table-column
+              prop="grade"
+              label="等级"
+              align="center"
+              min-width="100%"
+            ></el-table-column>
+            <el-table-column
+              prop="infrastructure"
+              label="情感分数"
+              align="center"
+              min-width="100%"
+            ></el-table-column>
+            <el-table-column
+              prop="infrastructure"
+              label="影响力"
+              align="center"
+              min-width="100%"
+            ></el-table-column>
+          </el-table>
+          <h6>事件说明</h6>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
+            Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor.
+            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+          </p>
         </div>
-		<div style="width:100%;text-align:center;margin-top:20px;">
-			<div style="height:300px;border:1px solid black;line-height:250px;">新闻图表</div>
-			<div style="height:300px;border:1px solid black;line-height:250px;margin-top:20px;">时序图</div>
-			<div style="height:300px;border:1px solid black;line-height:250px;margin-top:20px;">热点图</div>
-		    <div style="height:300px;border:1px solid black;line-height:250px;margin-top:20px;">稳定性趋势分析公式计算方式说明</div>
-		    <div style="height:300px;border:1px solid black;line-height:250px;margin-top:20px;">展示区域稳定性分析趋势图表</div>
-		    <div style="height:300px;border:1px solid black;line-height:250px;margin-top:20px;">系统设置与个人设置对比</div>
-		</div>
-		<div style="float:right;padding:10px;">
-			<el-button @click="goBack">返回</el-button>
-			<el-button @click="exportReport">导出</el-button>
-		</div>
-	</div> 
+        <div>
+          <h6>经济事件</h6>
+          <hot-charts></hot-charts>
+          <h6>事件列表</h6>
+          <el-table
+            ref="multipleTable"
+            :data="tableData"
+            border
+            style="width: 100%"
+          >
+            <el-table-column
+              prop="eventName"
+              label="事件名称"
+              align="center"
+              min-width="100%"
+            ></el-table-column>
+            <el-table-column
+              prop="eventTime"
+              label="事件发生时间"
+              :formatter="formatterTime"
+              align="center"
+              min-width="100%"
+            >
+            </el-table-column>
+            <el-table-column
+              prop="countryFullName"
+              label="国家"
+              align="center"
+              min-width="100%"
+            ></el-table-column>
+            <el-table-column
+              prop="people"
+              label="人物"
+              align="center"
+              min-width="100%"
+            ></el-table-column>
+            <el-table-column
+              prop="infrastructure"
+              label="建筑物"
+              align="center"
+              min-width="100%"
+            ></el-table-column>
+            <el-table-column
+              prop="grade"
+              label="等级"
+              align="center"
+              min-width="100%"
+            ></el-table-column>
+            <el-table-column
+              prop="infrastructure"
+              label="情感分数"
+              align="center"
+              min-width="100%"
+            ></el-table-column>
+            <el-table-column
+              prop="infrastructure"
+              label="影响力"
+              align="center"
+              min-width="100%"
+            ></el-table-column>
+          </el-table>
+          <h6>事件说明</h6>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
+            Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor.
+            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+          </p>
+        </div>
+        <div>
+          <h6>反恐事件</h6>
+          <hot-charts></hot-charts>
+          <h6>事件列表</h6>
+          <el-table
+            ref="multipleTable"
+            :data="tableData"
+            border
+            style="width: 100%"
+          >
+            <el-table-column
+              prop="eventName"
+              label="事件名称"
+              align="center"
+              min-width="100%"
+            ></el-table-column>
+            <el-table-column
+              prop="eventTime"
+              label="事件发生时间"
+              :formatter="formatterTime"
+              align="center"
+              min-width="100%"
+            >
+            </el-table-column>
+            <el-table-column
+              prop="countryFullName"
+              label="国家"
+              align="center"
+              min-width="100%"
+            ></el-table-column>
+            <el-table-column
+              prop="people"
+              label="人物"
+              align="center"
+              min-width="100%"
+            ></el-table-column>
+            <el-table-column
+              prop="infrastructure"
+              label="建筑物"
+              align="center"
+              min-width="100%"
+            ></el-table-column>
+            <el-table-column
+              prop="grade"
+              label="等级"
+              align="center"
+              min-width="100%"
+            ></el-table-column>
+            <el-table-column
+              prop="infrastructure"
+              label="情感分数"
+              align="center"
+              min-width="100%"
+            ></el-table-column>
+            <el-table-column
+              prop="infrastructure"
+              label="影响力"
+              align="center"
+              min-width="100%"
+            ></el-table-column>
+          </el-table>
+          <h6>事件说明</h6>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
+            Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor.
+            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+          </p>
+        </div>
+      </div>
+    </div>
+    </div> 
+   <el-button type="warning" @click="getPdf()">下载PDF</el-button>
+  </div>
 </template>
 
 <script>
-	export default{
-		data(){
-			return{
-			}
-		},
-		created(){          
-		},
-		methods:{
-			goBack(){
-               this.$router.back()
-			},
-            exportReport(){
-           	   this.$router.back()
-            }
-		}
-	}
+import lineCharts from "@/components/layout/general/Charts/line.vue";
+import hotCharts from "@/components/layout/general/Charts/hot.vue";
+import { formatterDateStr, formatterDate } from "@/utils/filter";
+
+export default {
+  data() {
+    return {
+      tableData:[],
+      htmlTitle:'123'
+    };
+  },
+  components: {
+    lineCharts,
+    hotCharts
+  },
+  created() {},
+  methods: {
+    goBack() {
+      this.$router.back();
+    },
+    exportReport() {
+      this.$router.back();
+    },
+    formatterTime(val) {
+      return formatterDateStr(val.eventTime);
+    }
+
+  }
+};
 </script>

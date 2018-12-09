@@ -1,9 +1,9 @@
 //反恐事件分析
 .AntiEventAnalysis{
     .title{       
-        color:#6c7996;
+        color:@maxtitle;
         font-size:30px;
-        line-height:60px;
+        line-height:80px;
         padding-left:20px;
     }
     .el-form{
@@ -12,14 +12,14 @@
             &__label{
                font-size:18px;
                font-weight: 700;
-               color:#0080ff;
+               color:@mintitle;
             }
         }
     }
      .statistics{
       margin-top:20px;
-      padding:10px;
-      background-color:#fff;
+      padding:40px;
+      background-color:@bgc;
       .explain{
          font-size:30px;
          line-height:60px;
@@ -29,8 +29,8 @@
                    .el-icon-news{
                     width: 40px;
                     line-height:40px;
-                    color:#fff;
-                    background-color:#1ca1e8;
+                    color:@bgc;
+                    background-color:@mintitle;
                     border-radius:50%;
                     font-size:20px;
                     text-align:center;
@@ -43,24 +43,28 @@
                     line-height:20px;
                     font-size:20px;
                     span{
-                        color:#1ca1e8;
+                        color:@mintitle;
                     }
                }
             }
       }
       h4{
-            color:'#036';
+            color:@maxtitle;
             font-size:16px;
             font-weight:600;
             text-align:center;
             line-height:50px;
             width:100%
       }
+        &:nth-of-type(2),&:nth-of-type(4),&:nth-of-type(6),&:nth-of-type(8){
+        background-color: @bgc2;
+        padding: 40px;
+        }
     }
 
     .content{
         width:100%;
-        background-color:#ffffff;
+        background-color:@bgc;
         padding:10px;
         margin-top:30px;
     }
@@ -94,13 +98,13 @@
         border-radius: 4px;
     }
     .bg-purple-dark {
-        background: #99a9bf;
+        background: @bgc;
     }
     .bg-purple {
-       background: #d3dce6;
+       background: @bgc;
     }
     .bg-purple-light {
-       background: #e5e9f2;
+       background: @bgc;
     }
     .grid-content {
        border-radius: 4px;
@@ -108,12 +112,14 @@
     }
     .row-bg {
        padding: 10px 0;
-       background-color: #f9fafc;
+       background-color: @bgc;
     }
 }
 
 //反恐事件列表
 .AntiEventList{
+    background-color: @bgc;
+    padding: 20px;
     .title{
         line-height:50px;
     }
@@ -140,7 +146,7 @@
     }
     .content{
         width:100%;
-        background-color:#ffffff;
+        background-color:@bgc;
         margin-top:30px;
         padding:10px;
     }
@@ -157,13 +163,13 @@
         border-radius: 4px;
     }
     .bg-purple-dark {
-        background: #99a9bf;
+        background: @bgc;
     }
     .bg-purple {
-        background: #d3dce6;
+        background: @bgc;
     }
     .bg-purple-light {
-        background: #e5e9f2;
+        background: @bgc;
     }
     .grid-content {
         border-radius: 4px;
@@ -171,6 +177,6 @@
     }
     .row-bg {
         padding: 10px 0;
-        background-color: #f9fafc;
+        background-color: @bgc;
     }
 }

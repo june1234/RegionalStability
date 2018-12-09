@@ -4,19 +4,18 @@
         :default-active="$route.path" 
         class="el-menu-demo" 
         mode="horizontal" 
-        background-color="#0f2c2a" 
-        text-color="#fff" 
-        active-text-color="#50b7c1" 
+        background-color="#fff" 
+        text-color="#FF5722" 
+        active-text-color="#FF5722" 
         router>
             <el-menu-item index="/">首页</el-menu-item>
             <el-menu-item index="/region">区域稳定性</el-menu-item>
-            <el-submenu index="1">
+            <el-submenu index="3">
                 <template slot="title">事件分析</template>
                 <el-menu-item index="/OriginalEvents">原事件分析</el-menu-item>
-                <el-menu-item index="#">聚类事件分析</el-menu-item>
                 <el-menu-item index="/EventTiming">议题分析</el-menu-item>
             </el-submenu>
-            <el-submenu index="2">
+            <el-submenu index="4">
                 <template slot="title">数据分析</template>
                 <el-menu-item index="/PoliticsEvent">政治事件分析</el-menu-item>
                 <el-menu-item index="/EconomyEvent">经济事件分析</el-menu-item>
@@ -31,7 +30,7 @@
 
 <script>
 export default {
-  name: "aside",
+  name: "asideDiv",
 
   data() {
     return {};
@@ -42,21 +41,5 @@ export default {
 </script>
 
 <style lang='less' scoped>
-.el-menu--horizontal{
-     padding:0 200px;
-    .el-submenu {
-        .el-submenu__title{
-            height:80px;
-            line-height: 80px;
-            font-size: 20px !important;
-            padding:0 30px;
-        } 
-    }
-    .el-menu-item{
-        height:80px;
-        line-height: 80px;
-        font-size: 20px;
-        padding:0 30px;
-    }
-}
+
 </style>

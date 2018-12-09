@@ -21,13 +21,4 @@ export default {
 </script>
 
 <style lang='less' scoped>
-.original {
-  background-color: #fff;
-  padding:20px;
-  h4 {
-    font-size: 30px;
-    line-height: 60px;
-    color: #000080;
-  }
-}
 </style>

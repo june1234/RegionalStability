@@ -1,9 +1,8 @@
 <template>
     <div class="layout">
         <el-container>
-            <el-header style="height:180px;">
+            <el-header style="height:100px;">
                 <app-header></app-header>
-                <app-aside></app-aside>
             </el-header>
             <el-main  class="w">
                 <router-view></router-view>
@@ -14,7 +13,6 @@
 
 <script>
 import AppHeader from "@/components/layout/index/Header.vue";
-import AppAside from "@/components/layout/index/Aside.vue";
 export default {
   name: "layout",
 
@@ -23,7 +21,6 @@ export default {
   },
   components: {
     AppHeader,
-    AppAside
   },
   methods: {}
 };

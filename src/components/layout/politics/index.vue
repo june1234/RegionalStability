@@ -399,6 +399,7 @@
         </el-col>
       </el-row>
     </div>
+    
     <!-- 政治事件列表 -->
     <div class="content">
       <el-row :gutter="20">

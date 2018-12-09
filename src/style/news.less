@@ -1,11 +1,11 @@
 //新闻列表
 .NewsList{
-    background-color: #fff;
     padding: 20px;
+    background-color: @bgc;
 	.title{
         font-size: 30px;
         line-height: 60px;
-        color: #000080;
+        color: @maxtitle;
 	}
 	.el-form{
         width:100%;
@@ -25,7 +25,7 @@
     }
     .content{
         width:100%;
-        background-color:#ffffff;
+        background-color:@bgc;
         margin-top:30px;
         padding:10px;
         .el-table{
@@ -36,17 +36,23 @@
 
 //新闻详情
 .NewsDetail {
-  background-color: #fff;
+  background-color: @bgc;
   padding: 20px;
   .NewsTitle {
     font-size: 30px;
     line-height: 60px;
-    color: #000080;
+    color: @maxtitle;
+    text-align: center;
   }
   .NewsList {
     font-size: 18px;
     line-height: 30px;
-    color: #c0c0c0;
     text-align: center;
+    color: @mintitle;
+  }
+  .news{
+      line-height:30px;
+      font-size:20px;
+      padding:0 100px;
   }
 }

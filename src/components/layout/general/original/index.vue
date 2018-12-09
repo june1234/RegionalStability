@@ -195,11 +195,4 @@ export default {
 </script>
 
 <style lang='less' scoped>
-  .el-tabs{
-     h5{
-    font-size:20px;
-    line-height: 50px;
-    color: #0080ff;
-     }
-  }
 </style>

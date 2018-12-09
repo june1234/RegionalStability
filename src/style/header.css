@@ -4,16 +4,19 @@
 * @Last Modified by:   xiaju
 * @Last Modified time: 2018-08-07 16:39:41
 */
-.header {
+.layoutheader {
   background-color: #fff;
-  height: 80px;
+  height: 100px;
 }
-.header .service {
-  line-height: 80px;
-  float: right;
-  margin-right: 20px;
+.layoutheader .el-row {
+  padding-left: 200px;
 }
-.header .service .el-button {
-  line-height: 40px;
-  padding: 5px 10px;
+.layoutheader .el-row h4 {
+  line-height: 50px;
+  color: #000080;
+  font-size: 30px;
+  margin-top: 20px;
+}
+.layoutheader .el-row p {
+  color: #c0c0c0;
 }

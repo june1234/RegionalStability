@@ -1,0 +1,30 @@
+.news {
+  background-color: #fff;
+  margin-top: 20px;
+  padding: 20px;
+}
+.news .el-row h5 {
+  color: #0080ff;
+  font-size: 20px;
+  line-height: 40px;
+}
+.news .el-row .source {
+  padding: 0 20px;
+}
+.news .el-row .source li {
+  line-height: 50px;
+  border: 1px solid #000080;
+  color: #000080;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.news .el-row .source li span {
+  padding-left: 30px;
+}
+.news .el-row .source li span:last-child {
+  color: #ff8000;
+}
+.news .el-row .new li {
+  line-height: 30px;
+  color: #000080;
+}

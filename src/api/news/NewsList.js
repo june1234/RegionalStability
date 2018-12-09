@@ -14,3 +14,10 @@ export function getNewsList (newsFormData) {
     data: newsFormData
   })
 }
+
+export function getNewsDetail (id) {
+  return request({
+    url: `/informationeventbase/findcontent/${id}`,
+    method: 'post'
+  })
+}

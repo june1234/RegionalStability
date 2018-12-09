@@ -53,11 +53,4 @@ export default {
 </script>
 
 <style lang='less' scoped>
-.pagination{
-  p{
-    font-size:18px;
-    line-height:30px;
-    color: #000080;
-  }
-}
 </style>

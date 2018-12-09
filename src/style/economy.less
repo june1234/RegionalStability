@@ -1,8 +1,8 @@
 //经济事件分析
 .EconomyEventAnalysis{
-    background-color: #fff;
+    background-color: @bgc;
     .title{
-        color:#6c7996;
+        color:@maxtitle;
         font-size:30px;
         line-height:60px;
         padding-left:20px;
@@ -11,16 +11,16 @@
         .el-form-item{
             &_label{
                font-size:18px;
-               color:#0080ff;
+               color:@mintitle;
             }
         }
     }
     >h4{
         font-size: 30px;
-        line-height: 60px;
+        line-height: 80px;
         text-align: center;
-        background-color: #adadad;
-        color: #000080;
+        background-color: @bgc2;
+        color: @maxtitle;
     }
     .content{
         padding:20px;
@@ -30,7 +30,7 @@
             font-size: 20px;
             line-height: 40px;
             text-align: center;
-            color: #0080ff;
+            color: @mintitle;
         }
     }
     .Economy{
@@ -38,7 +38,7 @@
         h4{
             font-size: 20px;
             line-height: 40px;
-            color: #0080ff;
+            color: @mintitle;
         }
         >div{
             width: 100%;
@@ -54,11 +54,12 @@
     } 
 }
 
+//经济事件列表
 .economyEventList{
-    background-color: #fff;
+    background-color: @bgc;
     padding:20px;
     .title{
-        color:#6c7996;
+        color:@maxtitle;
         font-size:30px;
         line-height:60px;        
     }
@@ -66,7 +67,7 @@
        .el-form-item{
            &__label{
                font-size:18px;
-               color:#0080ff;
+               color:@mintitle;
            }
        }
     }

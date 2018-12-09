@@ -16,11 +16,13 @@ import VueQuillEditor from 'vue-quill-editor'
 import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
+import htmlToPdf from '@/utils/htmlToPdf'
+
 /* eslint-disable */
 Vue.use(ElementUI)
 Vue.use(VueQuillEditor)
 Vue.config.productionTip = false
-
+Vue.use(htmlToPdf)
 router.afterEach((to, from, next) => {
   window.scrollTo(0, 0)
 })

@@ -113,7 +113,7 @@
           </el-table-column>
         </el-table>
       </el-tab-pane>
-      <el-tab-pane label="统计图">
+      <el-tab-pane label="统计图" :lazy=true>
           <line-charts></line-charts>
       </el-tab-pane>
     </el-tabs>
@@ -225,7 +225,8 @@ export default {
             }
           ]
         }
-      ]
+      ],
+      tableData:[]
     };
   },
   components:{

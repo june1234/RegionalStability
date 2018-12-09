@@ -1,0 +1,247 @@
+        // 宏观参数
+        {
+            "retcode": 200000,
+            "msg": "success",
+            "data": { //x轴 年份
+                "xtime": [
+                    "2012",
+                    "2013"
+                ],
+                "Ydata": [
+                    {
+                        "name": "中国",
+                        "value": []
+                    },
+                    {
+                        "name": "",
+                        "value": []
+                    }
+                ]
+            }
+        }
+        // ahp表格
+
+        data: {
+            "Theader": [
+                {
+                    "label":'人口',
+                    "prop":'person'
+                },
+                {
+                    "label":'',
+                    " prop":''
+                },
+                {
+                    "label":'',
+                    "prop":''
+                }
+            ],
+            "Tbody": [
+                {
+                    "person": "1",
+                    "": "2",
+                    "": "3",
+                    "": "",
+                    "": "",
+                    "": ""
+                }
+            ]
+        }
+        // 事件指数
+    data: {
+            "Political": [
+                {
+                    "Dimensions": "情感",
+                    "Positive": "12",
+                    "Negative": "13"
+                },
+                {
+                    "Dimensions": "影响",
+                    "Positive": "12",
+                    "Negative": "13"
+                }
+            ],
+            "Economic": [
+                {
+                    "Dimensions": "",
+                    "Positive": "",
+                    "Negative": ""
+                },
+                {
+                    "Dimensions": "",
+                    "Positive": "",
+                    "Negative": ""
+                }
+            ],
+            "ctu": [
+                {
+                    "Dimensions": "",
+                    "Positive": "",
+                    "Negative": ""
+                },
+                {
+                    "Dimensions": "",
+                    "Positive": "",
+                    "Negative": ""
+                },
+                {
+                    "Dimensions": "",
+                    "Positive": "",
+                    "Negative": ""
+                }
+            ]
+        }
+        // 同比与环比,基础分,曲线图
+data: {
+            "Chain": {
+                "Theader": [
+                    {
+                        "label":'',
+                        "prop":''
+                    },
+                    {
+                        "label":'',
+                        " prop":''
+                    },
+                    {
+                        "label":'',
+                        "prop":''
+                    }
+                ],
+                "Tbody": [
+                    {
+                        "": "",
+                        "": "",
+                        "": "",
+                        "": "",
+                        "": "",
+                        "": ""
+                    }
+                ]
+            },
+            "Rose": [
+                {
+                    "": "",
+                    "": "",
+                    "": "",
+                    "": "",
+                    "": "",
+                    "": ""
+                }
+            ],
+            "baseCode": "",
+            "line": {
+                "xtime": ['2012'
+                ], //x轴 年份
+                "Ydata": [
+                    {
+                        "name":'基础分',
+                        "value": []
+                    },
+                    {
+                        "name":'环比',
+                        "value": []
+                    }
+                ]
+            }
+        }
+        // 事件曲线
+data: {
+            "line": {
+                "xtime": ['2012'
+                ], //x轴 月份
+                "Ydata": [
+                    {
+                        "name": "维度",
+                        "value": []
+                    },
+                    {
+                        "name": "维度",
+                        "value": []
+                    },
+                    {
+                        "name": "维度",
+                        "value": []
+                    },
+                    {
+                        "name": "维度",
+                        "value": []
+                    },
+                    {
+                        "name": "维度",
+                        "value": []
+                    }
+                ]
+            },
+            "bar": {
+                "xtime": [
+                    "维度",
+                    "维度"
+                ], //x轴 维度
+                "Ydata": [
+                    {
+                        "name": "等级1",
+                        "value": []
+                    },
+                    {
+                        "name": "等级2",
+                        "value": []
+                    },
+                    {
+                        "name": "等级3",
+                        "value": []
+                    }
+                ]
+            }
+        }
+        // 新闻来源数量
+data: {
+            "total": 100,
+            "nFrom": [
+                {
+                    "name": "",
+                    "value": ""
+                },
+                {
+                    "name": "",
+                    "value": ""
+                },
+                {
+                    "name": "",
+                    "value": ""
+                }
+            ]
+        }
+//综合指数
+data: [
+    {
+        "Dimensions": "情感",
+        "0":"",
+        "1":"",
+        "2":"",
+        "3":"",
+        "4":"",
+        "5":"",
+        "6":"",
+        "7":"",
+        "8":"",
+        "9":"",
+        "10":"",
+        "11":"",
+    },
+    {
+        "Dimensions": "情感",
+        "0": "",
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": "",
+        "7": "",
+        "8": "",
+        "9": "",
+        "10": "",
+        "11": "",
+    }
+]

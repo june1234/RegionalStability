@@ -1,0 +1,108 @@
+.comprehensive .regional {
+  background: url("../assets/bgc.jpg") repeat-y;
+  background-size: cover;
+  padding-bottom: 20px;
+}
+.comprehensive .regional .el-row {
+  background-color: #fff;
+  padding: 20px;
+}
+.comprehensive .regional .el-row .el-col > span {
+  line-height: 130px;
+  font-size: 30px;
+  text-shadow: 5px 5px 5px #808080;
+  color: #000040;
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+}
+.comprehensive .regional .el-row .el-col > p {
+  line-height: 30px;
+  padding: 20px;
+  box-shadow: 5px 5px 5px #808080;
+}
+.comprehensive .regional h4 {
+  line-height: 60px;
+  background-color: #0080ff;
+  font-size: 20px;
+  color: #fff;
+  width: 100%;
+  padding-left: 10px;
+}
+.comprehensive .regional .el-tabs {
+  margin: 20px;
+}
+.comprehensive .regional .overall {
+  margin: 20px;
+  padding: 20px;
+  background-color: #fff;
+}
+.comprehensive .regional .overall h5 {
+  color: #0080ff;
+  font-size: 20px;
+  line-height: 40px;
+  text-shadow: 5px 5px 5px #808080;
+}
+.comprehensive .regional .ahp,
+.comprehensive .regional .caseIndex {
+  margin: 20px;
+  padding: 20px;
+  background-color: #fff;
+}
+.comprehensive .regional .ahp h5,
+.comprehensive .regional .caseIndex h5 {
+  color: #0080ff;
+  font-size: 20px;
+  line-height: 40px;
+  text-shadow: 5px 5px 5px #808080;
+}
+.comprehensive .issues {
+  margin-top: 20px;
+  background-color: #fff;
+}
+.comprehensive .issues .el-row {
+  padding: 20px;
+}
+.comprehensive .issues .el-row span {
+  line-height: 130px;
+  font-size: 30px;
+  color: #000040;
+  font-weight: 500;
+  text-align: center;
+  text-shadow: 5px 5px 5px #808080;
+  width: 100%;
+  display: inline-block;
+}
+.comprehensive .issues .el-row p {
+  line-height: 30px;
+  padding: 20px;
+  box-shadow: 5px 5px 5px #808080;
+}
+.comprehensive .incident {
+  background-color: #fff;
+  margin-top: 20px;
+  padding: 20px;
+}
+.comprehensive .incident h4 {
+  line-height: 60px;
+  color: #000040;
+  font-size: 30px;
+  font-weight: 500;
+  padding-left: 20px;
+  text-shadow: 5px 5px 5px #808080;
+}
+.comprehensive .incident p {
+  line-height: 30px;
+  padding: 20px;
+  box-shadow: 5px 5px 5px #808080;
+}
+.comprehensive .incident .Political h5,
+.comprehensive .incident .Economic h5,
+.comprehensive .incident .ctu h5 {
+  color: #0080ff;
+  font-size: 20px;
+  text-shadow: 5px 5px 5px #808080;
+  line-height: 40px;
+  padding-left: 20px;
+}

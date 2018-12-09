@@ -1,9 +1,10 @@
 //政治事件分析
 .PoliticsEventAnalysis{
     .title{       
-        color:#6c7996;
+        color:@maxtitle;
         font-size:30px;
-        line-height:60px;
+        line-height:80px;
+        padding-left: 20px;
     }
     .el-form{
         margin-top:20px;
@@ -11,14 +12,14 @@
             &__label{
                font-size:18px;
                font-weight: 700;
-               color:#0080ff;
+               color:@mintitle;
             }
         }
     }
     .statistics{
       margin-top:20px;
-      padding:10px;
-      background-color:#fff;
+      padding:40px;
+      background-color:@bgc;
       .explain{
          font-size:30px;
          line-height:60px;
@@ -29,7 +30,7 @@
                     width: 40px;
                     line-height:40px;
                     color:#fff;
-                    background-color:#1ca1e8;
+                    background-color:@mintitle;
                     border-radius:50%;
                     font-size:20px;
                     text-align:center;
@@ -42,23 +43,27 @@
                     line-height:20px;
                     font-size:20px;
                     span{
-                        color:#1ca1e8;
+                        color:@mintitle;
                     }
                }
             }
       }
       h4{
-            color:'#036';
+            color:@maxtitle;
             font-size:16px;
             font-weight:600;
             text-align:center;
             line-height:50px;
             width:100%
       }
+      &:nth-of-type(2),&:nth-of-type(4),&:nth-of-type(6),&:nth-of-type(8){
+            background-color: @bgc2;
+            padding: 40px;
+        }
     }
     .content{
         width:100%;
-        background-color:#ffffff;
+        background-color:@bgc;
         padding:10px;
         margin-top:30px;
     }
@@ -86,10 +91,10 @@
 
 //政治事件列表
 .PoliticsEventList{
-    background-color: #fff;
+    background-color: @bgc;
     padding:20px;
     .title{
-        color:#6c7996;
+        color:@maxtitle;
         font-size:30px;
         line-height:60px;        
     }
@@ -97,7 +102,7 @@
        .el-form-item{
            &__label{
                font-size:18px;
-               color:#0080ff;
+               color:@mintitle;
            }
        }
     }

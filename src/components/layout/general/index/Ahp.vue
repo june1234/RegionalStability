@@ -2,104 +2,16 @@
   <div class="ahp">
     <h5>AHP专家打分权重</h5>
     <el-table
-      :data="tableData"
+      :data="table"
       border
       style="width: 100%"
     >
       <el-table-column
-        prop="date"
-        label="日期"
+        v-for="(item,index) in AhpData.Theader"
+        :prop="item.prop"
+        :label="item.label"
         min-width="6.25%"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="name"
-        label="姓名"
-        min-width="6.25%"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="address"
-        label="地址"
-        min-width="6.25%"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="address"
-        label="地址"
-        min-width="6.25%"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="address"
-        label="地址"
-        min-width="6.25%"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="address"
-        label="地址"
-        min-width="6.25%"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="address"
-        label="地址"
-        min-width="6.25%"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="address"
-        label="地址"
-        min-width="6.25%"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="address"
-        label="地址"
-        min-width="6.25%"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="address"
-        label="地址"
-        min-width="6.25%"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="address"
-        label="地址"
-        min-width="6.25%"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="address"
-        label="地址"
-        min-width="6.25%"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="address"
-        label="地址"
-        min-width="6.25%"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="address"
-        label="地址"
-        min-width="6.25%"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="address"
-        label="地址"
-        min-width="6.25%"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="address"
-        label="地址"
-        min-width="6.25%"
+        :key="index"
       >
       </el-table-column>
     </el-table>
@@ -109,24 +21,25 @@
 <script>
 export default {
   name: "ahp",
-
+  props:{
+    AhpData:Object
+  },
   data() {
     return {
-      tableData: []
+      table:[]
     };
   },
-
+  watch:{
+    AhpData:function(newData,oldData){
+      if(newData){
+        this.AhpData=newData
+        this.table.push(this.AhpData.Tbody)
+      }
+    }
+  },
   methods: {}
 };
 </script>
 
 <style lang='less' scoped>
-.ahp {
-  margin: 20px;
-  h5 {
-    color: #0080ff;
-    font-size: 20px;
-    line-height: 40px;
-  }
-}
 </style>

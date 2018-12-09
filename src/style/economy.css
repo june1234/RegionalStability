@@ -1,0 +1,63 @@
+.EconomyEventAnalysis {
+  background-color: #fff;
+}
+.EconomyEventAnalysis .title {
+  color: #6c7996;
+  font-size: 30px;
+  line-height: 60px;
+  padding-left: 20px;
+}
+.EconomyEventAnalysis .el-form .el-form-item_label {
+  font-size: 18px;
+  color: #0080ff;
+}
+.EconomyEventAnalysis > h4 {
+  font-size: 30px;
+  line-height: 60px;
+  text-align: center;
+  background-color: #adadad;
+  color: #000080;
+}
+.EconomyEventAnalysis .content {
+  padding: 20px;
+}
+.EconomyEventAnalysis .content span {
+  display: inline-block;
+  width: 100%;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  color: #0080ff;
+}
+.EconomyEventAnalysis .Economy {
+  padding: 20px;
+}
+.EconomyEventAnalysis .Economy h4 {
+  font-size: 20px;
+  line-height: 40px;
+  color: #0080ff;
+}
+.EconomyEventAnalysis .Economy > div {
+  width: 100%;
+  height: 500px;
+}
+.EconomyEventAnalysis .list {
+  padding: 20px;
+}
+.EconomyEventAnalysis .list .more {
+  float: right;
+  margin-top: 10px;
+}
+.economyEventList {
+  background-color: #fff;
+  padding: 20px;
+}
+.economyEventList .title {
+  color: #6c7996;
+  font-size: 30px;
+  line-height: 60px;
+}
+.economyEventList .el-form .el-form-item__label {
+  font-size: 18px;
+  color: #0080ff;
+}

@@ -1,3 +1,6 @@
 .layout .el-container .el-header {
   padding: 0;
 }
+.layout .el-container .el-main {
+  padding: 10px 0;
+}
