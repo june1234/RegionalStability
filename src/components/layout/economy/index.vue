@@ -7,43 +7,37 @@
       label-width="80px"
     >
       <el-form-item label="选择国家">
-        <el-checkbox
-          :indeterminate="isIndeterminate"
-          v-model="checkAll"
-          @change="handleCheckAllChange"
-          style="margin-bottom:10px;"
-        >全选</el-checkbox>
-        <el-checkbox-group
-          v-model="economyFormData.Country"
-          @change="handleCheckedCitiesChange"
+        <el-select
+          v-model="economyFormData.countrycode"
+          placeholder="选择国家"
         >
-          <el-checkbox-button
-            v-for="country in countrys"
-            :label="country"
-            :key="country"
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
           >
-            {{country}}
-          </el-checkbox-button>
-        </el-checkbox-group>
+          </el-option>
+        </el-select>
       </el-form-item>
       <el-form-item label="选择时间">
         <el-date-picker
-          v-model="economyFormData.beginDate"
+          v-model="economyFormData.startTime"
           type="date"
           placeholder="请输入开始时间"
+          value-format="yyyy-MM-dd"
         >
         </el-date-picker>
         <el-date-picker
-          v-model="economyFormData.endDate"
+          v-model="economyFormData.endTime"
           type="date"
           placeholder="请输入结束时间"
+          val-format="yyyy-MM-dd"
         >
         </el-date-picker>
       </el-form-item>
       <el-form-item>
-        <el-button
-          type="primary"
-        >查询</el-button>
+        <el-button type="primary" @click="selectEcnomy">查询</el-button>
       </el-form-item>
     </el-form>
     <!-- 曲线图 -->
@@ -53,31 +47,19 @@
         <el-col :span="8">
           <div class="grid-content">
             <span class="span-title">国家CPI变化曲线图</span>
-            <div
-              id="chartOne"
-              class="chartClass"
-              style="height:400px"
-            ></div>
+           <line-charts :lineData="cpiLine"></line-charts>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="grid-content">
             <span class="span-title">国家GDP变化曲线图</span>
-            <div
-              id="chartTwo"
-              class="chartClass"
-              style="height:400px"
-            ></div>
+           <line-charts :lineData="gdpLine"></line-charts>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="grid-content">
             <span class="span-title">国家股市行情变化曲线图</span>
-            <div
-              id="chartThree"
-              class="chartClass"
-              style="height:400px"
-            ></div>
+           <line-charts :lineData="guLine"></line-charts>
           </div>
         </el-col>
       </el-row>
@@ -93,20 +75,20 @@
               border
             >
               <el-table-column
-                prop="countryfullname"
+                prop="country"
                 label="国家"
                 align="center"
                 min-width="100%"
               ></el-table-column>
               <el-table-column
-                prop="year"
+                prop="date"
                 label="时间(年)"
                 align="center"
                 min-width="100%"
               ></el-table-column>
               <el-table-column
-                prop="growth"
-                label="增长率"
+                prop="value"
+                label="增长率(%)"
                 align="center"
                 min-width="100%"
               ></el-table-column>
@@ -121,20 +103,20 @@
               border
             >
               <el-table-column
-                prop="countryfullname"
+                prop="country"
                 label="国家"
                 align="center"
                 min-width="100%"
               ></el-table-column>
               <el-table-column
-                prop="year"
+                prop="date"
                 label="时间(年)"
                 align="center"
                 min-width="100%"
               ></el-table-column>
               <el-table-column
-                prop="growth"
-                label="增长率"
+                prop="value"
+                label="增长率(%)"
                 align="center"
                 min-width="100%"
               ></el-table-column>
@@ -149,19 +131,19 @@
               border
             >
               <el-table-column
-                prop="countryfullname"
+                prop="country"
                 label="国家"
                 align="center"
                 min-width="100%"
               ></el-table-column>
               <el-table-column
-                prop="day"
+                prop="date"
                 label="时间(天)"
                 align="center"
                 min-width="100%"
               ></el-table-column>
               <el-table-column
-                prop="growth"
+                prop="value"
                 label="增长率"
                 align="center"
                 min-width="100%"
@@ -175,13 +157,21 @@
     <h4>全球经济分析</h4>
     <div class="Economy">
       <h4>可持续城市和社区</h4>
-      <world-charts2 v-if="isCitys" :worldData="citys.data" :title="citys.title" :subtext="citys.subtext"></world-charts2>
+      <world-charts2
+        :worldData="citys.data"
+        :title="citys.title"
+        :subtext="citys.subtext"
+      ></world-charts2>
     </div>
     <!-- 经济增长和就业情况 -->
     <div class="Economy">
       <h4>经济增长和就业情况</h4>
       <div id="growth"></div>
-      <world-charts v-if="isSituations" :worldData="situations.data" :title="situations.title" :subtext="situations.subtext"></world-charts>
+      <world-charts
+        :worldData="situations.data"
+        :title="situations.title"
+        :subtext="situations.subtext"
+      ></world-charts>
     </div>
     <!-- 创业和创新以及基础设施建设 -->
     <div class="Economy">
@@ -192,7 +182,11 @@
     <!-- 全球合作伙伴 -->
     <div class="Economy">
       <h4>全球合作伙伴</h4>
-      <world-charts v-if="isGlobals" :worldData="globals.data" :title="globals.title" :subtext="globals.subtext"></world-charts>  
+      <world-charts
+        :worldData="globals.data"
+        :title="globals.title"
+        :subtext="globals.subtext"
+      ></world-charts>
     </div>
     <h4>经济事件分析</h4>
     <div class="list">
@@ -210,14 +204,15 @@
               min-width="100%"
             ></el-table-column>
             <el-table-column
-              prop="eventTime"
+              prop="startTime"
               label="事件发生时间"
               align="center"
               min-width="100%"
+              :formatter="formatterTime"
             >
             </el-table-column>
             <el-table-column
-              prop="countryFullName"
+              prop="countryId"
               label="国家"
               align="center"
               min-width="100%"
@@ -229,7 +224,7 @@
               min-width="100%"
             ></el-table-column>
             <el-table-column
-              prop="infrastructure"
+              prop="orginization"
               label="机构"
               align="center"
               min-width="100%"
@@ -241,13 +236,13 @@
               min-width="100%"
             ></el-table-column>
             <el-table-column
-              prop="infrastructure"
+              prop="emotionScore"
               label="情感分数"
               align="center"
               min-width="100%"
             ></el-table-column>
             <el-table-column
-              prop="infrastructure"
+              prop="eventEffect"
               label="影响力"
               align="center"
               min-width="100%"
@@ -260,18 +255,17 @@
               fixed="right"
             >
               <template slot-scope="scope">
-                <el-button
-                  type="text"
-                  @click="showPoliticsEventUpdateDialog(scope.row)"
-                >修改</el-button>
-              </template>
+                  <el-button
+                    type="text"
+                    @click="deleteId(scope.row)"
+                  >删除</el-button>
+                </template>
             </el-table-column>
           </el-table>
           <el-button
             @click="more"
             class="more"
           >更多</el-button>
-
         </el-col>
       </el-row>
     </div>
@@ -281,27 +275,58 @@
 <script>
 import echarts from "echarts";
 import "../../../../node_modules/echarts/map/js/world.js";
-import worldCharts from '@/components/layout/general/charts/world.vue';
-import worldCharts2 from '@/components/layout/general/charts/world.vue';
+import lineCharts from "@/components/layout/general/charts/line.vue";
+import worldCharts from "@/components/layout/general/charts/world.vue";
+import worldCharts2 from "@/components/layout/general/charts/world.vue";
 import { formatterDateStr, formatterDate } from "@/utils/filter.js";
 import {
-  getCPIList,
-  getGDPList,
-  getStockPointList,
   Sustainable,
   Situation,
   Global,
-  Innovation
+  Innovation,
+  list
 } from "@/api/economy/EconomyEventAnalysis";
+import { event,deleteEvent } from "@/api/common";
 export default {
   data() {
     return {
+      options: [
+        {
+          value: "PRK",
+          label: "朝鲜"
+        },
+        {
+          value: "IND",
+          label: "印度"
+        },
+        {
+          value: "JPN",
+          label: "日本"
+        },
+        {
+          value: "CHN",
+          label: "中国"
+        },
+        {
+          value: "USA",
+          label: "美国"
+        },
+        {
+          value: "PAK",
+          label: "巴基斯坦"
+        },
+        {
+          value: "KOR",
+          label: "韩国"
+        }
+      ],
       economyFormData: {
-        Country: ["印度"],
-        eventTime: "",
-        endTime: ""
+        countrycode: "IND",
+        genre: 2,
+        startTime: "2018-01-01",
+        endTime: "2018-10-01"
       },
-      EconomyTableData:[],
+      EconomyTableData: [],
       stockpointVo: {
         pageNum: 1,
         pageSize: 5,
@@ -323,11 +348,6 @@ export default {
         id: "",
         year: ""
       },
-      //国家信息
-      countrys: ["日本", "朝鲜", "印度", "韩国", "中国", "美国", "巴基斯坦"],
-      isIndeterminate:false,
-      checkAll: false,
-
       //CPI表格数据
       CPITableData: [],
 
@@ -342,246 +362,76 @@ export default {
       situa: {
         recordTime: 2017
       },
-      situations:{data:[],title:"",subtext:""},
-      citys:{data:[],title:"",subtext:""},
-      globals: {data:[],title:"",subtext:""},
+      world: {
+        recordTime: 2016
+      },
+      situations: { data: [], title: "", subtext: "" },
+      citys: { data: [], title: "", subtext: "" },
+      globals: { data: [], title: "", subtext: "" },
       Innovas: [],
-      isCitys:false,
-      isSituations:false,
-      isGlobals:false,
+      cpiLine:{},
+      gdpLine:{},
+      guLine:{}
     };
   },
-  components:{
+  components: {
     worldCharts,
-    worldCharts2
+    worldCharts2,
+    lineCharts
   },
   created() {
-    this.loadCPIPageList();
-    this.loadGDPPageList();
-    this.loadStockPointPageList();
     this.selectEcnomy();
   },
   mounted() {
-    this.drawLineOne();
-    this.drawLineTwo();
-    this.drawLineThree();
     this.growth();
     this.development();
   },
   methods: {
-    //加载CPI数据
-    loadCPIPageList() {
-      getCPIList(this.gpiVo).then(res => {
-        this.CPITableData = res.data.list;
-      });
-    },
-
-    //加载GDP数据
-    loadGDPPageList() {
-      getGDPList(this.gdpVo).then(res => {
-        this.GDPTableData = res.data.list;
-      });
-    },
-
-    //加载股指信息数据
-    loadStockPointPageList() {
-      getStockPointList(this.stockpointVo).then(res => {
-        this.StockPointTableData = res.data.list;
-        for (var i in this.StockPointTableData) {
-          this.StockPointTableData[i].day = formatterDateStr(
-            this.StockPointTableData[i].day
-          );
-        }
-      });
-    },
     selectEcnomy() {
       Sustainable(this.city).then(res => {
+        console.log(res)
         this.citys.data = res.data;
-        this.citys.title= "主要国家细颗粒物（PM2.5）污染的安全水平。固体燃料的工业，运输和家庭使用是其中的来源";
-        this.citys.subtext="wbg_name（指标 =  “环境空气污染，PM2.5，年平均暴露”，denom  =  “每立方米微克数，ug / m3 ”，年份 =  年份）";
-        this.isCitys=true
+        this.citys.title =
+          "主要国家细颗粒物（PM2.5）污染的安全水平。固体燃料的工业，运输和家庭使用是其中的来源";
+        this.citys.subtext =
+          "wbg_name（指标 =  “环境空气污染，PM2.5，年平均暴露”，denom  =  “每立方米微克数，ug / m3 ”，年份 =  年份）";
+        this.isCitys = true;
       });
       Situation(this.situa).then(res => {
         this.situations.data = res.data;
-        this.situations.title="获得金融服务有益于个人和社会。在全球范围内，69％的成年人拥有金融机构或移动货币提供者的账户"
-        this.situations.subtext= "wbg_name（指标 =  “帐户所有权”，年份 =  年份，denom  =  “ 15岁及以上人口的百分比”）"
-      this.isSituations=true
+        this.situations.title =
+          "获得金融服务有益于个人和社会。在全球范围内，69％的成年人拥有金融机构或移动货币提供者的账户";
+        this.situations.subtext =
+          "wbg_name（指标 =  “帐户所有权”，年份 =  年份，denom  =  “ 15岁及以上人口的百分比”）";
+        this.isSituations = true;
       });
-      Global(this.situa).then(res => {
+      Global(this.world).then(res => {
+        console.log(res.data)
         this.globals.data = res.data;
-        this.globals.title="全球国家出口增长值";
-        this.globals.subtext="";
-        this.isGlobals=true
+        this.globals.title = "全球国家出口增长值";
+        this.globals.subtext = "";
+        this.isGlobals = true;
       });
       Innovation().then(res => {
         this.Innovas = res.data;
         this.innovation();
       });
+      event(this.economyFormData).then(res => {
+        this.EconomyTableData=res.data.list
+      });
+      list(this.economyFormData).then(res=>{
+        console.log(res.data)
+        this.cpiLine=res.data.photo.cpi
+        this.gdpLine=res.data.photo.gdp
+        this.guLine=res.data.photo.gu
+        this.CPITableData=res.data.table.cpi
+        this.GDPTableData=res.data.table.gdp
+        this.StockPointTableData=res.data.table.gu
+
+      })
     },
     resetEcnomy(economyFormData) {
       this.$refs[economyFormData].resetFields();
-    },
-    drawLineOne() {
-      var myChart = echarts.init(document.getElementById("chartOne"));
-      var option = {
-        color: ["#003366", "#006699", "#4cabce"],
-        tooltip: {
-          trigger: "axis",
-          axisPointer: {
-            // 坐标轴指示器，坐标轴触发有效
-            type: "line" // 默认为直线，可选为：'line' | 'shadow'
-          }
-        },
-        legend: {
-          data: ["朝鲜", "印度", "日本"]
-        },
-        grid: {
-          left: "3%",
-          right: "4%",
-          bottom: "3%",
-          containLabel: true
-        },
-        xAxis: {
-          type: "category",
-          boundaryGap: false,
-          data: ["2013", "2014", "2015", "2016", "2017"]
-        },
-        yAxis: {
-          type: "value"
-        },
-        series: [
-          {
-            name: "朝鲜",
-            type: "line",
-            stack: "总量",
-            data: [120, 100, 145, 134, 90]
-          },
-          {
-            name: "印度",
-            type: "line",
-            stack: "总量",
-            data: [159, 212, 206, 146, 180]
-          },
-          {
-            name: "日本",
-            type: "line",
-            stack: "总量",
-            data: [320, 332, 312, 334, 390]
-          }
-        ]
-      };
-      window.addEventListener("resize", function() {
-        myChart.resize();
-      });
-      myChart.setOption(option);
-    },
-    drawLineTwo() {
-      var myChart = echarts.init(document.getElementById("chartTwo"));
-      var option = {
-        color: ["#003366", "#006699", "#4cabce"],
-        legend: {
-          data: ["朝鲜", "印度", "日本"]
-        },
-        tooltip: {
-          trigger: "axis",
-          axisPointer: {
-            // 坐标轴指示器，坐标轴触发有效
-            type: "line" // 默认为直线，可选为：'line' | 'shadow'
-          }
-        },
-        grid: {
-          left: "3%",
-          right: "4%",
-          bottom: "3%",
-          containLabel: true
-        },
-        xAxis: {
-          type: "category",
-          boundaryGap: false,
-          data: ["2013", "2014", "2015", "2016", "2017"]
-        },
-        yAxis: {
-          type: "value"
-        },
-        series: [
-          {
-            name: "朝鲜",
-            type: "line",
-            stack: "总量",
-            data: [120, 132, 101, 134, 90]
-          },
-          {
-            name: "印度",
-            type: "line",
-            stack: "总量",
-            data: [150, 232, 201, 154, 190]
-          },
-          {
-            name: "日本",
-            type: "line",
-            stack: "总量",
-            data: [320, 332, 301, 334, 390]
-          }
-        ]
-      };
-      myChart.setOption(option);
-      window.addEventListener("resize", function() {
-        myChart.resize();
-      });
-    },
-    drawLineThree() {
-      var myChart = echarts.init(document.getElementById("chartThree"));
-      var option = {
-        color: ["#003366", "#006699", "#4cabce"],
-        legend: {
-          data: ["朝鲜", "印度", "日本"]
-        },
-        tooltip: {
-          trigger: "axis",
-          axisPointer: {
-            // 坐标轴指示器，坐标轴触发有效
-            type: "line" // 默认为直线，可选为：'line' | 'shadow'
-          }
-        },
-        grid: {
-          left: "3%",
-          right: "4%",
-          bottom: "3%",
-          containLabel: true
-        },
-        xAxis: {
-          type: "category",
-          boundaryGap: false,
-          data: ["6月1日", "6月2日", "6月3日", "6月4日", "6月5日"]
-        },
-        yAxis: {
-          type: "value"
-        },
-        series: [
-          {
-            name: "朝鲜",
-            type: "line",
-            stack: "总量",
-            data: [100, 88, 75, 110, 80]
-          },
-          {
-            name: "印度",
-            type: "line",
-            stack: "总量",
-            data: [180, 200, 150, 154, 160]
-          },
-          {
-            name: "日本",
-            type: "line",
-            stack: "总量",
-            data: [220, 300, 240, 226, 345]
-          }
-        ]
-      };
-      myChart.setOption(option);
-      window.addEventListener("resize", function() {
-        myChart.resize();
-      });
     },
     // 经济增长和就业情况
     // 柱形图
@@ -1201,18 +1051,16 @@ export default {
         deveCharts.resize();
       });
     },
-    handleCheckAllChange(val) {
-      this.economyFormData.Country = val ? this.countrys : [];
-      this.isIndeterminate = false;
-    },
-    handleCheckedCitiesChange(value) {
-      let checkedCount = value.length;
-      this.checkAll = checkedCount === this.countrys.length;
-      this.isIndeterminate =
-        checkedCount > 0 && checkedCount < this.countrys.length;
+     deleteId(row) {
+      deleteEvent(row.id).then(res => {
+        this.selectEcnomy();
+      });
     },
     more() {
       this.$router.push("/EconomyEvent/economyEventList");
+    },
+    formatterTime(val) {
+      return formatterDateStr(val.startTime);
     }
   }
 };

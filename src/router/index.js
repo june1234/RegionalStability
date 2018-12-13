@@ -13,7 +13,7 @@ export default new Router({
       children: [{
         path: '',
         name: 'index',
-        component: () => import('@/components/layout/index/index.vue')
+        component: () => import('@/components/layout/index/Index.vue')
       },
       {
         path: 'region',
@@ -28,7 +28,7 @@ export default new Router({
       {
         path: 'Report/specialReport',
         name: 'ReportSpecialReport',
-        component: () => import('@/components/layout/report/SpecialReport.vue')
+        component: () => import('@/components/layout/report/specialReport.vue')
       },
       {
         path: 'NewsList',

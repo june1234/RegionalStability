@@ -15,11 +15,10 @@ export function findword (eventTimingFormData) {
   })
 }
 
-// 关系图谱
-export function paintingweight (eventGroulp) {
+export function findTitle (params) {
   return request({
-    url: 'weight/paintingweight',
+    url: '/title/findtitle',
     method: 'post',
-    data: eventGroulp
+    data: params
   })
 }

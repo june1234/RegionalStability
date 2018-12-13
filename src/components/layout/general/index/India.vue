@@ -138,7 +138,7 @@
 </template>
 
 <script>
-import lineCharts from "@/components/layout/general/Charts/line.vue";
+import lineCharts from "@/components/layout/general/charts/line.vue";
 export default {
   name: "India",
   props: {

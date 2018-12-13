@@ -51,7 +51,12 @@ this.Topick()
           x: "center"
         },
         tooltip: {
-          position: "top"
+          position: "top",
+          formatter: function(params) {
+						var value = params.data[2];
+						console.log(params)
+						return keys[params.data[1]] + '</br>' + value ;
+					}
         },
         animation: false,
         xAxis: {
@@ -104,7 +109,6 @@ this.Topick()
         },
         series: [
           {
-            name: "Punch Card",
             type: "heatmap",
             data: data,
             label: {

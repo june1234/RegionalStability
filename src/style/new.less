@@ -3,7 +3,12 @@
     padding: 20px;
     .el-row {
         .el-col {
-            padding: 0 100px;
+            &:last-child{
+                padding:0 20px;
+            }
+            &:first-child{
+                padding:0 100px;
+            }
             h5 {
                 color: @mintitle;
                 font-size: 24px;
@@ -26,9 +31,6 @@
                         .el-progress.is-success .el-progress-bar__inner{
                           background-color: #8080ff;
                         }
-                    }
-                    span {
-                        padding-left: 30px;
                     }
                     span:last-child {
                         color: @maxtitle;

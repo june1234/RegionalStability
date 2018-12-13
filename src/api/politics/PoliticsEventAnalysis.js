@@ -7,9 +7,9 @@
 import request from '@/utils/request.js'
 
 // 获取政治事件分析列表信息
-export function getPoliticsEventListByType (politicsFormData) {
+export function frequency (politicsFormData) {
   return request({
-    url: '/information/findbypage',
+    url: '/requesttest/frequency',
     method: 'post',
     data: politicsFormData
   })

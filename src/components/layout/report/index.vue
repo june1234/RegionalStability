@@ -4,12 +4,12 @@
       <el-col :span="6">
         <h4>报告内容</h4>
       </el-col>
-      <el-col :span="12">
+      <!-- <el-col :span="12">
         <el-button
           type="text"
           class="note"
-        >说明</el-button>
-      </el-col>
+        >说明</el-button> -->
+      <!-- </el-col> -->
     </el-row>
     <el-form
       :inline="true"
@@ -18,7 +18,7 @@
     >
       <el-form-item label="选择国家">
         <el-select
-          v-model="formInline.country"
+          v-model="formInline.countryCode"
           placeholder="请选择国家"
         >
           <el-option
@@ -32,9 +32,10 @@
       </el-form-item>
       <el-form-item label="选择时间">
         <el-date-picker
-          v-model="formInline.time"
+          v-model="formInline.date"
           type="month"
           placeholder="选择月"
+          value-format="yyyy-MM-dd"
         >
         </el-date-picker>
       </el-form-item>
@@ -57,7 +58,7 @@
             label="报告标题"
             class="title"
           >
-            <el-input v-model="form.name"></el-input>
+            <el-input v-model="form.title"></el-input>
           </el-form-item>
           <el-form-item
             label="报告描述"
@@ -73,35 +74,28 @@
           </el-form-item>
         </div>
         <div class="topic">
-          <el-form-item label="议题">
-            <el-radio-group v-model="form.resource">
-              <el-radio label="显示"></el-radio>
-              <el-radio label="不显示"></el-radio>
+          <el-form-item label="事件演变">
+            <el-radio-group v-model="form.topicDisplay">
+              <el-radio
+                value="0"
+                label="显示"
+              ></el-radio>
+              <el-radio
+                value="1"
+                label="不显示"
+              ></el-radio>
             </el-radio-group>
-            <el-select
-              v-model="form.value"
-              placeholder="请选择议题"
-              style="margin-left:20px;"
-            >
-              <el-option
-                v-for="item in IssuesOption"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              >
-              </el-option>
-            </el-select>
           </el-form-item>
-          <line-charts></line-charts>
+          <usa-charts></usa-charts>
         </div>
-        <div class="news">
+        <!-- <div class="news">
           <el-form-item label="新闻">
-            <el-radio-group v-model="form.resource">
+            <el-radio-group v-model="form.newsDisplay">
               <el-radio label="显示"></el-radio>
               <el-radio label="不显示"></el-radio>
             </el-radio-group>
             <el-select
-              v-model="form.value"
+              v-model="form.newsType"
               placeholder="请选择新闻种类"
               style="margin-left:20px;"
             >
@@ -121,35 +115,35 @@
               type="textarea"
               :rows="4"
               placeholder="新闻统计说明"
-              v-model="form.dec"
+              v-model="form.NewsDec"
               style="width:60%;"
             >
             </el-input>
           </el-form-item>
-        </div>
+        </div> -->
         <div class="eventAnalysis">
           <el-form-item label="事件分析">
-            <el-radio-group v-model="form.resource">
+            <el-radio-group v-model="form.eventDisplay">
               <el-radio label="显示"></el-radio>
               <el-radio label="不显示"></el-radio>
             </el-radio-group>
           </el-form-item>
           <div class="event">
             <el-form-item label="政治事件">
-              <el-radio-group v-model="form.resource">
+              <el-radio-group v-model="form.pDisplay">
                 <el-radio label="显示"></el-radio>
                 <el-radio label="不显示"></el-radio>
               </el-radio-group>
             </el-form-item>
-            <hot-charts></hot-charts>
+            <hot-charts :hotData="pScatter"></hot-charts>
             <h5>事件列表</h5>
             <el-table
               ref="multipleTable"
-              :data="tableData"
+              :data="pTableData"
               border
               tooltip-effect="dark"
               style="width: 100%"
-              @selection-change="handleSelectionChange"
+              @selection-change="PoliticsSelectionChange"
             >
               <el-table-column
                 type="selection"
@@ -163,7 +157,7 @@
                 min-width="100%"
               ></el-table-column>
               <el-table-column
-                prop="eventTime"
+                prop="startTime"
                 label="事件发生时间"
                 :formatter="formatterTime"
                 align="center"
@@ -171,7 +165,7 @@
               >
               </el-table-column>
               <el-table-column
-                prop="countryFullName"
+                prop="countryId"
                 label="国家"
                 align="center"
                 min-width="100%"
@@ -183,7 +177,7 @@
                 min-width="100%"
               ></el-table-column>
               <el-table-column
-                prop="infrastructure"
+                prop="infrastructures"
                 label="建筑物"
                 align="center"
                 min-width="100%"
@@ -195,53 +189,43 @@
                 min-width="100%"
               ></el-table-column>
               <el-table-column
-                prop="infrastructure"
+                prop="emotionScore"
                 label="情感分数"
                 align="center"
                 min-width="100%"
               ></el-table-column>
               <el-table-column
-                prop="infrastructure"
+                prop="eventEffect"
                 label="影响力"
                 align="center"
                 min-width="100%"
               ></el-table-column>
             </el-table>
-            <el-pagination
-              @size-change="handleSizeChange"
-              @current-change="handleCurrentChange"
-              :current-page.sync="currentPage"
-              :page-size="100"
-              layout="total, prev, pager, next"
-              :total="1000"
-            >
-            </el-pagination>
             <h5>事件描述</h5>
             <el-form-item>
               <el-input
                 type="textarea"
                 :rows="4"
                 placeholder="事件描述"
-                v-model="form.dec"
+                v-model="form.PEventDec"
                 style="width:60%;"
               >
               </el-input>
             </el-form-item>
             <el-form-item label="经济事件">
-              <el-radio-group v-model="form.resource">
+              <el-radio-group v-model="form.eDisplay">
                 <el-radio label="显示"></el-radio>
                 <el-radio label="不显示"></el-radio>
               </el-radio-group>
             </el-form-item>
-            <hot-charts></hot-charts>
             <h5>事件列表</h5>
             <el-table
               ref="multipleTable"
-              :data="tableData"
+              :data="eTableData"
               border
               tooltip-effect="dark"
               style="width: 100%"
-              @selection-change="handleSelectionChange"
+              @selection-change="EconomySelectionChange"
             >
               <el-table-column
                 type="selection"
@@ -255,14 +239,15 @@
                 min-width="100%"
               ></el-table-column>
               <el-table-column
-                prop="eventTime"
+                prop="startTime"
                 label="事件发生时间"
+                :formatter="formatterTime"
                 align="center"
                 min-width="100%"
               >
               </el-table-column>
               <el-table-column
-                prop="countryFullName"
+                prop="countryId"
                 label="国家"
                 align="center"
                 min-width="100%"
@@ -274,7 +259,7 @@
                 min-width="100%"
               ></el-table-column>
               <el-table-column
-                prop="infrastructure"
+                prop="orginization"
                 label="机构"
                 align="center"
                 min-width="100%"
@@ -286,53 +271,44 @@
                 min-width="100%"
               ></el-table-column>
               <el-table-column
-                prop="infrastructure"
+                prop="emotionScore"
                 label="情感分数"
                 align="center"
                 min-width="100%"
               ></el-table-column>
               <el-table-column
-                prop="infrastructure"
+                prop="eventEffect"
                 label="影响力"
                 align="center"
                 min-width="100%"
               ></el-table-column>
             </el-table>
-            <el-pagination
-              @size-change="handleSizeChange"
-              @current-change="handleCurrentChange"
-              :current-page.sync="currentPage"
-              :page-size="100"
-              layout="total, prev, pager, next"
-              :total="1000"
-            >
-            </el-pagination>
             <h5>事件描述</h5>
             <el-form-item>
               <el-input
                 type="textarea"
                 :rows="4"
                 placeholder="事件描述"
-                v-model="form.dec"
+                v-model="form.eDec"
                 style="width:60%;"
               >
               </el-input>
             </el-form-item>
             <el-form-item label="反恐事件">
-              <el-radio-group v-model="form.resource">
+              <el-radio-group v-model="form.cDisplay">
                 <el-radio label="显示"></el-radio>
                 <el-radio label="不显示"></el-radio>
               </el-radio-group>
             </el-form-item>
-            <hot-charts></hot-charts>
+            <hot-charts :hotData="cScatter"></hot-charts>
             <h5>事件列表</h5>
             <el-table
               ref="multipleTable"
-              :data="tableData"
+              :data="cTableData"
               tooltip-effect="dark"
               border
               style="width: 100%"
-              @selection-change="handleSelectionChange"
+              @selection-change="CtdSelectionChange"
             >
               <el-table-column
                 type="selection"
@@ -346,14 +322,14 @@
                 min-width="100%"
               ></el-table-column>
               <el-table-column
-                prop="eventTime"
+                prop="startTime"
                 label="事件发生时间"
                 :formatter="formatterTime"
                 align="center"
                 min-width="100%"
               ></el-table-column>
               <el-table-column
-                prop="countryFullName"
+                prop="countryId"
                 label="国家"
                 align="center"
                 min-width="100%"
@@ -371,58 +347,43 @@
                 min-width="100%"
               ></el-table-column>
               <el-table-column
-                prop="infrastructure"
+                prop="infrastructures"
                 label="建筑物"
                 align="center"
                 min-width="100%"
               ></el-table-column>
               <el-table-column
-                prop="border"
-                label="边境状况"
-                align="center"
-                min-width="100%"
-              ></el-table-column>
-              <el-table-column
-                prop="militaryfacor"
+                prop="arms"
                 label="军事要素"
                 align="center"
                 min-width="100%"
               ></el-table-column>
               <el-table-column
-                prop="naturefactor"
+                prop="natureDisaster"
                 label="自然要素"
                 align="center"
                 min-width="100%"
               ></el-table-column>
               <el-table-column
-                prop="naturefactor"
+                prop="emotionScore"
                 label="情感分数"
                 align="center"
                 min-width="100%"
               ></el-table-column>
               <el-table-column
-                prop="naturefactor"
+                prop="eventEffect"
                 label="影响力"
                 align="center"
                 min-width="100%"
               ></el-table-column>
             </el-table>
-            <el-pagination
-              @size-change="handleSizeChange"
-              @current-change="handleCurrentChange"
-              :current-page.sync="currentPage"
-              :page-size="100"
-              layout="total, prev, pager, next"
-              :total="1000"
-            >
-            </el-pagination>
             <h5>事件描述</h5>
             <el-form-item>
               <el-input
                 type="textarea"
                 :rows="4"
                 placeholder="事件描述"
-                v-model="form.dec"
+                v-model="form.cDec"
                 style="width:60%;"
               >
               </el-input>
@@ -444,33 +405,58 @@
 </template>
 
 <script>
-import lineCharts from "@/components/layout/general/Charts/line.vue";
-import hotCharts from "@/components/layout/general/Charts/hot.vue";
+import lineCharts from "@/components/layout/general/charts/line.vue";
+import hotCharts from "@/components/layout/general/charts/hot.vue";
+import usaCharts from "@/components/layout/general/index/USA/USALine.vue";
 import { formatterDateStr, formatterDate } from "@/utils/filter";
+import { event,point } from "@/api/common";
 export default {
   name: "report",
 
   data() {
     return {
       formInline: {
-        country: "",
-        time: ""
+        countryCode: "IND",
+        date: "2018-10-01",
+        pageNum: 1,
+        pageSize: 10
+      },
+      Pform: {
+        countryCode: "",
+        date: "",
+        pageNum: 0,
+        pageSize: 0,
+        genre: 1
+      },
+      Eform: {
+        genre: 2,
+        countryCode: "",
+        date: "",
+        pageNum: 0,
+        pageSize: 0
+      },
+      Cform: {
+        genre: 3,
+        countryCode: "",
+        date: "",
+        pageNum: 0,
+        pageSize: 0
       },
       countryOptions: [
         {
-          value: "NorthKorea",
+          value: "PRK",
           label: "朝鲜"
         },
         {
-          value: "India ",
+          value: "IND",
           label: "印度"
         },
         {
-          value: "Japan",
+          value: "JPN",
           label: "日本"
         },
         {
-          value: "China",
+          value: "CHN",
           label: "中国"
         },
         {
@@ -478,26 +464,12 @@ export default {
           label: "美国"
         },
         {
-          value: "Pakistan",
+          value: "PAK",
           label: "巴基斯坦"
         },
         {
-          value: "SouthKorea",
+          value: "KOR",
           label: "韩国"
-        }
-      ],
-      IssuesOption: [
-        {
-          value: "1",
-          label: "中美贸易战"
-        },
-        {
-          value: "2 ",
-          label: "朝核问题"
-        },
-        {
-          value: "3",
-          label: "钓鱼岛问题"
         }
       ],
       newOption: [
@@ -518,31 +490,170 @@ export default {
           label: "反恐"
         }
       ],
-      form: {},
-      tableData: [],
-      currentPage: 2
+      form: {
+        title: "",
+        dec: "",
+        topicDisplay: "",
+        newsDisplay: "",
+        newsType: "",
+        NewsDec: "",
+        eventDisplay: "",
+        pDisplay: "",
+        PEventDec: "",
+        eDisplay: "",
+        eDec: "",
+        cDisplay: "",
+        cDec: ""
+      },
+      pTableData: [],
+      eTableData: [],
+      cTableData: [],
+      pEventList: [],
+      eEventList: [],
+      cEventList: [],
+      pScatter:[],
+      cScatter:[],
+      pTotal: 0,
+      eTotal: 0,
+      cTotal: 0,
+      topic:{
+        name:'事件演变',
+        display:false
+      },
+      news:{
+        name:'新闻统计',
+        display:false,
+        newsData:[],
+        NewsDec:''
+      },
+      event:{
+        name:'事件分析',
+        display:false,
+        Politics:{
+          name:'政治事件',
+          display:false,
+          pScatter:[],
+          pEventList:[],
+          pEventDec:''
+        },
+        Economy:{
+          name:'经济事件',
+          display:false,
+          eEventList:[],
+          eEventDec:''
+        },
+        CTD:{
+          name:"反恐事件",
+          display:false,
+          cEventList:[],
+          cEventDec:'',
+          cScatter:[]
+        }
+      }
     };
   },
   components: {
     lineCharts,
-    hotCharts
+    hotCharts,
+    usaCharts
+  },
+  created() {
+    this.losting();
   },
   methods: {
-    handleSelectionChange(val) {
-      this.multipleSelection = val;
+    losting() {
+      this.Politics();
+      this.Economy();
+      this.Ctd();
     },
-    submite() {},
+    EconomySelectionChange(val) {
+      this.eEventList=val
+    },
+    PoliticsSelectionChange(val) {
+      this.pEventList=val
+    },
+    CtdSelectionChange(val) {
+      this.cEventList=val
+    },
+    submite() {
+      this.Politics();
+      this.Economy();
+      this.Ctd();
+    },
     generated() {
-      this.$router.push('/Report/specialReport')
+      if(this.form.topicDisplay==="显示"){
+        this.topic.display=true
+      }
+      if(this.form.newsDisplay==="显示"){
+        this.news.display=true
+        this.news.NewsDec=this.form.NewsDec
+      }
+      if(this.form.eventDisplay==="显示"){
+        this.event.display=true
+      }
+      if(this.form.eventDisplay==="显示"&&this.form.pDisplay==="显示"){
+          this.event.Politics.display=true
+          this.event.Politics.pEventList=this.pEventList
+          this.event.Politics.PEventDec=this.form.PEventDec
+          this.event.Politics.pScatter=this.pScatter
+      }
+      if(this.form.eventDisplay==="显示"&&this.form.eDisplay==="显示"){
+          this.event.Economy.display=true
+          this.event.Economy.eEventList=this.eEventList
+          this.event.Economy.eEventDec=this.form.eDec
+      }
+      if(this.form.eventDisplay==="显示"&&this.form.cDisplay==="显示"){
+          this.event.CTD.display=true
+          this.event.CTD.cEventList=this.cEventList
+          this.event.CTD.cEventDec=this.form.cDec
+          this.event.CTD.cScatter=this.cScatter
+      }
+      this.$router.push({path:"/Report/specialReport",query:{form:this.form,event:this.event,topic:this.topic,news:this.news}});
+    },
+    Politics() {
+      this.Pform.countryCode = this.formInline.countryCode;
+      this.Pform.date = this.formInline.date;
+      this.Pform.pageNum = this.formInline.pageNum;
+      this.Pform.pageSize = this.formInline.pageSize;
+      event(this.Pform).then(res => {
+        this.pTableData = res.data.list;
+        this.pTotal = res.data.total;
+      });
+      point(this.Pform).then(res=>{
+        this.pScatter=res.data
+      })
+    },
+    Economy() {
+      this.Eform.countryCode = this.formInline.countryCode;
+      this.Eform.date = this.formInline.date;
+      this.Eform.pageNum = this.formInline.pageNum;
+      this.Eform.pageSize = this.formInline.pageSize;
+      event(this.Eform).then(res => {
+        this.eTableData = res.data.list;
+        this.eTotal = res.data.total;
+      });
+    },
+    Ctd() {
+      this.Cform.countryCode = this.formInline.countryCode;
+      this.Cform.date = this.formInline.date;
+      this.Cform.pageNum = this.formInline.pageNum;
+      this.Cform.pageSize = this.formInline.pageSize;
+      event(this.Cform).then(res => {
+        this.cTableData = res.data.list;
+        this.cTotal = res.data.total;
+      });
+      point(this.Cform).then(res=>{
+        this.cScatter=res.data
+      })
     },
     handleSizeChange(val) {
-      console.log(`每页 ${val} 条`);
+      this.formInline.pageSize = val;
     },
     handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
+      this.formInline.pageNum=val
     },
     formatterTime(val) {
-      return formatterDateStr(val.eventTime);
+      return formatterDateStr(val.startTime);
     }
   }
 };

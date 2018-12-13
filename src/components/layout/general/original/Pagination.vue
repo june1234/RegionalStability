@@ -3,27 +3,23 @@
     <el-row>
       <el-col :span="12">
         <el-pagination
-          @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
-          :current-page.sync="currentPage"
-          :page-size="100"
+          :current-page.sync="pageNum"
           layout="total, prev, pager, next"
-          :total="1000"
+          :total="Total"
         >
         </el-pagination>
       </el-col>
       <el-col :span="12">
         <el-row>
-          <el-col :span="8">
-            <p>总分：<span>100</span></p>
-          </el-col>
-          <el-col :span="8">
-            <p>正面数量：<span>100</span></p>
-            <p>负面数量：<span>100</span></p>
-          </el-col>
-          <el-col :span="8">
-            <p>正面影响：<span>100</span></p>
-            <p>负面影响：<span>100</span></p>
+          <!-- <el-col :span="8">
+            <p>总分：<span>{{this.emotion.totalScore}}</span></p>
+          </el-col> -->
+          <el-col :span="24">
+            <el-row>
+              <el-col :span="12"> <p>正面数量：<span>{{a}}</span></p><p>正面影响：<span>{{b}}</span></p></el-col>
+              <el-col :span="12"><p>负面数量：<span>{{c}}</span></p><p>负面影响：<span>{{d}}</span></p></el-col>
+            </el-row>
           </el-col>
         </el-row>
       </el-col>
@@ -34,19 +30,44 @@
 <script>
 export default {
   name: "Pagination",
-
+  props:{
+    total:Number,
+    Emotion:Object
+  },
+  watch:{
+    total:function(newData, oldData) {
+      if (newData) {
+        this.Total = newData;
+      }
+    },
+    Emotion:function(newData, oldData) {
+      if (newData) {
+        this.emotion = newData;
+        console.log(this.emotion.emotion)
+        this.a=this.emotion.emotion[0].emocount
+        this.b=this.emotion.emotion[0].emosum
+        this.c=this.emotion.emotion[1].emocount
+        this.d=this.emotion.emotion[1].emosum
+      }
+    }
+  },
   data() {
     return {
-      currentPage: 1
+      pageNum: 1,
+      pageSize: 10,
+      Total:0,
+      emotion:{},
+      a:"",
+      b:"",
+      c:"",
+      d:""
     };
   },
 
   methods: {
-    handleSizeChange(val) {
-      console.log(`每页 ${val} 条`);
-    },
     handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
+      this.pageNum=val
+      this.$emit("PageNum",this.pageNum)
     }
   }
 };

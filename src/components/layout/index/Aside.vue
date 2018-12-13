@@ -13,7 +13,7 @@
             <el-submenu index="3">
                 <template slot="title">事件分析</template>
                 <el-menu-item index="/OriginalEvents">原事件分析</el-menu-item>
-                <el-menu-item index="/EventTiming">议题分析</el-menu-item>
+                <el-menu-item index="/EventTiming">事件演变分析</el-menu-item>
             </el-submenu>
             <el-submenu index="4">
                 <template slot="title">数据分析</template>

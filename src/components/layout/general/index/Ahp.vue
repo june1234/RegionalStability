@@ -2,7 +2,7 @@
   <div class="ahp">
     <h5>AHP专家打分权重</h5>
     <el-table
-      :data="table"
+      :data="Table"
       border
       style="width: 100%"
     >
@@ -22,20 +22,25 @@
 export default {
   name: "ahp",
   props:{
-    AhpData:Object
+    AhpData:Object,
+    Table:Array
   },
   data() {
     return {
-      table:[]
     };
   },
   watch:{
     AhpData:function(newData,oldData){
       if(newData){
         this.AhpData=newData
-        this.table.push(this.AhpData.Tbody)
       }
-    }
+    },
+    Table:function(newData,oldData){
+      if(newData){
+        this.Table=newData
+      }
+    },
+
   },
   methods: {}
 };

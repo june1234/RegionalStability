@@ -1,177 +1,32 @@
 <template>
   <div>
-    <el-tabs type="border-card">
-      <el-tab-pane label="一月">
-        <div>
-          <h5>政治事件</h5>
-          <political></political>
-        </div>
-        <div>
-          <h5>经济事件</h5>
-          <economic></economic>
-        </div>
-        <div>
-          <h5>政治事件</h5>
-          <ctu></ctu>
-        </div>
-      </el-tab-pane>
-      <el-tab-pane label="二月">
-        <div>
-          <h5>政治事件</h5>
-          <political></political>
-        </div>
-        <div>
-          <h5>经济事件</h5>
-          <economic></economic>
-        </div>
-        <div>
-          <h5>政治事件</h5>
-          <ctu></ctu>
-        </div>
-
-      </el-tab-pane>
-      <el-tab-pane label="三月">
-        <div>
-          <h5>政治事件</h5>
-          <political></political>
-        </div>
-        <div>
-          <h5>经济事件</h5>
-          <economic></economic>
-        </div>
-        <div>
-          <h5>政治事件</h5>
-          <ctu></ctu>
-        </div>
-
-      </el-tab-pane>
-      <el-tab-pane label="四月">
-        <div>
-          <h5>政治事件</h5>
-          <political></political>
-        </div>
-        <div>
-          <h5>经济事件</h5>
-          <economic></economic>
-        </div>
-        <div>
-          <h5>政治事件</h5>
-          <ctu></ctu>
-        </div>
-      </el-tab-pane>
-      <el-tab-pane label="五月">
-        <div>
-          <h5>政治事件</h5>
-          <political></political>
-        </div>
-        <div>
-          <h5>经济事件</h5>
-          <economic></economic>
-        </div>
-        <div>
-          <h5>政治事件</h5>
-          <ctu></ctu>
-        </div>
-      </el-tab-pane>
-      <el-tab-pane label="六月">
-        <div>
-          <h5>政治事件</h5>
-          <political></political>
-        </div>
-        <div>
-          <h5>经济事件</h5>
-          <economic></economic>
-        </div>
-        <div>
-          <h5>政治事件</h5>
-          <ctu></ctu>
-        </div>
-      </el-tab-pane>
-      <el-tab-pane label="七月">
-        <div>
-          <h5>政治事件</h5>
-          <political></political>
-        </div>
-        <div>
-          <h5>经济事件</h5>
-          <economic></economic>
-        </div>
-        <div>
-          <h5>政治事件</h5>
-          <ctu></ctu>
-        </div>
-      </el-tab-pane>
-      <el-tab-pane label="八月">
-        <div>
-          <h5>政治事件</h5>
-          <political></political>
-        </div>
-        <div>
-          <h5>经济事件</h5>
-          <economic></economic>
-        </div>
-        <div>
-          <h5>政治事件</h5>
-          <ctu></ctu>
-        </div>
-      </el-tab-pane>
-      <el-tab-pane label="九月">
-        <div>
-          <h5>政治事件</h5>
-          <political></political>
-        </div>
-        <div>
-          <h5>经济事件</h5>
-          <economic></economic>
-        </div>
-        <div>
-          <h5>政治事件</h5>
-          <ctu></ctu>
-        </div>
-      </el-tab-pane>
-      <el-tab-pane label="十月">
-        <div>
-          <h5>政治事件</h5>
-          <political></political>
-        </div>
-        <div>
-          <h5>经济事件</h5>
-          <economic></economic>
-        </div>
-        <div>
-          <h5>政治事件</h5>
-          <ctu></ctu>
-        </div>
-      </el-tab-pane>
-      <el-tab-pane label="十一月">
-        <div>
-          <h5>政治事件</h5>
-          <political></political>
-        </div>
-        <div>
-          <h5>经济事件</h5>
-          <economic></economic>
-        </div>
-        <div>
-          <h5>政治事件</h5>
-          <ctu></ctu>
-        </div>
-      </el-tab-pane>
-      <el-tab-pane label="十二月">
-        <div>
-          <h5>政治事件</h5>
-          <political></political>
-        </div>
-        <div>
-          <h5>经济事件</h5>
-          <economic></economic>
-        </div>
-        <div>
-          <h5>政治事件</h5>
-          <ctu></ctu>
-        </div>
-      </el-tab-pane>
-    </el-tabs>
+    <div>
+      <h5>政治事件</h5>
+      <political
+        :politicalData="PoliticalData"
+        :PEmotion="pEmotion"
+        @PpageNum="PpageNum"
+        @Pid="Pid"
+      ></political>
+    </div>
+    <div>
+      <h5>经济事件</h5>
+      <economic
+        :economicData="EconomicData"
+        :EEmotion="eEmotion"
+        @EpageNum="EpageNum"
+        @Eid="Eid"
+      ></economic>
+    </div>
+    <div>
+      <h5>反恐事件</h5>
+      <ctu
+        :ctdData="CtuData"
+        :CEmotion="cEmotion"
+        @CpageNum="CpageNum"
+        @Cid="Cid"
+      ></ctu>
+    </div>
   </div>
 </template>
 
@@ -181,16 +36,81 @@ import economic from "@/components/layout/general/original/EconomicTable.vue";
 import ctu from "@/components/layout/general/original/CtuTable.vue";
 export default {
   name: "index",
-
+  props: {
+    politicalData: Object,
+    economicData: Object,
+    ctuData: Object,
+    PEmotion: Object,
+    EEmotion: Object,
+    CEmotion: Object
+  },
   data() {
-    return {};
+    return {
+      PoliticalData: {},
+      EconomicData: {},
+      CtuData: {},
+      pEmotion: {},
+      eEmotion: {},
+      cEmotion: {}
+    };
+  },
+  watch: {
+    politicalData: function(newData, oldData) {
+      if (newData) {
+        this.PoliticalData = newData;
+      }
+    },
+    economicData: function(newData, oldData) {
+      if (newData) {
+        this.EconomicData = newData;
+      }
+    },
+    ctuData: function(newData, oldData) {
+      if (newData) {
+        this.CtuData = newData;
+      }
+    },
+    PEmotion: function(newData, oldData) {
+      if (newData) {
+        this.pEmotion = newData;
+      }
+    },
+    EEmotion: function(newData, oldData) {
+      if (newData) {
+        this.eEmotion = newData;
+      }
+    },
+    CEmotion: function(newData, oldData) {
+      if (newData) {
+        this.cEmotion = newData;
+      }
+    }
   },
   components: {
     political,
     economic,
     ctu
   },
-  methods: {}
+  methods: {
+    PpageNum(value) {
+      this.$emit("PpageNum", value);
+    },
+    EpageNum(value) {
+      this.$emit("EpageNum", value);
+    },
+    CpageNum(value) {
+      this.$emit("CpageNum", value);
+    },
+    Pid(value) {
+      this.$emit("Pid", value);
+    },
+    Eid(value) {
+      this.$emit("Eid", value);
+    },
+    Cid(value) {
+      this.$emit("Cid", value);
+    }
+  }
 };
 </script>
 

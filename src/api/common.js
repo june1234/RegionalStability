@@ -29,3 +29,53 @@ export function updateLevel (gradeVo) {
     data: gradeVo
   })
 }
+
+// 统一新闻列变
+export function event (params) {
+  return request({
+    url: 'events/findlist',
+    method: 'post',
+    data: params
+  })
+}
+// 删除事件
+export function deleteEvent (id) {
+  return request({
+    url: `/events/delete/${id}`,
+    method: 'post'
+  })
+}
+// 查询分数
+export function findEmotion (params) {
+  return request({
+    url: '/events/findEmotion',
+    method: 'post',
+    data: params
+  })
+}
+// 旭日图
+
+export function findSun (params) {
+  return request({
+    url: '/events/findSun',
+    method: 'post',
+    data: params
+  })
+}
+
+// 散点图
+export function point (params) {
+  return request({
+    url: '/requesttest/point',
+    method: 'post',
+    data: params
+  })
+}
+// 曲线
+export function findcurves (params) {
+  return request({
+    url: '/events/findcurves',
+    method: 'post',
+    data: params
+  })
+}

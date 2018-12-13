@@ -59,16 +59,13 @@ export default {
   },
   created() {
     newList().then(res => {
-      console.log(res);
       this.newListData = res.data;
     });
     Source().then(res => {
-      console.log(res);
       this.SourceData = res.data;
       for(var i in this.SourceData.nFrom){
         this.SourceData.nFrom[i].percentage=(this.SourceData.nFrom[i].count/this.SourceData.total)*100
       }
-      console.log(this.SourceData.nFrom)
     });
   },
   methods: {

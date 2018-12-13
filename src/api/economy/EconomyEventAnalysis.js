@@ -6,32 +6,6 @@
 */
 import request from '@/utils/request.js'
 
-// 获取CPI信息列表
-export function getCPIList (CPIFormData) {
-  return request({
-    url: 'cpi/findbypage',
-    method: 'post',
-    data: CPIFormData
-  })
-}
-
-// 获取GDP信息列表
-export function getGDPList (GDPFormData) {
-  return request({
-    url: 'gdp/findbypage',
-    method: 'post',
-    data: GDPFormData
-  })
-}
-
-// 获取股指信息 信息列表
-export function getStockPointList (StockPointFormData) {
-  return request({
-    url: 'stockpoint/findbypage',
-    method: 'post',
-    data: StockPointFormData
-  })
-}
 // 可持续城市
 export function Sustainable (city) {
   return request({
@@ -40,15 +14,6 @@ export function Sustainable (city) {
     data: city
   })
 }
-// 经济增长和就业情况
-// 柱形图
-// export function growth(){
-// 	return request({
-// 		url:'',
-// 		method:'post',
-// 		data:
-// 	})
-// }
 // 地图
 export function Situation (situation) {
   return request({
@@ -72,5 +37,13 @@ export function Global (situation) {
     url: '/export/promp',
     method: 'post',
     data: situation
+  })
+}
+
+export function list (params) {
+  return request({
+    url: '/requesttest/three',
+    method: 'post',
+    data: params
   })
 }

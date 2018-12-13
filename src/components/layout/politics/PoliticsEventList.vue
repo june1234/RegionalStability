@@ -9,10 +9,9 @@
     >
       <el-form-item
         label="国家"
-        prop="countryId"
       >
         <el-select
-          v-model="politicsFormData.countryId"
+          v-model="politicsFormData.countrycode"
           filterable
           placeholder="请选择国家"
         >
@@ -25,31 +24,14 @@
           </el-option>
         </el-select>
       </el-form-item>
-      <el-form-item
-        label="等级"
-        prop="grade"
-      >
-        <el-select
-          v-model="politicsFormData.grade"
-          placeholder="请选择等级"
+      <el-form-item>
+        <el-date-picker
+          v-model="politicsFormData.date"
+          type="month"
+          placeholder="选择月份"
+          value-format="yyyy-MM-dd"
         >
-          <el-option
-            v-for="item in grades"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-          >
-          </el-option>
-        </el-select>
-      </el-form-item>
-      <el-form-item
-        label="关键字"
-        prop="keys"
-      >
-        <el-input
-          v-model="politicsFormData.keywords"
-          placeholder="请输入关键字"
-        ></el-input>
+        </el-date-picker>
       </el-form-item>
       <el-form-item>
         <el-button
@@ -75,7 +57,7 @@
                 min-width="100%"
               ></el-table-column>
               <el-table-column
-                prop="eventTime"
+                prop="startTime"
                 label="事件发生时间"
                 :formatter="formatterTime"
                 align="center"
@@ -83,7 +65,7 @@
               >
               </el-table-column>
               <el-table-column
-                prop="countryFullName"
+                prop="countryId"
                 label="国家"
                 align="center"
                 min-width="100%"
@@ -95,7 +77,7 @@
                 min-width="100%"
               ></el-table-column>
               <el-table-column
-                prop="infrastructure"
+                prop="infrastructures"
                 label="建筑物"
                 align="center"
                 min-width="100%"
@@ -107,13 +89,13 @@
                 min-width="100%"
               ></el-table-column>
               <el-table-column
-                prop="militaryfacor"
+                prop="emotionScore"
                 label="情感分数"
                 align="center"
                 min-width="100%"
               ></el-table-column>
               <el-table-column
-                prop="naturefactor"
+                prop="eventEffect"
                 label="影响力"
                 align="center"
                 min-width="100%"
@@ -128,8 +110,8 @@
                 <template slot-scope="scope">
                   <el-button
                     type="text"
-                    @click="showPoliticsEventUpdateDialog(scope.row)"
-                  >修改</el-button>
+                    @click="deleteId(scope.row)"
+                  >删除</el-button>
                 </template>
               </el-table-column>
             </el-table>
@@ -137,7 +119,7 @@
               @size-change="handleSizeChange"
               @current-change="handleCurrentChange"
               :current-page="politicsFormData.pageNum"
-              :page-sizes="[20, 100, 150, 200]"
+              :page-sizes="[5,10,20]"
               :page-size="politicsFormData.pageSize"
               layout="total, sizes, prev, pager, next, jumper"
               :total="total"
@@ -218,10 +200,8 @@
 
 <script>
 import { formatterDateStr } from "@/utils/filter.js";
-import {
-  getPartyGroupList,
-  getPoliticsEventList
-} from "@/api/politics/PoliticsEventList.js";
+import { event,deleteEvent } from "@/api/common";
+
 export default {
   data() {
     return {
@@ -229,10 +209,10 @@ export default {
       //政治查询form表单
       politicsFormData: {
         pageNum: 1,
-        pageSize: 20,
-        type: 1,
-        countryId: "",
-        keywords: ""
+        pageSize: 5,
+        date:"2018-10-01",
+        genre: 1,
+        countrycode: "IND",
       },
       //政治事件修改dialog表单数据
       politicsEvent: {
@@ -251,19 +231,40 @@ export default {
       total: 0,
       //国家信息
       countries: [
-        { value: "1", label: "中国" },
-        { value: "2", label: "美国" },
-        { value: "3", label: "日本" },
-        { value: "4", label: "韩国" },
-        { value: "5", label: "朝鲜" },
-        { value: "6", label: "印度" },
-        { value: "7", label: "巴基斯坦" }
+        {
+          value: "PRK",
+          label: "朝鲜"
+        },
+        {
+          value: "IND",
+          label: "印度"
+        },
+        {
+          value: "JPN",
+          label: "日本"
+        },
+        {
+          value: "CHN",
+          label: "中国"
+        },
+        {
+          value: "USA",
+          label: "美国"
+        },
+        {
+          value: "PAK",
+          label: "巴基斯坦"
+        },
+        {
+          value: "KOR",
+          label: "韩国"
+        }
       ],
       //政党信息
       partyGroups: [],
       //政治事件table数据
       politicsTableData: [],
-      grades:[]
+      grades: []
     };
   },
   created() {
@@ -272,13 +273,13 @@ export default {
   methods: {
     //加载政治事件列表信息
     loadPoliticsEventPageList() {
-      getPoliticsEventList(this.politicsFormData).then(res => {
+      event(this.politicsFormData).then(res => {
         this.total = res.data.total;
         this.politicsTableData = res.data.list;
       });
     },
     formatterTime(val) {
-      return formatterDateStr(val.eventTime);
+      return formatterDateStr(val.startTime);
     },
     //查询
     selectPoliticsEvent() {
@@ -320,6 +321,11 @@ export default {
     //取消
     canclePoliticsEvent() {
       this.politicsEventUpdateDialog = false;
+    },
+    deleteId(row) {
+      deleteEvent(row.id).then(res => {
+        this.loadPoliticsEventPageList();
+      });
     },
     //返回
     goBack() {

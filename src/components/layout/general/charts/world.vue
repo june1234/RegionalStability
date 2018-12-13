@@ -16,17 +16,34 @@ export default {
   data() {
     return {};
   },
+  watch:{
+    worldData:function(newData,oldData){
+        if(newData){
+          this.worldData=newData
+          this.world()
+        }
+    },
+    title:function(newData,oldData){
+        if(newData){
+          this.title=newData
+          this.world()
+        }
+    },
+    subtext:function(newData,oldData){
+        if(newData){
+          this.subtext=newData
+          this.world()
+        }
+    },
+  },
   mounted(){
       this.world()
   },
   methods: {
       world(){
-        console.log("子组件")
-        console.log(this.worldData)
       this.worldData.forEach(function(element, index) {
         element.name = element.countryname;
       });
-      
       const sitCharts = echarts.init(this.$el);
       sitCharts.setOption({
         title: {
@@ -80,7 +97,7 @@ export default {
 <style lang='less' scoped>
 .world {
   width: 100%;
-  height:550px;
+  height:400px;
   background-color: #f8f8f8;
   box-shadow: 10px 10px 10px #d2d2d2;
   border:1px solid #fff;

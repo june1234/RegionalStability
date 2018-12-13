@@ -13,7 +13,7 @@ import store from '../store'
 // 创建axios实例
 const service = axios.create({
   // baseURL: 'http://192.168.10.222:8080/dev', // api的base_url 服务器地址
-  baseURL: 'http://192.168.17.248:8080/dev', // 本地地址
+  baseURL: 'http://192.168.10.231:8080/dev', // 本地地址
   timeout: 540000 // 请求超时时间
 })
 
@@ -48,11 +48,11 @@ service.interceptors.response.use(
 
     const res = response.data
     if (res.retcode != '200000') {
-      Message({
-        message: res.msg,
-        type: 'error',
-        duration: 5 * 1000
-      })
+      // Message({
+      //   message: res.msg,
+      //   type: 'error',
+      //   duration: 5 * 1000
+      // })
       // 50008:非法的token; 50012:其他客户端登录了;  50014:Token 过期了;
       // if (res.code === 50008 || res.code === 50012 || res.code === 50014) {
       //   MessageBox.confirm('你已被登出，可以取消继续留在该页面，或者重新登录', '确定登出', {

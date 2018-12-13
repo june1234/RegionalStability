@@ -9,7 +9,7 @@ import request from '@/utils/request.js'
 // 获取新闻分页信息列表
 export function getNewsList (newsFormData) {
   return request({
-    url: 'information/findbypage',
+    url: '/informationeventbase/findbypage',
     method: 'post',
     data: newsFormData
   })
