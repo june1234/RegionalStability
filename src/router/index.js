@@ -101,6 +101,62 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: () => import('@/components/Login.vue')
+    },
+    {
+      path: '/admin',
+      name: 'admin',
+      component: () => import('@/components/admin/admin.vue'),
+      children: [{
+        path: 'UserManage',
+        name: 'UserManage',
+        component: () => import('@/components/admin/user')
+      },
+      {
+        path: 'UserManage/userDetail',
+        name: 'userDetail',
+        component: () => import('@/components/admin/user/UserDetail.vue')
+      },
+      {
+        path: 'GTD/GTDManage',
+        name: 'GTDManage',
+        component: () => import('@/components/admin/data/GTD')
+      },
+      {
+        path: 'WordBank',
+        name: 'WordBank',
+        component: () => import('@/components/admin/data/WordBank')
+      },
+      {
+        path: 'News/newsManage',
+        name: 'newsManage',
+        component: () => import('@/components/admin/data/News')
+      },
+      {
+        path: 'politicalevents',
+        name: 'politicalevents',
+        component: () => import('@/components/admin/eventManagement/politicalEvents')
+      },
+      {
+        path: 'economicevents',
+        name: 'economicevents',
+        component: () => import('@/components/admin/eventManagement/economicEvents')
+      },
+      {
+        path: 'counterterrorismincidents',
+        name: 'counterterrorismincidents',
+        component: () => import('@/components/admin/eventManagement/counterTerrorismincidents')
+      },
+      {
+        path: 'Log/OpreateLog',
+        name: 'OpreateLog',
+        component: () => import('@/components/admin/log/OpreateLog')
+      },
+      {
+        path: 'expert',
+        name: 'expert',
+        component: () => import('@/components/admin/expertparameters')
+      }
+      ]
     }
   ]
 })

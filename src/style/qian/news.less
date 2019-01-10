@@ -1,0 +1,58 @@
+//新闻列表
+.NewsList{
+    padding: 20px;
+    background-color: @bgc;
+	.title{
+        font-size: 30px;
+        line-height: 60px;
+        color: @maxtitle;
+	}
+	.el-form{
+        width:100%;
+        .el-form-item{
+            margin-bottom: 22px;
+        }
+        .el-form--inline .el-form-item {
+            display: inline-block;
+		    margin-right: 10px;
+		    vertical-align: top;
+		}
+		.el-input__inner{
+		    font-size: inherit;
+		    height: 40px;
+		    line-height: 40px;
+		}
+    }
+    .content{
+        width:100%;
+        background-color:@bgc;
+        margin-top:30px;
+        padding:10px;
+        .el-table{
+            width:100%;
+        }
+    }
+}
+
+//新闻详情
+.NewsDetail {
+  background-color: @bgc;
+  padding: 20px;
+  .NewsTitle {
+    font-size: 30px;
+    line-height: 60px;
+    color: @maxtitle;
+    text-align: center;
+  }
+  .NewsList {
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+    color: @mintitle;
+  }
+  .news{
+      line-height:30px;
+      font-size:20px;
+      padding:0 100px;
+  }
+}

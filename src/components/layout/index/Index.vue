@@ -255,10 +255,7 @@
       </el-row>
       <el-row>
         <el-col :span="24">
-          <topice-charts
-            v-if="isTopice"
-            :all="topiceData"
-          ></topice-charts>
+          <time-charts :all="usaTimeLineData"></time-charts>
           <el-button
             type="text"
             style="float:right;"
@@ -373,7 +370,6 @@
 </template>
 
 <script>
-import topiceData from "@/assets/zhongmei/USALine.json";
 import ahp from "@/components/layout/general/index/Ahp.vue";
 import india from "@/components/layout/general/index/India.vue";
 import news from "@/components/layout/general/index/News.vue";
@@ -382,9 +378,10 @@ import barCharts from "@/components/layout/general/charts/lineBar.vue";
 import armedForces from "@/components/layout/general/charts/ArmedForces.vue";
 import worldCharts from "@/components/layout/general/charts/world.vue";
 import hotCharts from "@/components/layout/general/charts/hot.vue";
-import topiceCharts from "@/components/layout/general/index/USA/USALine.vue";
-import indiaPine from "@/assets/india/92_3.json";
+import timeCharts from "@/components/layout/general/charts/timeLineCharts.vue";
 import { Situation } from "@/api/economy/EconomyEventAnalysis";
+import { TrendData } from "@/api/eventTiming/EventTimingAnalysis";
+import { ForcesAnalysis } from "@/api/anti-terrorism/Anti-terrorismEventAnalysis";
 import { composite, Ahp, caseIndex, compare } from "@/api/index/index";
 import { findSun, point } from "@/api/common";
 export default {
@@ -544,11 +541,11 @@ export default {
         searchtime: "2018-12-12"
       },
       compareData: {},
-      topiceData: {},
       isTopice: false,
       indiaPine: {},
       pointData: [],
-      centerDialogVisible:false
+      centerDialogVisible:false,
+      usaTimeLineData:{}
     };
   },
   components: {
@@ -559,16 +556,14 @@ export default {
     armedForces,
     worldCharts,
     barCharts,
-    topiceCharts,
-    hotCharts
+    hotCharts,
+    timeCharts
   },
   mounted() {},
   created() {
     this.losting();
     this.Composite();
-    this.topiceData = topiceData;
     this.isTopice = true;
-    this.indiaPine = indiaPine.data;
   },
   methods: {
     jump(val) {
@@ -606,6 +601,13 @@ export default {
       point(this.point).then(res => {
         this.pointData = res.data;
       });
+      TrendData('zhongmei').then(res=>{
+        this.usaTimeLineData=res.data
+        this.usaTimeTableData=res.data.table
+      })
+      ForcesAnalysis(this.point).then(res=>{
+        this.indiaPine=res.data
+      })
     },
     Composite() {
       composite(this.form).then(res => {

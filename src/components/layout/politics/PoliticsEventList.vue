@@ -199,7 +199,7 @@
 </template>
 
 <script>
-import { formatterDateStr } from "@/utils/filter.js";
+import { formatterDateStr } from "@/utils/filter";
 import { event,deleteEvent } from "@/api/common";
 
 export default {

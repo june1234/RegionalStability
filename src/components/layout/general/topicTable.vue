@@ -1,0 +1,110 @@
+<template>
+  <div>
+    <el-table
+    :data="topicTableData"
+    border
+    style="width: 100%">
+        <el-table-column
+        prop="topic1"
+        label="topic1"
+        min-width="7%">
+        </el-table-column>
+        <el-table-column
+        prop="topic2"
+        label="topic2"
+        min-width="7%">
+        </el-table-column>
+        <el-table-column
+        prop="topic3"
+        label="topic3"
+        min-width="7%">
+        </el-table-column>
+        <el-table-column
+        prop="topic4"
+        label="topic4"
+        min-width="7%">
+        </el-table-column>
+        <el-table-column
+        prop="topic5"
+        label="topic5"
+        min-width="7%">
+        </el-table-column>
+        <el-table-column
+        prop="topic6"
+        label="topic6"
+        min-width="7%">
+        </el-table-column>
+        <el-table-column
+        prop="topic7"
+        label="topic7"
+        min-width="7%">
+        </el-table-column>
+        <el-table-column
+        prop="topic8"
+        label="topic8"
+        min-width="7%">
+        </el-table-column>
+        <el-table-column
+        prop="topic9"
+        label="topic9"
+        min-width="7%">
+        </el-table-column>
+        <el-table-column
+        prop="topic10"
+        label="topic10"
+        min-width="7%">
+        </el-table-column>
+        <el-table-column
+        prop="topic11"
+        label="topic11"
+        min-width="7%">
+        </el-table-column>
+        <el-table-column
+        prop="topic12"
+        label="topic12"
+        min-width="7%">
+        </el-table-column>
+        <el-table-column
+        prop="topic13"
+        label="topic13"
+        min-width="7%">
+        </el-table-column>
+        <el-table-column
+        prop="topic14"
+        label="topic14"
+        min-width="7%">
+        </el-table-column>
+        <el-table-column
+        prop="topic15"
+        label="topic15"
+        min-width="7%">
+        </el-table-column>
+  </el-table>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'topicTable',
+ props:{
+    topicTableData:Array
+ },
+ watch:{
+    topicTableData:function(newData,oldData){
+      if(newData){
+            this.topicTableData=newData
+         }
+    }
+ },
+  data () {
+    return {
+    }
+  },
+
+  methods: {}
+}
+</script>
+
+<style>
+
+</style>

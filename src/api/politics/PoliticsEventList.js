@@ -9,7 +9,7 @@ import request from '@/utils/request.js'
 // 获取政党信息
 export function getPartyGroupList () {
   return request({
-    url: 'partygroup/findbypage',
+    url: '/partygroup/findbypage',
     method: 'post'
   })
 }

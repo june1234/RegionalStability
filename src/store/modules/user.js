@@ -6,7 +6,7 @@ const user = {
     token: getToken(),
     name: '',
     avatar: '',
-    roles: []
+    menus: {}
   },
 
   mutations: {
@@ -19,8 +19,8 @@ const user = {
     SET_AVATAR: (state, avatar) => {
       state.avatar = avatar
     },
-    SET_ROLES: (state, roles) => {
-      state.roles = roles
+    SET_MENUS: (state, menus) => {
+      state.menus = menus
     }
   },
 
@@ -29,40 +29,42 @@ const user = {
     Login ({ commit }, userInfo) {
       return new Promise((resolve, reject) => {
         login(userInfo).then(res => {
-          console.log(res.data)
-          // const data = (response.data)[0]
-          // setToken(data.token)
-          // commit('SET_TOKEN', data.token)
-          // resolve()
+          const data = res.data
+          console.log(data)
+          setToken(data.token)
+          commit('SET_TOKEN', data.token)
+          commit('SET_NAME', data.username)
+          commit('SET_MENUS', data.menu)
+          resolve()
         }).catch(error => {
           reject(error)
         })
       })
     },
 
-    // 获取用户信息
-    GetInfo ({ commit, state }) {
-      return new Promise((resolve, reject) => {
-        getInfo(state.token).then(response => {
-          const data = (response.data)[0]
-          if (data.roles && data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
-            commit('SET_ROLES', data.roles)
-          } else {
-            reject(new Error('getInfo: roles must be a non-null array !'))
-          }
-          commit('SET_NAME', data.name)
-          commit('SET_AVATAR', data.avatar)
-          resolve(response)
-        }).catch(error => {
-          reject(error)
-        })
-      })
-    },
+    // // // 获取用户信息
+    // GetInfo ({ commit, state }) {
+    //   return new Promise((resolve, reject) => {
+    //     getInfo(state.token).then(response => {
+    //       const data = (response.data)[0]
+    //       if (data.roles && data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
+    //         commit('SET_ROLES', data.roles)
+    //       } else {
+    //         reject(new Error('getInfo: roles must be a non-null array !'))
+    //       }
+    //       commit('SET_NAME', data.name)
+    //       commit('SET_AVATAR', data.avatar)
+    //       resolve(response)
+    //     }).catch(error => {
+    //       reject(error)
+    //     })
+    //   })
+    // },
 
     // 退出登录
     LogOut ({ commit, state }) {
       return new Promise((resolve, reject) => {
-        logout(state.token).then(() => {
+        logout().then(() => {
           commit('SET_TOKEN', '')
           commit('SET_ROLES', [])
           removeToken()

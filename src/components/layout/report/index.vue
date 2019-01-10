@@ -4,12 +4,12 @@
       <el-col :span="6">
         <h4>报告内容</h4>
       </el-col>
-      <!-- <el-col :span="12">
+      <el-col :span="12">
         <el-button
           type="text"
           class="note"
-        >说明</el-button> -->
-      <!-- </el-col> -->
+        >说明</el-button>
+      </el-col>
     </el-row>
     <el-form
       :inline="true"
@@ -86,7 +86,7 @@
               ></el-radio>
             </el-radio-group>
           </el-form-item>
-          <usa-charts></usa-charts>
+          <time-charts :all="usaTimeLineData"></time-charts>
         </div>
         <!-- <div class="news">
           <el-form-item label="新闻">
@@ -407,9 +407,10 @@
 <script>
 import lineCharts from "@/components/layout/general/charts/line.vue";
 import hotCharts from "@/components/layout/general/charts/hot.vue";
-import usaCharts from "@/components/layout/general/index/USA/USALine.vue";
+import timeCharts from "@/components/layout/general/charts/timeLineCharts.vue";
 import { formatterDateStr, formatterDate } from "@/utils/filter";
-import { event,point } from "@/api/common";
+import { event,point,getDes } from "@/api/common";
+import { TrendData } from "@/api/eventTiming/EventTimingAnalysis";
 export default {
   name: "report",
 
@@ -428,6 +429,7 @@ export default {
         pageSize: 0,
         genre: 1
       },
+      usaTimeLineData:{},
       Eform: {
         genre: 2,
         countryCode: "",
@@ -555,7 +557,7 @@ export default {
   components: {
     lineCharts,
     hotCharts,
-    usaCharts
+    timeCharts
   },
   created() {
     this.losting();
@@ -565,6 +567,9 @@ export default {
       this.Politics();
       this.Economy();
       this.Ctd();
+      TrendData('zhongmei').then(res=>{
+        this.usaTimeLineData=res.data
+      })
     },
     EconomySelectionChange(val) {
       this.eEventList=val
@@ -654,6 +659,11 @@ export default {
     },
     formatterTime(val) {
       return formatterDateStr(val.startTime);
+    },
+    getdes(){
+      getDes('report').then(res=>{
+        console.log(res)
+      })
     }
   }
 };

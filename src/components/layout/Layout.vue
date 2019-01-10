@@ -1,7 +1,7 @@
 <template>
     <div class="layout">
         <el-container>
-            <el-header style="height:100px;">
+            <el-header style="height:80px;">
                 <app-header></app-header>
             </el-header>
             <el-main  class="w">

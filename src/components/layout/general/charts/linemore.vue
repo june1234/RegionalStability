@@ -9,7 +9,7 @@ import echarts from "echarts"
 export default {
   name: 'moreLine',
   props:{
-    moreData:Array
+    moreData:Object
   },
   data () {
     return {
@@ -49,25 +49,7 @@ this.line()
         },
         xAxis: {
           type: "category",
-          data: [
-            1992,
-            1993,
-            1994,
-            1995,
-            1996,
-            1997,
-            1998,
-            1999,
-            2000,
-            2001,
-            2002,
-            2003,
-            2004,
-            2005,
-            2006,
-            2007,
-            2008
-          ]
+          data: this.moreData.x_zhou
         },
         yAxis: {
           type: "value"
@@ -77,7 +59,7 @@ this.line()
           top: 300,
           orient: "vertical",
         },
-        series: this.moreData
+        series: this.moreData.data
       };
       VicCharts.setOption(option);
       window.addEventListener("resize", function() {

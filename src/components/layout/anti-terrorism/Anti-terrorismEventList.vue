@@ -150,8 +150,7 @@
 </template>
 
 <script>
-import { getCountryAll } from "@/api/common.js";
-import { formatterDateStr } from "@/utils/filter.js";
+import { formatterDateStr } from "@/utils/filter";
 import { event,deleteEvent } from "@/api/common";
 export default {
   data() {

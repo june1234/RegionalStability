@@ -1,0 +1,109 @@
+//政治事件分析
+.PoliticsEventAnalysis{
+    .title{       
+        color:@maxtitle;
+        font-size:30px;
+        line-height:80px;
+        padding-left: 20px;
+    }
+    .el-form{
+        margin-top:20px;
+        .el-form-item{
+            &__label{
+               font-size:18px;
+               font-weight: 700;
+               color:@mintitle;
+            }
+        }
+    }
+    .statistics{
+      margin-top:20px;
+      padding:40px;
+      background-color:@bgc;
+      .explain{
+         font-size:30px;
+         line-height:60px;
+         .bg-purple{
+                padding:10px 20px 10px 10px;
+               .icon{
+                   .el-icon-news{
+                    width: 40px;
+                    line-height:40px;
+                    color:#fff;
+                    background-color:@mintitle;
+                    border-radius:50%;
+                    font-size:20px;
+                    text-align:center;
+                   }
+                 }
+                 .titl{
+                    display:inline-block;
+                    padding-left:10px;
+                    width:140px;
+                    line-height:20px;
+                    font-size:20px;
+                    span{
+                        color:@mintitle;
+                    }
+               }
+            }
+      }
+      h4{
+            color:@maxtitle;
+            font-size:16px;
+            font-weight:600;
+            text-align:center;
+            line-height:50px;
+            width:100%
+      }
+      &:nth-of-type(2),&:nth-of-type(4),&:nth-of-type(6),&:nth-of-type(8){
+            background-color: @bgc2;
+            padding: 40px;
+        }
+    }
+    .content{
+        width:100%;
+        background-color:@bgc;
+        padding:10px;
+        margin-top:30px;
+    }
+    .span-title{
+        display:block;
+        font-size:18px;
+        line-height:40px;
+    }
+    .span-content{
+        width:80%;
+        display:inline-block;
+        font-size:18px;
+        text-align:center;
+        margin-left:40px;
+    }
+    .chartClass{
+        width: 100%;
+        height:300px;
+    }
+    .more{
+        float:right;
+        margin-top:10px;
+    }
+}
+
+//政治事件列表
+.PoliticsEventList{
+    background-color: @bgc;
+    padding:20px;
+    .title{
+        color:@maxtitle;
+        font-size:30px;
+        line-height:60px;        
+    }
+    .el-form{
+       .el-form-item{
+           &__label{
+               font-size:18px;
+               color:@mintitle;
+           }
+       }
+    }
+}

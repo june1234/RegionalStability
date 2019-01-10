@@ -1,0 +1,53 @@
+//事件时序分析
+.EventTimingAnalysis{
+    background-color: @bgc;
+    padding:20px 0;
+	.title{       
+        color:@maxtitle;
+        font-size:30px;
+        line-height:80px;
+        text-align: center;
+    }
+   .el-tabs{
+       margin:20px;
+   }
+    .el-form{
+        margin-top:20px;
+        padding-left:20px;
+        .el-form-item{
+            &__label{
+               font-size:18px;
+               font-weight: 700;
+               color:@mintitle;
+            }
+        }
+    }
+    .statistics{
+        background-color: @bgc;
+        margin-top:20px;
+        padding: 20px;
+        h5{
+        font-size: 20px;
+        line-height: 60px;
+        color: @mintitle;
+        }
+        .el-row{
+            .el-col{
+                .wordCloud{
+                    width: 100%;height: 350px;
+                }
+                h4{
+                    font-size: 18px;
+                    line-height:30px;
+                    color: @mintitle;
+                }
+            }
+
+        }
+        &:nth-of-type(1),&:nth-of-type(3),&:nth-of-type(5),&:nth-of-type(7),&:nth-of-type(9){
+            background-color: @bgc2;
+            padding: 20px;
+        }
+    }
+
+}

@@ -79,3 +79,10 @@ export function findcurves (params) {
     data: params
   })
 }
+// 图例说明
+export function getDes (params) {
+  return request({
+    url: `des/getDes/${params}`,
+    method: 'post'
+  })
+}

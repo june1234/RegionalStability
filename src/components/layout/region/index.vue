@@ -4,9 +4,9 @@
       <el-col :span="6">
         <h2 class="title">区域稳定性分析</h2>
       </el-col>
-      <!-- <el-col :span="18">
+      <el-col :span="18">
         <el-button type="text">说明</el-button>
-      </el-col> -->
+      </el-col>
     </el-row>
     <el-form
       :inline="true"
@@ -181,12 +181,11 @@
       </div>
       <div class="matrix">
         <h6>参数矩阵</h6>
-
         <h6><i class="el-icon-news"></i>新闻</h6>
         <el-row>
           <el-col
             :span="5"
-            style="padding:0 20px;width: 22%;"
+            style="padding:0 20px;width: 22%;border-right:1px solid #eee;"
           >
             <el-row>
               <el-col :span="6"></el-col>
@@ -236,7 +235,7 @@
           </el-col>
           <el-col
             :span="5"
-            style="width: 22%;"
+            style="width: 22%;border-right:1px solid #eee;"
           >
             <el-row>
               <el-col :span="5"></el-col>
@@ -319,7 +318,7 @@
           </el-col>
           <el-col
             :span="5"
-            style="width: 22%;"
+            style="width: 22%;border-right:1px solid #eee;"
           >
             <el-row>
               <el-col :span="5"></el-col>
@@ -489,7 +488,7 @@
         <el-row>
           <el-col
             :span="5"
-            style="width: 20%;"
+            style="width: 20%;border-right:1px solid #eee;"
           >
             <el-row>
               <el-col :span="5"></el-col>
@@ -569,7 +568,7 @@
           </el-col>
           <el-col
             :span="5"
-            style="width: 20%;"
+            style="width: 20%;border-right:1px solid #eee;"
           >
             <el-row>
               <el-col :span="5"></el-col>
@@ -649,7 +648,7 @@
           </el-col>
           <el-col
             :span="5"
-            style="width: 20%;"
+            style="width: 20%;border-right:1px solid #eee;"
           >
             <el-row>
               <el-col :span="5"></el-col>
@@ -729,7 +728,7 @@
           </el-col>
           <el-col
             :span="5"
-            style="width: 20%;"
+            style="width: 20%;border-right:1px solid #eee;"
           >
             <el-row>
               <el-col :span="5"></el-col>
@@ -945,7 +944,7 @@ import {
   worldBankData
 } from "@/api/region/index";
 import { Ahp } from "@/api/index/index";
-import { event, deleteEvent, findEmotion } from "@/api/common";
+import { event, deleteEvent, findEmotion,getDes } from "@/api/common";
 export default {
   data() {
     return {
@@ -1187,6 +1186,11 @@ export default {
       deleteEvent(value).then(res => {
         this.onSubmit();
       });
+    },
+    getdes(){
+      getDes('area').then(res=>{
+        console.log(res)
+      })
     }
   }
 };

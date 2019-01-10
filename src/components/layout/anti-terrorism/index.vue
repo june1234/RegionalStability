@@ -197,23 +197,11 @@
 
 <script>
 import echarts from "echarts";
-import indiaMoreLine from "@/assets/india/92_1.json";
-import indiaBar from "@/assets/india/92_2.json";
 import indiaPine from "@/assets/india/92_3.json";
-import chinaMoreLine from "@/assets/china/44_1.json";
-import chinaBar from "@/assets/china/44_2.json";
 import chinaPine from "@/assets/china/44_3.json";
-import japanMoreLine from "@/assets/japan/101_1.json";
-import japanBar from "@/assets/japan/101_2.json";
 import japanPine from "@/assets/japan/101_3.json";
-import koreaMoreLine from "@/assets/korea/184_1.json";
-import koreaBar from "@/assets/korea/184_2.json";
 import koreaPine from "@/assets/korea/184_3.json";
-import pakistanMoreLine from "@/assets/pakistan/153_1.json";
-import pakistanBar from "@/assets/pakistan/153_2.json";
 import pakistanPine from "@/assets/pakistan/153_3.json";
-import usaMoreLine from "@/assets/usa/217_1.json";
-import usaBar from "@/assets/usa/217_2.json";
 import usaPine from "@/assets/usa/217_3.json";
 import hotCharts from "@/components/layout/general/charts/hot.vue";
 import barCharts from "@/components/layout/general/charts/lineBar.vue";
@@ -222,9 +210,9 @@ import moreLine from "@/components/layout/general/charts/linemore.vue";
 import moreCharts from "@/components/layout/general/charts/bar.vue";
 import armedForces from "@/components/layout/general/charts/ArmedForces.vue";
 import wordCharts from "@/components/layout/general/charts/map.vue";
-import { formatterDateStr, formatterDate } from "@/utils/filter.js";
+import { formatterDateStr, formatterDate } from "@/utils/filter";
 import { event,findSun,point,findcurves,deleteEvent } from "@/api/common";
-import { map } from "@/api/anti-terrorism/Anti-terrorismEventAnalysis";
+import { map,victimAnalysis,CategoryAnalysis,ForcesAnalysis } from "@/api/anti-terrorism/Anti-terrorismEventAnalysis";
 export default {
   data() {
     return {
@@ -291,8 +279,8 @@ export default {
       antiTableData: [],
       CsunData:[],
       country:"印度",
-      moreData:[],
-      barData:[],
+      moreData:{},
+      barData:{},
       pineData:{},
       cDimensions:[],
       lineData:{}
@@ -330,13 +318,20 @@ export default {
         this.mapData=res.data
       })
       point(this.antiFormData).then(res=>{
-        console.log(res)
         this.cDimensions=res.data
       })
       findcurves(this.antiFormData).then(res=>{
            this.lineData=res.data
       })
-      this.Find()
+      victimAnalysis(this.antiFormData).then(res=>{
+        this.moreData=res.data
+      })
+      CategoryAnalysis(this.antiFormData).then(res=>{
+        this.barData=res.data
+      })
+      ForcesAnalysis(this.antiFormData).then(res=>{
+        this.pineData=res.data
+      })
     },
     formatterTime(val) {
       return formatterDateStr(val.startTime);
@@ -354,40 +349,6 @@ export default {
     more() {
       this.$router.push("/AntiTerrorismEvent/Anti-terrorismEventList");
     },
-    Find(){
-      switch (this.antiFormData.countrycode) {
-        case "IND":
-           this.moreData=indiaMoreLine.data
-           this.barData=indiaBar.data
-           this.pineData=indiaPine.data
-          break;
-        case "JPN":
-           this.moreData=japanMoreLine.data
-           this.barData=japanBar.data
-           this.pineData=japanPine.data
-          break;
-        case "CHN":
-           this.moreData=chinaMoreLine.data
-           this.barData=chinaBar.data
-           this.pineData=chinaPine.data
-          break;
-        case "USA":
-           this.moreData=usaMoreLine.data
-           this.barData=usaBar.data
-           this.pineData=usaPine.data
-          break;
-        case "KOR":
-           this.moreData=koreaMoreLine.data
-           this.barData=koreaBar.data
-           this.pineData=koreaPine.data
-          break;
-        case "PAK":
-           this.moreData=pakistanMoreLine.data
-           this.barData=pakistanBar.data
-           this.pineData=pakistanPine.data
-          break;
-      }
-    }
   }
 };
 </script>

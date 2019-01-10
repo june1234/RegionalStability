@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { getNewsDetail } from "@/api/news/NewsList.js";
+import { getNewsDetail } from "@/api/news/NewsList";
 export default {
   data() {
     return {

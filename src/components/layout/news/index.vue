@@ -136,8 +136,8 @@
 </template>
 
 <script>
-import { getNewsList } from "@/api/news/NewsList.js";
-import { formatterDateStr, formatterDate } from "@/utils/filter.js";
+import { getNewsList } from "@/api/news/NewsList";
+import { formatterDateStr, formatterDate } from "@/utils/filter";
 export default {
   data() {
     return {

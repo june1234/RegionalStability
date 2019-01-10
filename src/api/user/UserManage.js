@@ -64,3 +64,11 @@ export function initUserPassword (id) {
     method: 'post'
   })
 }
+
+export function userRoles (params) {
+  return request({
+    url: '/sysuserrole/add',
+    method: 'post',
+    data: params
+  })
+}

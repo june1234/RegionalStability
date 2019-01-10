@@ -274,11 +274,11 @@
 
 <script>
 import echarts from "echarts";
-import "../../../../node_modules/echarts/map/js/world.js";
+import "../../../../node_modules/echarts/map/js/world";
 import lineCharts from "@/components/layout/general/charts/line.vue";
 import worldCharts from "@/components/layout/general/charts/world.vue";
 import worldCharts2 from "@/components/layout/general/charts/world.vue";
-import { formatterDateStr, formatterDate } from "@/utils/filter.js";
+import { formatterDateStr, formatterDate } from "@/utils/filter";
 import {
   Sustainable,
   Situation,

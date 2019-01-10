@@ -4,7 +4,7 @@
 * @Last Modified by:   xiaju
 * @Last Modified time: 2018-10-17 17:39:17
 */
-import request from '@/utils/request.js'
+import request from '@/utils/request'
 
 // 初始化
 export function findword (eventTimingFormData) {
@@ -20,5 +20,19 @@ export function findTitle (params) {
     url: '/title/findtitle',
     method: 'post',
     data: params
+  })
+}
+
+export function TrendData (params) {
+  return request({
+    url: `/events/getTrendData/${params}`,
+    method: 'post'
+  })
+}
+
+export function HeatData (params) {
+  return request({
+    url: `/events/getHeatData/${params}`,
+    method: 'post'
   })
 }

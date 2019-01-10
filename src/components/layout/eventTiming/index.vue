@@ -4,80 +4,101 @@
       <el-col :span="6">
         <h2 class="title">事件演变分析</h2>
       </el-col>
-      <!-- <el-col :span="18">
+      <el-col :span="18">
         <el-button type="text">说明</el-button>
-      </el-col> -->
+      </el-col>
     </el-row>
     <el-tabs type="border-card">
       <el-tab-pane
         label="中美贸易战"
         :lazy="true"
       >
-        <usa-line></usa-line>
-        <topice-charts
-          :all="USATopiceData"
-          :title="USATopiceTitle"
-        ></topice-charts>
+        <time-charts :all="usaTimeLineData"></time-charts>
+        <topic-table :topicTableData="usaTimeTableData"></topic-table>
+        <div style="width:100%;height:600px;overflow-y:scroll;">
+            <topice-charts
+              :all="USATopiceData"
+              :title="USATopiceTitle"
+            ></topice-charts>
+        </div>
       </el-tab-pane>
       <el-tab-pane
         label="中国"
         :lazy="true"
       >
-        <china-line></china-line>
-        <topice-charts
-          :all="chinaTopiceData"
-          :title="chinaTopiceTitle"
-        ></topice-charts>
+        <time-charts :all="chinaTimeLineData"></time-charts>
+        <topic-table :topicTableData="chinaTimeTableData"></topic-table>
+        <div style="width:100%;height:600px;overflow-y:scroll;">
+          <topice-charts
+            :all="chinaTopiceData"
+            :title="chinaTopiceTitle"
+          ></topice-charts>
+        </div>
       </el-tab-pane>
       <el-tab-pane
         label="印度"
         :lazy="true"
       >
-        <india-line></india-line>
-        <topice-charts
-          :all="indiaTopiceData"
-          :title="indiaTopiceTitle"
-        ></topice-charts>
+        <time-charts :all="indiaTimeLineData"></time-charts>
+        <topic-table :topicTableData="indiaTimeTableData"></topic-table>
+        <div style="width:100%;height:600px;overflow-y:scroll;">
+          <topice-charts
+            :all="indiaTopiceData"
+            :title="indiaTopiceTitle"
+          ></topice-charts>
+        </div>
       </el-tab-pane>
       <el-tab-pane
         label="日本"
         :lazy="true"
       >
-        <japan-line></japan-line>
+        <time-charts :all="japanTimeLineData"></time-charts>
+        <topic-table :topicTableData="japanTimeTableData"></topic-table>
+        <div style="width:100%;height:600px;overflow-y:scroll;">
         <topice-charts
           :all="JapanTopiceData"
           :title="JapanTopiceTitle"
         ></topice-charts>
+        </div>
       </el-tab-pane>
       <el-tab-pane
         label="朝鲜"
         :lazy="true"
       >
-        <korea-line></korea-line>
-        <topice-charts
-          :all="koreaTopiceData"
-          :title="koreaTopiceTitle"
-        ></topice-charts>
+        <time-charts :all="koreaTimeLineData"></time-charts>
+        <topic-table :topicTableData="koreaTimeTableData"></topic-table>
+        <div style="width:100%;height:600px;overflow-y:scroll;">
+          <topice-charts
+            :all="koreaTopiceData"
+            :title="koreaTopiceTitle"
+          ></topice-charts>
+        </div>
       </el-tab-pane>
       <el-tab-pane
         label="韩国"
         :lazy="true"
       >
-        <sKorea-line></sKorea-line>
-        <topice-charts
-          :all="southKoreaTopiceData"
-          :title="southKoreaTopiceTitle"
-        ></topice-charts>
+        <time-charts :all="southKoreaTimeLineData"></time-charts>
+        <topic-table :topicTableData="southKoreaTimeTableData"></topic-table>
+        <div style="width:100%;height:600px;overflow-y:scroll;">
+            <topice-charts
+              :all="southKoreaTopiceData"
+              :title="southKoreaTopiceTitle"
+            ></topice-charts>
+        </div>
       </el-tab-pane>
       <el-tab-pane
         label="美国"
         :lazy="true"
       >
-        <american-line></american-line>
-        <topice-charts
-          :all="americanTopiceData"
-          :title="americanTopiceTitle"
-        ></topice-charts>
+        <time-charts :all="americanTimeLineData"></time-charts>
+        <topic-table :topicTableData="americanTimeTableData"></topic-table>
+        <div style="width:100%;height:600px;overflow-y:scroll;">
+          <topice-charts
+            :all="americanTopiceData"
+            :title="americanTopiceTitle"
+          ></topice-charts>
+        </div>
       </el-tab-pane>
     </el-tabs>
     <el-form
@@ -185,24 +206,12 @@
 import echarts from "echarts";
 import "echarts-wordcloud";
 import { formatterDate, formatterMonthStr } from "@/utils/filter.js";
-import { findword,findTitle } from "@/api/eventTiming/EventTimingAnalysis";
+import { findword,findTitle,TrendData,HeatData } from "@/api/eventTiming/EventTimingAnalysis";
+import {getDes} from "@/api/common"
 import lineCharts from "@/components/layout/general/charts/line.vue";
-import USATopiceData from "@/assets/zhongmei/USATopice.json";
-import chinaTopiceData from "@/assets/china/chinaTopice.json";
-import indiaTopiceData from "@/assets/india/indiaTopice.json";
-import JapanTopiceData from "@/assets/japan/JapanTopice.json";
-import koreaTopiceData from "@/assets/korea/koreaTopice.json";
-import southKoreaTopiceData from "@/assets/southKoreaTopice.json";
-import americanTopiceData from "@/assets/usa/americanTopice.json";
 import topiceCharts from "@/components/layout/general/index/USA/USA.vue";
-import usaLine from "@/components/layout/general/index/USA/USALine.vue";
-import chinaLine from "@/components/layout/general/index/USA/chinaLine.vue";
-import indiaLine from "@/components/layout/general/index/USA/indiaLine.vue";
-import japanLine from "@/components/layout/general/index/USA/JapanLine.vue";
-import koreaLine from "@/components/layout/general/index/USA/koreaLine.vue";
-import sKoreaLine from "@/components/layout/general/index/USA/southKoreaLine.vue";
-import americanLine from "@/components/layout/general/index/USA/americanLine.vue";
-
+import timeCharts from "@/components/layout/general/charts/timeLineCharts.vue";
+import topicTable from "@/components/layout/general/topicTable.vue"
 export default {
   data() {
     return {
@@ -262,31 +271,34 @@ export default {
       southKoreaTopiceTitle: "韩国政治经济态势热力图",
       americanTopiceData: {},
       americanTopiceTitle: "美国政治经济态势热力图",
-      country:""
+      country:"",
+      usaTimeLineData:{},
+      chinaTimeLineData:{},
+      indiaTimeLineData:{},
+      japanTimeLineData:{},
+      koreaTimeLineData:{},
+      southKoreaTimeLineData:{},
+      americanTimeLineData:{},
+      usaTimeTableData:[],
+      chinaTimeTableData:[],
+      indiaTimeTableData:[],
+      japanTimeTableData:[],
+      koreaTimeTableData:[],
+      southKoreaTimeTableData:[],
+      americanTimeTableData:[],
     };
   },
   components: {
-    lineCharts,
+    timeCharts,
     topiceCharts,
-    usaLine,
-    chinaLine,
-    indiaLine,
-    japanLine,
-    koreaLine,
-    sKoreaLine,
-    americanLine
+    topicTable
   },
   created() {
     this.selectEventTiming();
-    this.USATopiceData = USATopiceData;
-    this.chinaTopiceData = chinaTopiceData;
-    this.indiaTopiceData = indiaTopiceData;
-    this.JapanTopiceData = JapanTopiceData;
-    this.koreaTopiceData = koreaTopiceData;
-    this.southKoreaTopiceData = southKoreaTopiceData;
-    this.americanTopiceData = americanTopiceData;
+    this.trendData()
+    this.heatData()
+    this.getdes()
   },
-  mounted() {},
   methods: {
     //查询
     selectEventTiming() {
@@ -441,6 +453,67 @@ export default {
           mychart.resize();
         });
       }
+    },
+    // 事件演变曲线
+    trendData(){
+      TrendData('zhongmei').then(res=>{
+        this.usaTimeLineData=res.data
+        this.usaTimeTableData=res.data.table
+      })
+      TrendData('zhongguo').then(res=>{
+        this.chinaTimeLineData=res.data
+        this.chinaTimeTableData=res.data.table
+      })
+      TrendData('yindu').then(res=>{
+        this.indiaTimeLineData=res.data
+        this.indiaTimeTableData=res.data.table
+      })
+      TrendData('riben').then(res=>{
+        this.japanTimeLineData=res.data
+        this.japanTimeTableData=res.data.table
+      })
+      TrendData('chaoxian').then(res=>{
+        this.koreaTimeLineData=res.data
+        this.koreaTimeTableData=res.data.table
+      })
+      TrendData('hanguo').then(res=>{
+        this.southKoreaTimeLineData=res.data
+        this.southKoreaTimeTableData=res.data.table
+      })
+      TrendData('meiguo').then(res=>{
+        this.americanTimeLineData=res.data
+        this.americanTimeTableData=res.data.table
+      })
+    },
+    // 事件热力图
+    heatData(){
+       HeatData('zhongmei').then(res=>{
+          this.USATopiceData = res.data;
+       })
+       HeatData('zhongguo').then(res=>{
+         this.chinaTopiceData = res.data;
+       })
+       HeatData('yindu').then(res=>{
+         this.indiaTopiceData = res.data;
+       })
+       HeatData('riben').then(res=>{
+         this.JapanTopiceData = res.data;
+       })
+       HeatData('chaoxian').then(res=>{
+         this.koreaTopiceData = res.data;
+       })
+       HeatData('hanguo').then(res=>{
+         this.southKoreaTopiceData = res.data;
+       })
+       HeatData('meiguo').then(res=>{
+         this.americanTopiceData = res.data;
+       })
+    },
+    // 获取图例说明
+    getdes(){
+      getDes('develop').then(res=>{
+        console.log(res)
+      })
     }
   }
 };

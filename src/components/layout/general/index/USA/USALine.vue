@@ -6,7 +6,6 @@
 
 <script>
 import echarts from"echarts"
-import USALineData from "@/assets/zhongmei/USALine.json";
 
 export default {
   name: "USALine",
@@ -290,8 +289,7 @@ export default {
 							position: 'bottom',
 							type: 'category',
 							data: ['2018-1', '2018-2', '2018-3', '2018-4' , '2018-5', '2018-6', '2018-7','2018-8', '2018-9', '2018-10','2018-11']
-						}
-					],
+						}],
 					yAxis: {
 						splitLine: {　　　　
 							show: false　　
@@ -307,12 +305,12 @@ export default {
 					legend: {
 						top: '10%',
 						left: '12%',
-						orient: 'vertical',
-						data: ['Topic 1：公司、经济、朝鲜', 'Topic 2：关税、印度、贸易战', 'Topic 3：特朗普、进出口、大豆', 'Topic 4：特朗普、刘鹤、谈判', 'Topic 5：中兴通讯、磋商、谈判', 'Topic 6：合作、发展、基金', 'Topic 7：金正恩、朝鲜、韩国', 'Topic 8：经济、俄罗斯、世贸组织', 'Topic 9：特朗普、汇率、货币政策', 'Topic 10：经济、欧盟、合作', 'Topic 11：关税、经济、商务部', 'Topic 12：杨洁篪、南海、魏凤', 'Topic 13：经济、关税、贸易战', 'Topic 14：关税、加征、10%', 'Topic 15：经济、市场、巴西']
+						orient: 'vertical'
+						// data: ['Topic 1', 'Topic 2', 'Topic 3', 'Topic 4', 'Topic 5', 'Topic 6', 'Topic 7', 'Topic 8', 'Topic 9', 'Topic 10', 'Topic 11', 'Topic 12', 'Topic 13', 'Topic 14', 'Topic 15']
 					},
 					series: [{
 							symbol: 'none',
-							name: 'Topic 1：公司、经济、朝鲜',
+							name: 'Topic 1',
 							showSymbol: false,
 							data: a1,
 							type: 'line',
@@ -320,7 +318,7 @@ export default {
 						},
 						{
 							symbol: 'none',
-							name: 'Topic 2：关税、印度、贸易战',
+							name: 'Topic 2',
 							showSymbol: false,
 							data: a2,
 							type: 'line',
@@ -328,7 +326,7 @@ export default {
 						},
 						{
 							symbol: 'none',
-							name: 'Topic 3：特朗普、进出口、大豆',
+							name: 'Topic 3',
 							showSymbol: false,
 							data: a3,
 							type: 'line',
@@ -336,7 +334,7 @@ export default {
 						},
 						{
 							symbol: 'none',
-							name: 'Topic 4：特朗普、刘鹤、谈判',
+							name: 'Topic 4',
 							showSymbol: false,
 							data: a4,
 							type: 'line',
@@ -344,7 +342,7 @@ export default {
 						},
 						{
 							symbol: 'none',
-							name: 'Topic 5：中兴通讯、磋商、谈判',
+							name: 'Topic 5',
 							showSymbol: false,
 							data: a5,
 							type: 'line',
@@ -352,7 +350,7 @@ export default {
 						},
 						{
 							symbol: 'none',
-							name: 'Topic 6：合作、发展、基金',
+							name: 'Topic 6',
 							showSymbol: false,
 							data: a6,
 							type: 'line',
@@ -360,7 +358,7 @@ export default {
 						},
 						{
 							symbol: 'none',
-							name: 'Topic 7：金正恩、朝鲜、韩国',
+							name: 'Topic 7',
 							showSymbol: false,
 							data: a7,
 							type: 'line',
@@ -368,7 +366,7 @@ export default {
 						},
 						{
 							symbol: 'none',
-							name: 'Topic 8：经济、俄罗斯、世贸组织',
+							name: 'Topic 8',
 							showSymbol: false,
 							data: a8,
 							type: 'line',
@@ -376,7 +374,7 @@ export default {
 						},
 						{
 							symbol: 'none',
-							name: 'Topic 9：特朗普、汇率、货币政策',
+							name: 'Topic 9',
 							showSymbol: false,
 							data: a9,
 							type: 'line',
@@ -384,7 +382,7 @@ export default {
 						},
 						{
 							symbol: 'none',
-							name: 'Topic 10：经济、欧盟、合作',
+							name: 'Topic 10',
 							showSymbol: false,
 							data: a10,
 							type: 'line',
@@ -392,7 +390,7 @@ export default {
 						},
 						{
 							symbol: 'none',
-							name: 'Topic 11：关税、经济、商务部',
+							name: 'Topic 11',
 							showSymbol: false,
 							data: a11,
 							type: 'line',
@@ -400,7 +398,7 @@ export default {
 						},
 						{
 							symbol: 'none',
-							name: 'Topic 12：杨洁篪、南海、魏凤',
+							name: 'Topic 12',
 							showSymbol: false,
 							data: a12,
 							type: 'line',
@@ -408,7 +406,7 @@ export default {
 						},
 						{
 							symbol: 'none',
-							name: 'Topic 13：经济、关税、贸易战',
+							name: 'Topic 13',
 							showSymbol: false,
 							data: a13,
 							type: 'line',
@@ -416,7 +414,7 @@ export default {
 						},
 						{
 							symbol: 'none',
-							name: 'Topic 14：关税、加征、10%',
+							name: 'Topic 14',
 							showSymbol: false,
 							data: a14,
 							type: 'line',
@@ -424,7 +422,7 @@ export default {
 						},
 						{
 							symbol: 'none',
-							name: 'Topic 15：经济、市场、巴西',
+							name: 'Topic 15',
 							showSymbol: false,
 							data: a15,
 							type: 'line',
@@ -434,7 +432,7 @@ export default {
 				},
 				options: [{
 						series: [{
-								name: 'Topic 1：公司、经济、朝鲜',
+								name: 'Topic 1',
 								markPoint: {
 									label: {
 										formatter: '1'
@@ -446,85 +444,85 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 2：关税、印度、贸易战',
+								name: 'Topic 2',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 3：特朗普、进出口、大豆',
+								name: 'Topic 3',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 4：特朗普、刘鹤、谈判',
+								name: 'Topic 4',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 5：中兴通讯、磋商、谈判',
+								name: 'Topic 5',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 6：合作、发展、基金',
+								name: 'Topic 6',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 7：金正恩、朝鲜、韩国',
+								name: 'Topic 7',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 8：经济、俄罗斯、世贸组织',
+								name: 'Topic 8',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 9：特朗普、汇率、货币政策',
+								name: 'Topic 9',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 10：经济、欧盟、合作',
+								name: 'Topic 10',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 11：关税、经济、商务部',
+								name: 'Topic 11',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 12：杨洁篪、南海、魏凤',
+								name: 'Topic 12',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 13：经济、关税、贸易战',
+								name: 'Topic 13',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 14：关税、加征、10%',
+								name: 'Topic 14',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 15：经济、市场、巴西',
+								name: 'Topic 15',
 								markPoint: {
 									data: []
 								}
@@ -533,7 +531,7 @@ export default {
 					},
 					{
 						series: [{
-								name: 'Topic 2：关税、印度、贸易战',
+								name: 'Topic 2',
 								markPoint: {
 									label: {
 										formatter: '2'
@@ -545,85 +543,85 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 1：公司、经济、朝鲜',
+								name: 'Topic 1',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 3：特朗普、进出口、大豆',
+								name: 'Topic 3',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 4：特朗普、刘鹤、谈判',
+								name: 'Topic 4',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 5：中兴通讯、磋商、谈判',
+								name: 'Topic 5',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 6：合作、发展、基金',
+								name: 'Topic 6',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 7：金正恩、朝鲜、韩国',
+								name: 'Topic 7',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 8：经济、俄罗斯、世贸组织',
+								name: 'Topic 8',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 9：特朗普、汇率、货币政策',
+								name: 'Topic 9',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 10：经济、欧盟、合作',
+								name: 'Topic 10',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 11：关税、经济、商务部',
+								name: 'Topic 11',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 12：杨洁篪、南海、魏凤',
+								name: 'Topic 12',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 13：经济、关税、贸易战',
+								name: 'Topic 13',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 14：关税、加征、10%',
+								name: 'Topic 14',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 15：经济、市场、巴西',
+								name: 'Topic 15',
 								markPoint: {
 									data: []
 								}
@@ -632,7 +630,7 @@ export default {
 					},
 					{
 						series: [{
-								name: 'Topic 3：特朗普、进出口、大豆',
+								name: 'Topic 3',
 								markPoint: {
 									label: {
 										formatter: '3'
@@ -644,85 +642,85 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 2：关税、印度、贸易战',
+								name: 'Topic 2',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 1：公司、经济、朝鲜',
+								name: 'Topic 1',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 4：特朗普、刘鹤、谈判',
+								name: 'Topic 4',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 5：中兴通讯、磋商、谈判',
+								name: 'Topic 5',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 6：合作、发展、基金',
+								name: 'Topic 6',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 7：金正恩、朝鲜、韩国',
+								name: 'Topic 7',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 8：经济、俄罗斯、世贸组织',
+								name: 'Topic 8',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 9：特朗普、汇率、货币政策',
+								name: 'Topic 9',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 10：经济、欧盟、合作',
+								name: 'Topic 10',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 11：关税、经济、商务部',
+								name: 'Topic 11',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 12：杨洁篪、南海、魏凤',
+								name: 'Topic 12',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 13：经济、关税、贸易战',
+								name: 'Topic 13',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 14：关税、加征、10%',
+								name: 'Topic 14',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 15：经济、市场、巴西',
+								name: 'Topic 15',
 								markPoint: {
 									data: []
 								}
@@ -731,7 +729,7 @@ export default {
 					},
 					{
 						series: [{
-								name: 'Topic 4：特朗普、刘鹤、谈判',
+								name: 'Topic 4',
 								markPoint: {
 									label: {
 										formatter: '4'
@@ -743,85 +741,85 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 2：关税、印度、贸易战',
+								name: 'Topic 2',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 3：特朗普、进出口、大豆',
+								name: 'Topic 3',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 1：公司、经济、朝鲜',
+								name: 'Topic 1',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 5：中兴通讯、磋商、谈判',
+								name: 'Topic 5',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 6：合作、发展、基金',
+								name: 'Topic 6',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 7：金正恩、朝鲜、韩国',
+								name: 'Topic 7',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 8：经济、俄罗斯、世贸组织',
+								name: 'Topic 8',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 9：特朗普、汇率、货币政策',
+								name: 'Topic 9',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 10：经济、欧盟、合作',
+								name: 'Topic 10',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 11：关税、经济、商务部',
+								name: 'Topic 11',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 12：杨洁篪、南海、魏凤',
+								name: 'Topic 12',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 13：经济、关税、贸易战',
+								name: 'Topic 13',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 14：关税、加征、10%',
+								name: 'Topic 14',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 15：经济、市场、巴西',
+								name: 'Topic 15',
 								markPoint: {
 									data: []
 								}
@@ -830,7 +828,7 @@ export default {
 					},
 					{
 						series: [{
-								name: 'Topic 5：中兴通讯、磋商、谈判',
+								name: 'Topic 5',
 								markPoint: {
 									label: {
 										formatter: '5'
@@ -842,85 +840,85 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 2：关税、印度、贸易战',
+								name: 'Topic 2',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 3：特朗普、进出口、大豆',
+								name: 'Topic 3',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 4：特朗普、刘鹤、谈判',
+								name: 'Topic 4',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 1：公司、经济、朝鲜',
+								name: 'Topic 1',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 6：合作、发展、基金',
+								name: 'Topic 6',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 7：金正恩、朝鲜、韩国',
+								name: 'Topic 7',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 8：经济、俄罗斯、世贸组织',
+								name: 'Topic 8',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 9：特朗普、汇率、货币政策',
+								name: 'Topic 9',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 10：经济、欧盟、合作',
+								name: 'Topic 10',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 11：关税、经济、商务部',
+								name: 'Topic 11',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 12：杨洁篪、南海、魏凤',
+								name: 'Topic 12',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 13：经济、关税、贸易战',
+								name: 'Topic 13',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 14：关税、加征、10%',
+								name: 'Topic 14',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 15：经济、市场、巴西',
+								name: 'Topic 15',
 								markPoint: {
 									data: []
 								}
@@ -929,7 +927,7 @@ export default {
 					},
 					{
 						series: [{
-								name: 'Topic 6：合作、发展、基金',
+								name: 'Topic 6',
 								markPoint: {
 									label: {
 										formatter: '6'
@@ -941,85 +939,85 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 2：关税、印度、贸易战',
+								name: 'Topic 2',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 3：特朗普、进出口、大豆',
+								name: 'Topic 3',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 4：特朗普、刘鹤、谈判',
+								name: 'Topic 4',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 5：中兴通讯、磋商、谈判',
+								name: 'Topic 5',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 1：公司、经济、朝鲜',
+								name: 'Topic 1',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 7：金正恩、朝鲜、韩国',
+								name: 'Topic 7',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 8：经济、俄罗斯、世贸组织',
+								name: 'Topic 8',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 9：特朗普、汇率、货币政策',
+								name: 'Topic 9',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 10：经济、欧盟、合作',
+								name: 'Topic 10',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 11：关税、经济、商务部',
+								name: 'Topic 11',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 12：杨洁篪、南海、魏凤',
+								name: 'Topic 12',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 13：经济、关税、贸易战',
+								name: 'Topic 13',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 14：关税、加征、10%',
+								name: 'Topic 14',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 15：经济、市场、巴西',
+								name: 'Topic 15',
 								markPoint: {
 									data: []
 								}
@@ -1028,7 +1026,7 @@ export default {
 					},
 					{
 						series: [{
-								name: 'Topic 7：金正恩、朝鲜、韩国',
+								name: 'Topic 7',
 								markPoint: {
 									label: {
 										formatter: '7'
@@ -1040,85 +1038,85 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 2：关税、印度、贸易战',
+								name: 'Topic 2',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 3：特朗普、进出口、大豆',
+								name: 'Topic 3',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 4：特朗普、刘鹤、谈判',
+								name: 'Topic 4',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 5：中兴通讯、磋商、谈判',
+								name: 'Topic 5',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 6：合作、发展、基金',
+								name: 'Topic 6',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 1：公司、经济、朝鲜',
+								name: 'Topic 1',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 8：经济、俄罗斯、世贸组织',
+								name: 'Topic 8',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 9：特朗普、汇率、货币政策',
+								name: 'Topic 9',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 10：经济、欧盟、合作',
+								name: 'Topic 10',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 11：关税、经济、商务部',
+								name: 'Topic 11',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 12：杨洁篪、南海、魏凤',
+								name: 'Topic 12',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 13：经济、关税、贸易战',
+								name: 'Topic 13',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 14：关税、加征、10%',
+								name: 'Topic 14',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 15：经济、市场、巴西',
+								name: 'Topic 15',
 								markPoint: {
 									data: []
 								}
@@ -1127,7 +1125,7 @@ export default {
 					},
 					{
 						series: [{
-								name: 'Topic 8：经济、俄罗斯、世贸组织',
+								name: 'Topic 8',
 								markPoint: {
 									label: {
 										formatter: '8'
@@ -1139,85 +1137,85 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 2：关税、印度、贸易战',
+								name: 'Topic 2',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 3：特朗普、进出口、大豆',
+								name: 'Topic 3',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 4：特朗普、刘鹤、谈判',
+								name: 'Topic 4',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 5：中兴通讯、磋商、谈判',
+								name: 'Topic 5',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 6：合作、发展、基金',
+								name: 'Topic 6',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 7：金正恩、朝鲜、韩国',
+								name: 'Topic 7',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 1：公司、经济、朝鲜',
+								name: 'Topic 1',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 9：特朗普、汇率、货币政策',
+								name: 'Topic 9',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 10：经济、欧盟、合作',
+								name: 'Topic 10',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 11：关税、经济、商务部',
+								name: 'Topic 11',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 12：杨洁篪、南海、魏凤',
+								name: 'Topic 12',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 13：经济、关税、贸易战',
+								name: 'Topic 13',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 14：关税、加征、10%',
+								name: 'Topic 14',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 15：经济、市场、巴西',
+								name: 'Topic 15',
 								markPoint: {
 									data: []
 								}
@@ -1226,7 +1224,7 @@ export default {
 					},
 					{
 						series: [{
-								name: 'Topic 9：特朗普、汇率、货币政策',
+								name: 'Topic 9',
 								markPoint: {
 									label: {
 										formatter: '9'
@@ -1238,85 +1236,85 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 2：关税、印度、贸易战',
+								name: 'Topic 2',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 3：特朗普、进出口、大豆',
+								name: 'Topic 3',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 4：特朗普、刘鹤、谈判',
+								name: 'Topic 4',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 5：中兴通讯、磋商、谈判',
+								name: 'Topic 5',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 6：合作、发展、基金',
+								name: 'Topic 6',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 7：金正恩、朝鲜、韩国',
+								name: 'Topic 7',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 8：经济、俄罗斯、世贸组织',
+								name: 'Topic 8',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 1：公司、经济、朝鲜',
+								name: 'Topic 1',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 10：经济、欧盟、合作',
+								name: 'Topic 10',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 11：关税、经济、商务部',
+								name: 'Topic 11',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 12：杨洁篪、南海、魏凤',
+								name: 'Topic 12',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 13：经济、关税、贸易战',
+								name: 'Topic 13',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 14：关税、加征、10%',
+								name: 'Topic 14',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 15：经济、市场、巴西',
+								name: 'Topic 15',
 								markPoint: {
 									data: []
 								}
@@ -1325,7 +1323,7 @@ export default {
 					},
 					{
 						series: [{
-								name: 'Topic 10：经济、欧盟、合作',
+								name: 'Topic 10',
 								markPoint: {
 									label: {
 										formatter: '10'
@@ -1337,85 +1335,85 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 2：关税、印度、贸易战',
+								name: 'Topic 2',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 3：特朗普、进出口、大豆',
+								name: 'Topic 3',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 4：特朗普、刘鹤、谈判',
+								name: 'Topic 4',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 5：中兴通讯、磋商、谈判',
+								name: 'Topic 5',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 6：合作、发展、基金',
+								name: 'Topic 6',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 7：金正恩、朝鲜、韩国',
+								name: 'Topic 7',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 8：经济、俄罗斯、世贸组织',
+								name: 'Topic 8',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 9：特朗普、汇率、货币政策',
+								name: 'Topic 9',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 1：公司、经济、朝鲜',
+								name: 'Topic 1',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 11：关税、经济、商务部',
+								name: 'Topic 11',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 12：杨洁篪、南海、魏凤',
+								name: 'Topic 12',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 13：经济、关税、贸易战',
+								name: 'Topic 13',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 14：关税、加征、10%',
+								name: 'Topic 14',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 15：经济、市场、巴西',
+								name: 'Topic 15',
 								markPoint: {
 									data: []
 								}
@@ -1424,7 +1422,7 @@ export default {
 					},
 					{
 						series: [{
-								name: 'Topic 11：关税、经济、商务部',
+								name: 'Topic 11',
 								markPoint: {
 									label: {
 										formatter: '11'
@@ -1436,85 +1434,85 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 2：关税、印度、贸易战',
+								name: 'Topic 2',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 3：特朗普、进出口、大豆',
+								name: 'Topic 3',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 4：特朗普、刘鹤、谈判',
+								name: 'Topic 4',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 5：中兴通讯、磋商、谈判',
+								name: 'Topic 5',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 6：合作、发展、基金',
+								name: 'Topic 6',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 7：金正恩、朝鲜、韩国',
+								name: 'Topic 7',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 8：经济、俄罗斯、世贸组织',
+								name: 'Topic 8',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 9：特朗普、汇率、货币政策',
+								name: 'Topic 9',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 10：经济、欧盟、合作',
+								name: 'Topic 10',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 1：公司、经济、朝鲜',
+								name: 'Topic 1',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 12：杨洁篪、南海、魏凤',
+								name: 'Topic 12',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 13：经济、关税、贸易战',
+								name: 'Topic 13',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 14：关税、加征、10%',
+								name: 'Topic 14',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 15：经济、市场、巴西',
+								name: 'Topic 15',
 								markPoint: {
 									data: []
 								}
@@ -1523,7 +1521,7 @@ export default {
 					},
 					{
 						series: [{
-								name: 'Topic 12：杨洁篪、南海、魏凤',
+								name: 'Topic 12',
 								markPoint: {
 									label: {
 										formatter: '12'
@@ -1535,85 +1533,85 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 2：关税、印度、贸易战',
+								name: 'Topic 2',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 3：特朗普、进出口、大豆',
+								name: 'Topic 3',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 4：特朗普、刘鹤、谈判',
+								name: 'Topic 4',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 5：中兴通讯、磋商、谈判',
+								name: 'Topic 5',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 6：合作、发展、基金',
+								name: 'Topic 6',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 7：金正恩、朝鲜、韩国',
+								name: 'Topic 7',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 8：经济、俄罗斯、世贸组织',
+								name: 'Topic 8',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 9：特朗普、汇率、货币政策',
+								name: 'Topic 9',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 10：经济、欧盟、合作',
+								name: 'Topic 10',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 11：关税、经济、商务部',
+								name: 'Topic 11',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 1：公司、经济、朝鲜',
+								name: 'Topic 1',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 13：经济、关税、贸易战',
+								name: 'Topic 13',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 14：关税、加征、10%',
+								name: 'Topic 14',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 15：经济、市场、巴西',
+								name: 'Topic 15',
 								markPoint: {
 									data: []
 								}
@@ -1622,7 +1620,7 @@ export default {
 					},
 					{
 						series: [{
-								name: 'Topic 13：经济、关税、贸易战',
+								name: 'Topic 13',
 								markPoint: {
 									label: {
 										formatter: '13'
@@ -1634,85 +1632,85 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 2：关税、印度、贸易战',
+								name: 'Topic 2',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 3：特朗普、进出口、大豆',
+								name: 'Topic 3',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 4：特朗普、刘鹤、谈判',
+								name: 'Topic 4',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 5：中兴通讯、磋商、谈判',
+								name: 'Topic 5',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 6：合作、发展、基金',
+								name: 'Topic 6',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 7：金正恩、朝鲜、韩国',
+								name: 'Topic 7',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 8：经济、俄罗斯、世贸组织',
+								name: 'Topic 8',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 9：特朗普、汇率、货币政策',
+								name: 'Topic 9',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 10：经济、欧盟、合作',
+								name: 'Topic 10',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 11：关税、经济、商务部',
+								name: 'Topic 11',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 12：杨洁篪、南海、魏凤',
+								name: 'Topic 12',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 1：公司、经济、朝鲜',
+								name: 'Topic 1',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 14：关税、加征、10%',
+								name: 'Topic 14',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 15：经济、市场、巴西',
+								name: 'Topic 15',
 								markPoint: {
 									data: []
 								}
@@ -1721,7 +1719,7 @@ export default {
 					},
 					{
 						series: [{
-								name: 'Topic 14：关税、加征、10%',
+								name: 'Topic 14',
 								markPoint: {
 									label: {
 										formatter: '14'
@@ -1733,85 +1731,85 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 2：关税、印度、贸易战',
+								name: 'Topic 2',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 3：特朗普、进出口、大豆',
+								name: 'Topic 3',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 4：特朗普、刘鹤、谈判',
+								name: 'Topic 4',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 5：中兴通讯、磋商、谈判',
+								name: 'Topic 5',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 6：合作、发展、基金',
+								name: 'Topic 6',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 7：金正恩、朝鲜、韩国',
+								name: 'Topic 7',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 8：经济、俄罗斯、世贸组织',
+								name: 'Topic 8',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 9：特朗普、汇率、货币政策',
+								name: 'Topic 9',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 10：经济、欧盟、合作',
+								name: 'Topic 10',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 11：关税、经济、商务部',
+								name: 'Topic 11',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 12：杨洁篪、南海、魏凤',
+								name: 'Topic 12',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 13：经济、关税、贸易战',
+								name: 'Topic 13',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 1：公司、经济、朝鲜',
+								name: 'Topic 1',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 15：经济、市场、巴西',
+								name: 'Topic 15',
 								markPoint: {
 									data: []
 								}
@@ -1820,7 +1818,7 @@ export default {
 					},
 					{
 						series: [{
-								name: 'Topic 15：经济、市场、巴西',
+								name: 'Topic 15',
 								markPoint: {
 									label: {
 										formatter: '15'
@@ -1832,85 +1830,85 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 2：关税、印度、贸易战',
+								name: 'Topic 2',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 3：特朗普、进出口、大豆',
+								name: 'Topic 3',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 4：特朗普、刘鹤、谈判',
+								name: 'Topic 4',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 5：中兴通讯、磋商、谈判',
+								name: 'Topic 5',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 6：合作、发展、基金',
+								name: 'Topic 6',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 7：金正恩、朝鲜、韩国',
+								name: 'Topic 7',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 8：经济、俄罗斯、世贸组织',
+								name: 'Topic 8',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 9：特朗普、汇率、货币政策',
+								name: 'Topic 9',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 10：经济、欧盟、合作',
+								name: 'Topic 10',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 11：关税、经济、商务部',
+								name: 'Topic 11',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 12：杨洁篪、南海、魏凤',
+								name: 'Topic 12',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 13：经济、关税、贸易战',
+								name: 'Topic 13',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 14：关税、加征、10%',
+								name: 'Topic 14',
 								markPoint: {
 									data: []
 								}
 							},
 							{
-								name: 'Topic 1：公司、经济、朝鲜',
+								name: 'Topic 1',
 								markPoint: {
 									data: []
 								}
@@ -1919,7 +1917,7 @@ export default {
 					},
 					{
 						series: [{
-								name: 'Topic 1：公司、经济、朝鲜',
+								name: 'Topic 1',
 								markPoint: {
 									label: {
 										formatter: '1'
@@ -1931,7 +1929,7 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 2：关税、印度、贸易战',
+								name: 'Topic 2',
 								markPoint: {
 									label: {
 										formatter: '2'
@@ -1943,7 +1941,7 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 3：特朗普、进出口、大豆',
+								name: 'Topic 3',
 								markPoint: {
 									label: {
 										formatter: '3'
@@ -1955,7 +1953,7 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 4：特朗普、刘鹤、谈判',
+								name: 'Topic 4',
 								markPoint: {
 									label: {
 										formatter: '4'
@@ -1967,7 +1965,7 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 5：中兴通讯、磋商、谈判',
+								name: 'Topic 5',
 								markPoint: {
 									label: {
 										formatter: '5'
@@ -1979,7 +1977,7 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 6：合作、发展、基金',
+								name: 'Topic 6',
 								markPoint: {
 									label: {
 										formatter: '6'
@@ -1991,7 +1989,7 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 7：金正恩、朝鲜、韩国',
+								name: 'Topic 7',
 								markPoint: {
 									label: {
 										formatter: '7'
@@ -2003,7 +2001,7 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 8：经济、俄罗斯、世贸组织',
+								name: 'Topic 8',
 								markPoint: {
 									label: {
 										formatter: '8'
@@ -2015,7 +2013,7 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 9：特朗普、汇率、货币政策',
+								name: 'Topic 9',
 								markPoint: {
 									label: {
 										formatter: '9'
@@ -2027,7 +2025,7 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 10：经济、欧盟、合作',
+								name: 'Topic 10',
 								markPoint: {
 									label: {
 										formatter: '10'
@@ -2039,7 +2037,7 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 11：关税、经济、商务部',
+								name: 'Topic 11',
 								markPoint: {
 									label: {
 										formatter: '11'
@@ -2051,7 +2049,7 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 12：杨洁篪、南海、魏凤',
+								name: 'Topic 12',
 								markPoint: {
 									label: {
 										formatter: '12'
@@ -2063,7 +2061,7 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 13：经济、关税、贸易战',
+								name: 'Topic 13',
 								markPoint: {
 									label: {
 										formatter: '13'
@@ -2075,7 +2073,7 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 14：关税、加征、10%',
+								name: 'Topic 14',
 								markPoint: {
 									label: {
 										formatter: '14'
@@ -2087,7 +2085,7 @@ export default {
 								},
 							},
 							{
-								name: 'Topic 15：经济、市场、巴西',
+								name: 'Topic 15',
 								markPoint: {
 									label: {
 										formatter: '15'
@@ -2100,7 +2098,6 @@ export default {
 							}
 						]
 					}
-
 				]}
       // 使用刚指定的配置项和数据显示图表。
       myChart.setOption(option);

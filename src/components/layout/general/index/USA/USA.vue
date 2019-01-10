@@ -54,7 +54,6 @@ this.Topick()
           position: "top",
           formatter: function(params) {
 						var value = params.data[2];
-						console.log(params)
 						return keys[params.data[1]] + '</br>' + value ;
 					}
         },
@@ -138,7 +137,7 @@ this.Topick()
 <style lang='less' scoped>
 .topick {
   width: 100%;
-  height: 800px;
+  height: 5000px;
   background-color: #f8f8f8;
   box-shadow: 10px 10px 10px #d2d2d2;
   border: 1px solid #fff;
