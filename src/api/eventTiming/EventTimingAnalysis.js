@@ -36,3 +36,10 @@ export function HeatData (params) {
     method: 'post'
   })
 }
+
+export function getForecastEventNumber () {
+  return request({
+    url: '/events/getForecastEventNumber',
+    method: 'post'
+  })
+}

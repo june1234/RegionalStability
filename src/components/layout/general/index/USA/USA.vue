@@ -31,6 +31,7 @@ this.Topick()
   methods: {
     Topick() {
       var myChart = echarts.init(this.$el);
+      myChart.clear()
       var topics = this.all.row_labels;
 
       var keys = this.all.column_labels;
@@ -47,7 +48,7 @@ this.Topick()
       // 指定图表的配置项和数据
       var option = {
         title: {
-          text: this.title,
+          text: this.title+'态势热力图',
           x: "center"
         },
         tooltip: {

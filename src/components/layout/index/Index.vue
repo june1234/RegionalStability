@@ -255,7 +255,8 @@
       </el-row>
       <el-row>
         <el-col :span="24">
-          <time-charts :all="usaTimeLineData"></time-charts>
+          <time-charts :all="usaTimeLineData" :title="title"></time-charts>
+          <topic-table :topicTableData="usaTimeTableData"></topic-table>
           <el-button
             type="text"
             style="float:right;"
@@ -379,6 +380,7 @@ import armedForces from "@/components/layout/general/charts/ArmedForces.vue";
 import worldCharts from "@/components/layout/general/charts/world.vue";
 import hotCharts from "@/components/layout/general/charts/hot.vue";
 import timeCharts from "@/components/layout/general/charts/timeLineCharts.vue";
+import topicTable from "@/components/layout/general/topicTable.vue";
 import { Situation } from "@/api/economy/EconomyEventAnalysis";
 import { TrendData } from "@/api/eventTiming/EventTimingAnalysis";
 import { ForcesAnalysis } from "@/api/anti-terrorism/Anti-terrorismEventAnalysis";
@@ -538,14 +540,15 @@ export default {
             countryname: "巴基斯坦"
           }
         ],
-        searchtime: "2018-12-12"
+        date: "2018-12-12"
       },
       compareData: {},
-      isTopice: false,
       indiaPine: {},
       pointData: [],
       centerDialogVisible:false,
-      usaTimeLineData:{}
+      usaTimeLineData:{},
+      usaTimeTableData:[],
+      title:''
     };
   },
   components: {
@@ -557,13 +560,13 @@ export default {
     worldCharts,
     barCharts,
     hotCharts,
-    timeCharts
+    timeCharts,
+    topicTable
   },
   mounted() {},
   created() {
     this.losting();
     this.Composite();
-    this.isTopice = true;
   },
   methods: {
     jump(val) {
@@ -602,8 +605,9 @@ export default {
         this.pointData = res.data;
       });
       TrendData('zhongmei').then(res=>{
-        this.usaTimeLineData=res.data
         this.usaTimeTableData=res.data.table
+        this.usaTimeLineData=res.data
+        this.title="中美贸易战"
       })
       ForcesAnalysis(this.point).then(res=>{
         this.indiaPine=res.data

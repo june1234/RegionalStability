@@ -15,3 +15,17 @@ export function updatemacro (params) {
     data: params
   })
 }
+
+export function findnews () {
+  return request({
+    url: '/basescore/findnews',
+    method: 'post'
+  })
+}
+
+export function findmacro () {
+  return request({
+    url: '/basescore/findmacro',
+    method: 'post'
+  })
+}

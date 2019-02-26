@@ -29,6 +29,7 @@ this.bar()
   methods: {
       bar(){
       const AttCharts = echarts.init(this.$el);
+      AttCharts.clear()
       const option = {
         color: ["#f54e96", "#8ed41b", "#7631a6", "#eadc27"],
         title: {

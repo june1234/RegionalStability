@@ -73,7 +73,7 @@
     <pagination
       :total="total"
       :Emotion="eEmotion"
-      @EpageNum="EpageNum"
+      @PageNum="EpageNum"
     ></pagination>
   </div>
 </template>

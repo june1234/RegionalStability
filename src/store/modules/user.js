@@ -29,12 +29,15 @@ const user = {
     Login ({ commit }, userInfo) {
       return new Promise((resolve, reject) => {
         login(userInfo).then(res => {
+          debugger
           const data = res.data
-          console.log(data)
           setToken(data.token)
           commit('SET_TOKEN', data.token)
           commit('SET_NAME', data.username)
           commit('SET_MENUS', data.menu)
+          const storage = window.localStorage
+          storage.setItem('username', data.username)
+          storage.setItem('menus', JSON.stringify(data.menu))
           resolve()
         }).catch(error => {
           reject(error)
@@ -66,7 +69,9 @@ const user = {
       return new Promise((resolve, reject) => {
         logout().then(() => {
           commit('SET_TOKEN', '')
-          commit('SET_ROLES', [])
+          commit('SET_MENUS', [])
+          const storage = window.localStorage
+          storage.clear()
           removeToken()
           resolve()
         }).catch(error => {
@@ -79,6 +84,8 @@ const user = {
     FedLogOut ({ commit }) {
       return new Promise(resolve => {
         commit('SET_TOKEN', '')
+        const storage = window.localStorage
+        storage.clear()
         removeToken()
         resolve()
       })

@@ -203,7 +203,7 @@
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="DYN">
+          <el-form-item label="新生儿死亡率">
             <el-select v-model="form.dyn" placeholder="请选择">
               <el-option
                 v-for="item in options"
@@ -213,7 +213,7 @@
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="UEM">
+          <el-form-item label="年轻群体总失业人数">
             <el-select v-model="form.uem" placeholder="请选择">
               <el-option
                 v-for="item in options"
@@ -223,7 +223,7 @@
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="URB">
+          <el-form-item label="城镇人口">
             <el-select v-model="form.urb" placeholder="请选择">
               <el-option
                 v-for="item in options"
@@ -233,7 +233,7 @@
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="POP">
+          <el-form-item label="人口增长">
             <el-select v-model="form.pop" placeholder="请选择">
               <el-option
                 v-for="item in options"
@@ -243,7 +243,7 @@
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="GDP">
+          <el-form-item label="人均GDP增长">
             <el-select v-model="form.gdp" placeholder="请选择">
               <el-option
                 v-for="item in options"
@@ -253,7 +253,7 @@
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="IND">
+          <el-form-item label="工业增加值">
             <el-select v-model="form.ind" placeholder="请选择">
               <el-option
                 v-for="item in options"
@@ -263,7 +263,7 @@
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="GNS">
+          <el-form-item label="总储蓄">
             <el-select v-model="form.gns" placeholder="请选择">
               <el-option
                 v-for="item in options"
@@ -273,7 +273,7 @@
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="CPI">
+          <el-form-item label="年通胀率">
             <el-select v-model="form.cpi" placeholder="请选择">
               <el-option
                 v-for="item in options"
@@ -283,7 +283,7 @@
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="IMP">
+          <el-form-item label="能源净进口">
             <el-select v-model="form.imp" placeholder="请选择">
               <el-option
                 v-for="item in options"
@@ -293,7 +293,7 @@
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="ELC">
+          <el-form-item label="总发电量的比例">
             <el-select v-model="form.elc" placeholder="请选择">
               <el-option
                 v-for="item in options"
@@ -303,7 +303,7 @@
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="USE">
+          <el-form-item label="耗电量">
             <el-select v-model="form.use" placeholder="请选择">
               <el-option
                 v-for="item in options"
@@ -313,7 +313,7 @@
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="VAL">
+          <el-form-item label="矿石和金属进口">
             <el-select v-model="form.val" placeholder="请选择">
               <el-option
                 v-for="item in options"
@@ -323,7 +323,7 @@
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="XPD">
+          <el-form-item label="研发支出">
             <el-select v-model="form.xpd" placeholder="请选择">
               <el-option
                 v-for="item in options"
@@ -333,7 +333,7 @@
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="TER">
+          <el-form-item label="入学率，高等院校">
             <el-select v-model="form.ter" placeholder="请选择">
               <el-option
                 v-for="item in options"
@@ -343,7 +343,7 @@
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="PAT">
+          <el-form-item label="专利申请量，居民">
             <el-select v-model="form.pat" placeholder="请选择">
               <el-option
                 v-for="item in options"
@@ -353,7 +353,7 @@
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="JRN">
+          <el-form-item label="科技期刊文章">
             <el-select v-model="form.grn" placeholder="请选择">
               <el-option
                 v-for="item in options"
@@ -373,7 +373,7 @@
 </template>
 
 <script>
-import {updatenews,updatemacro} from '@/api/expert/index'
+import {updatenews,updatemacro,findnews,findmacro} from '@/api/expert/index'
 export default {
   data() {
     return {
@@ -440,15 +440,27 @@ export default {
       }
     };
   },
+  created(){
+    this.lost()
+  },
   methods: {
+    lost(){
+      findnews().then(res=>{
+          this.expert=res.data
+
+      })
+      findmacro().then(res=>{
+          this.form=res.data
+      })
+    },
     updateMacro(){
       updatemacro(this.form).then(res=>{
-          console.log(res)
+          this.lost()
       })
     },
     updateNews(){
       updatenews(this.expert).then(res=>{
-         console.log(res)
+          this.lost()
       })
     }
   }

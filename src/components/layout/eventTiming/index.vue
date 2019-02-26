@@ -13,7 +13,7 @@
         label="中美贸易战"
         :lazy="true"
       >
-        <time-charts :all="usaTimeLineData"></time-charts>
+        <time-charts :all="usaTimeLineData" :title="USATopiceTitle"></time-charts>
         <topic-table :topicTableData="usaTimeTableData"></topic-table>
         <div style="width:100%;height:600px;overflow-y:scroll;">
             <topice-charts
@@ -26,7 +26,7 @@
         label="中国"
         :lazy="true"
       >
-        <time-charts :all="chinaTimeLineData"></time-charts>
+        <time-charts :all="chinaTimeLineData" :title="chinaTopiceTitle"></time-charts>
         <topic-table :topicTableData="chinaTimeTableData"></topic-table>
         <div style="width:100%;height:600px;overflow-y:scroll;">
           <topice-charts
@@ -39,7 +39,7 @@
         label="印度"
         :lazy="true"
       >
-        <time-charts :all="indiaTimeLineData"></time-charts>
+        <time-charts :all="indiaTimeLineData" :title="indiaTopiceTitle"></time-charts>
         <topic-table :topicTableData="indiaTimeTableData"></topic-table>
         <div style="width:100%;height:600px;overflow-y:scroll;">
           <topice-charts
@@ -52,7 +52,7 @@
         label="日本"
         :lazy="true"
       >
-        <time-charts :all="japanTimeLineData"></time-charts>
+        <time-charts :all="japanTimeLineData" :title="JapanTopiceTitle"></time-charts>
         <topic-table :topicTableData="japanTimeTableData"></topic-table>
         <div style="width:100%;height:600px;overflow-y:scroll;">
         <topice-charts
@@ -65,7 +65,7 @@
         label="朝鲜"
         :lazy="true"
       >
-        <time-charts :all="koreaTimeLineData"></time-charts>
+        <time-charts :all="koreaTimeLineData" :title="koreaTopiceTitle"></time-charts>
         <topic-table :topicTableData="koreaTimeTableData"></topic-table>
         <div style="width:100%;height:600px;overflow-y:scroll;">
           <topice-charts
@@ -78,7 +78,7 @@
         label="韩国"
         :lazy="true"
       >
-        <time-charts :all="southKoreaTimeLineData"></time-charts>
+        <time-charts :all="southKoreaTimeLineData" :title="southKoreaTopiceTitle"></time-charts>
         <topic-table :topicTableData="southKoreaTimeTableData"></topic-table>
         <div style="width:100%;height:600px;overflow-y:scroll;">
             <topice-charts
@@ -91,7 +91,7 @@
         label="美国"
         :lazy="true"
       >
-        <time-charts :all="americanTimeLineData"></time-charts>
+        <time-charts :all="americanTimeLineData" :title="americanTopiceTitle"></time-charts>
         <topic-table :topicTableData="americanTimeTableData"></topic-table>
         <div style="width:100%;height:600px;overflow-y:scroll;">
           <topice-charts
@@ -100,7 +100,21 @@
           ></topice-charts>
         </div>
       </el-tab-pane>
+      <el-tab-pane
+        label="朝核问题"
+        :lazy="true"
+      >
+        <time-charts :all="chaoheTimeLineData" :title="chaoheTopiceTitle"></time-charts>
+        <topic-table :topicTableData="chaoheTimeTableData"></topic-table>
+        <div style="width:100%;height:600px;overflow-y:scroll;">
+          <topice-charts
+            :all="chaoheTopiceData"
+            :title="chaoheTopiceTitle"
+          ></topice-charts>
+        </div>
+      </el-tab-pane>
     </el-tabs>
+    <line-charts :lineData="getForecastData"></line-charts>
     <el-form
       :inline="true"
       :model="eventTimingFormData"
@@ -206,7 +220,7 @@
 import echarts from "echarts";
 import "echarts-wordcloud";
 import { formatterDate, formatterMonthStr } from "@/utils/filter.js";
-import { findword,findTitle,TrendData,HeatData } from "@/api/eventTiming/EventTimingAnalysis";
+import { findword,findTitle,TrendData,HeatData,getForecastEventNumber } from "@/api/eventTiming/EventTimingAnalysis";
 import {getDes} from "@/api/common"
 import lineCharts from "@/components/layout/general/charts/line.vue";
 import topiceCharts from "@/components/layout/general/index/USA/USA.vue";
@@ -258,19 +272,21 @@ export default {
       months: [],
       a: [],
       USATopiceData: {},
-      USATopiceTitle: "中美贸易战态势热力图",
+      USATopiceTitle: "中美贸易战",
       chinaTopiceData: {},
-      chinaTopiceTitle: "中国政治经济态势热力图",
+      chinaTopiceTitle: "中国政治经济",
       indiaTopiceData: {},
-      indiaTopiceTitle: "印度政治经济态势热力图",
+      indiaTopiceTitle: "印度政治经济",
       JapanTopiceData: {},
-      JapanTopiceTitle: "日本政治经济态势热力图",
+      JapanTopiceTitle: "日本政治经济",
       koreaTopiceData: {},
-      koreaTopiceTitle: "朝鲜政治经济态势热力图",
+      koreaTopiceTitle: "朝鲜政治经济",
       southKoreaTopiceData: {},
-      southKoreaTopiceTitle: "韩国政治经济态势热力图",
+      southKoreaTopiceTitle: "韩国政治经济",
       americanTopiceData: {},
-      americanTopiceTitle: "美国政治经济态势热力图",
+      americanTopiceTitle: "美国政治经济",
+      chaoheTopiceData: {},
+      chaoheTopiceTitle: "朝核问题",
       country:"",
       usaTimeLineData:{},
       chinaTimeLineData:{},
@@ -279,6 +295,7 @@ export default {
       koreaTimeLineData:{},
       southKoreaTimeLineData:{},
       americanTimeLineData:{},
+      chaoheTimeLineData:{},
       usaTimeTableData:[],
       chinaTimeTableData:[],
       indiaTimeTableData:[],
@@ -286,18 +303,20 @@ export default {
       koreaTimeTableData:[],
       southKoreaTimeTableData:[],
       americanTimeTableData:[],
-    };
+      chaoheTimeTableData:[],
+      getForecastData:{}
+    }
   },
   components: {
     timeCharts,
     topiceCharts,
-    topicTable
+    topicTable,
+    lineCharts
   },
   created() {
     this.selectEventTiming();
     this.trendData()
     this.heatData()
-    this.getdes()
   },
   methods: {
     //查询
@@ -354,8 +373,11 @@ export default {
         this.line();
       });
       findTitle(this.eventTimingFormData).then(res=>{
-        console.log(res.data)
          this.news=res.data
+      })
+      getForecastEventNumber().then(res=>{
+        this.getForecastData=res.data
+        console.log(this.getForecastData)
       })
     },
     // 生成词云
@@ -484,6 +506,10 @@ export default {
         this.americanTimeLineData=res.data
         this.americanTimeTableData=res.data.table
       })
+      TrendData('chaohe').then(res=>{
+        this.chaoheTimeLineData=res.data
+        this.chaoheTimeTableData=res.data.table
+      })
     },
     // 事件热力图
     heatData(){
@@ -508,12 +534,9 @@ export default {
        HeatData('meiguo').then(res=>{
          this.americanTopiceData = res.data;
        })
-    },
-    // 获取图例说明
-    getdes(){
-      getDes('develop').then(res=>{
-        console.log(res)
-      })
+       HeatData('chaohe').then(res=>{
+         this.chaoheTopiceData = res.data;
+       })
     }
   }
 };

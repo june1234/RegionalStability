@@ -45,6 +45,7 @@ export default {
         element.name = element.countryname;
       });
       const sitCharts = echarts.init(this.$el);
+      sitCharts.clear()
       sitCharts.setOption({
         title: {
           text:

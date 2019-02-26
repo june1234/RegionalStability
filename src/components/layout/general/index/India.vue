@@ -6,12 +6,12 @@
         <div class="stability">
           <el-row :gutter="20">
             <el-col :span="12">
-              <h5>{{this.IndiaData.country}}稳定性指数</h5>
+              <h5>{{IndiaData.country}}稳定性指数</h5>
             </el-col>
             <el-col :span="12">
               <div class="tiny">
                 <span>宏观指数</span>
-                <span>{{this.IndiaData.baseScore}}</span>
+                <span>{{IndiaData.baseScore}}</span>
               </div>
             </el-col>
           </el-row>
@@ -124,7 +124,7 @@
         </div>
         <!-- 印度稳定性分析曲线图 -->
         <div class="analyzegraphs">
-          <h5>印度稳定性分析曲线图</h5>
+          <h5>{{IndiaData.country}}稳定性分析曲线图</h5>
           <line-charts :lineData="IndiaData.line"></line-charts>
         </div>
         <el-button

@@ -420,7 +420,6 @@ export default {
         this.EconomyTableData=res.data.list
       });
       list(this.economyFormData).then(res=>{
-        console.log(res.data)
         this.cpiLine=res.data.photo.cpi
         this.gdpLine=res.data.photo.gdp
         this.guLine=res.data.photo.gu

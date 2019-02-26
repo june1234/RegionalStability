@@ -43,7 +43,6 @@ export default {
     Emotion:function(newData, oldData) {
       if (newData) {
         this.emotion = newData;
-        console.log(this.emotion.emotion)
         this.a=this.emotion.emotion[0].emocount
         this.b=this.emotion.emotion[0].emosum
         this.c=this.emotion.emotion[1].emocount
@@ -54,7 +53,7 @@ export default {
   data() {
     return {
       pageNum: 1,
-      pageSize: 10,
+      pageSize:10,
       Total:0,
       emotion:{},
       a:"",

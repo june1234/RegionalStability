@@ -7,7 +7,7 @@
       <p>{{this.form.dec}}</p>
       <div class="topic" v-if="this.topic.display">
         <h6>事件演变</h6>·
-        <usa-charts></usa-charts>
+        <time-charts :all="usaTimeLineData" :title="title"></time-charts>
       </div>
       <!-- <div class="news" v-if="this.news.display">
         <h6>{{this.news.name}}</h6>
@@ -20,12 +20,13 @@
         <div v-if="this.event.Politics.display">
           <h6>政治事件</h6>
           <hot-charts :hotData="this.event.Politics.pScatter"></hot-charts>
-          <h6>事件列表</h6>
+          <h6 v-if="this.event.Politics.pEventList.length!==0">事件列表</h6>
           <el-table
             ref="multipleTable"
             :data="this.event.Politics.pEventList"
             border
             style="width: 100%"
+            v-if="this.event.Politics.pEventList.length!==0"
           >
               <el-table-column
                 prop="eventName"
@@ -78,17 +79,18 @@
                 min-width="100%"
               ></el-table-column>
           </el-table>
-          <h6>事件说明</h6>
+          <h6 v-if="this.event.Politics.pEventDec!==''">事件说明</h6>
           <p>{{this.event.Politics.pEventDec}}</p>
         </div>
         <div v-if="this.event.Economy.display">
           <h6>{{this.event.Economy.name}}</h6>
-          <h6>事件列表</h6>
+          <h6 v-if="this.event.Economy.eEventList.length!==0">事件列表</h6>
           <el-table
             ref="multipleTable"
             :data="this.event.Economy.eEventList"
             border
             style="width: 100%"
+            v-if="this.event.Economy.eEventList.length!==0"
           >
               <el-table-column
                 prop="eventName"
@@ -141,18 +143,19 @@
                 min-width="100%"
               ></el-table-column>
           </el-table>
-          <h6>事件说明</h6>
+          <h6 v-if="this.event.Economy.eEventDec!==''">事件说明</h6>
           <p>{{this.event.Economy.eEventDec}}</p>
         </div>
         <div v-if="this.event.CTD.display">
           <h6>{{this.event.CTD.name}}</h6>
           <hot-charts :hotData="this.event.CTD.cScatter"></hot-charts>
-          <h6>事件列表</h6>
+          <h6 v-if="this.event.CTD.cEventList.length!==0">事件列表</h6>
           <el-table
             ref="multipleTable"
             :data="this.event.CTD.cEventList"
             border
             style="width: 100%"
+            v-if="this.event.CTD.cEventList.length!==0"
           >
               <el-table-column
                 prop="eventName"
@@ -217,7 +220,7 @@
               ></el-table-column>
           </el-table>
           <h6>事件说明</h6>
-          <p>{{this.event.CTD.cEventDec}}</p>
+          <p v-if="this.event.CTD.cEventDec!==''">{{this.event.CTD.cEventDec}}</p>
         </div>
       </div>
     </div>
@@ -230,7 +233,9 @@
 import lineCharts from "@/components/layout/general/charts/line.vue";
 import hotCharts from "@/components/layout/general/charts/hot.vue";
 import { formatterDateStr, formatterDate } from "@/utils/filter";
-import usaCharts from "@/components/layout/general/index/USA/USALine.vue";
+import timeCharts from "@/components/layout/general/charts/timeLineCharts.vue";
+import { TrendData } from "@/api/eventTiming/EventTimingAnalysis";
+
 export default {
   data() {
     return {
@@ -240,23 +245,57 @@ export default {
       event:{},
       topic:{},
       news:{},
-      form:{}
+      form:{},
+      usaTimeLineData:{},
+      title:'',
+      options:[{
+          label:'中美贸易战',
+          value:'zhongmei'
+        },{
+          label:'中国政治经济',
+          value:'zhongguo'
+        },{
+          label:'印度政治经济',
+          value:'yindu'
+        },{
+          label:'日本政治经济',
+          value:'riben'
+        },{
+          label:'朝鲜政治经济',
+          value:'chaoxian'
+        },{
+          label:'韩国政治经济',
+          value:'hanguo'
+        },{
+          label:'美国政治经济',
+          value:'meiguo'
+        },{
+          label:'朝核问题',
+          value:'chaohe'
+        }
+      ],
     };
   },
   components: {
     lineCharts,
     hotCharts,
-    usaCharts
+    timeCharts
   },
   created() {
-    this.form=this.$route.query.form
-    this.event=this.$route.query.event
-    this.topic=this.$route.query.topic
-    this.news=this.$route.query.news
-    console.log(this.form)
-    console.log(this.event)
-    console.log(this.news)
-    console.log(this.topic)
+    const {form,event,topic,news} = this.$route.query
+    console.log(this.$route.query)
+    this.form=form
+    this.event=event
+    this.topic=topic
+    this.news=news
+    TrendData(this.topic.value).then(res=>{
+        this.usaTimeLineData=res.data
+        for(let i in this.options){
+          if(this.value===this.options[i].value){
+            this.title=this.options[i].label
+          }
+        }
+    })
   },
   methods: {
     goBack() {

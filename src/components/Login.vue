@@ -40,11 +40,15 @@
 				        rules2: {
 				          password: [
 				            { 
-				            	validator: checkPassWord, 
+											validator: checkPassWord,
 				            	trigger: 'blur' 
-				            }
+				            },{
+											min:6,
+											message: '密码长度为6位数', 
+											trigger: 'blur'
+										}
 				          ],
-				          userName: [
+				          username: [
 				            { 
 				            	validator: checkUserName,
 					             trigger: 'blur' 
@@ -57,19 +61,17 @@
 		methods:{
 			submitForm(formName) {
 				let that = this
+				    debugger
 		        this.$refs[formName].validate((valid) => {
 		          if (valid) {
 		          	that.loading=true
-		            alert('submit!')
 		            this.$store.dispatch('Login', this.formLabelAlign).then(() => {
 			            this.loading = false
 			            this.$router.push({ path: '/' })
 			          }).catch((err) => {
-			            console.log(err)
 			            this.loading = false
 			          })
 		          } else{
-		            console.log('error submit!!')
 		            return false;
 		          }
 		        })

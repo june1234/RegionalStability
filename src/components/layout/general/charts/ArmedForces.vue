@@ -27,7 +27,8 @@ export default {
   },
   methods: {
     ArmedForces() {
-       const a=[]
+        const a=[]
+        let d=[]
         const c=[]
       for(let i in this.pineData){
         a.push(i.substr(1))
@@ -57,8 +58,9 @@ export default {
         }
          b.title.text=this.pineData[i].text
          b.series.data=this.pineData[i].data
-          c.push(b)
+         c.push(b)
       }
+       d=this.paixu(a)
       const ArmedCharts = echarts.init(this.$el);
       const option = {
         baseOption: {
@@ -90,6 +92,16 @@ export default {
       window.addEventListener("resize", function() {
         ArmedCharts.resize();
       });
+    },
+    paixu(arr){
+      let len = arr.length - 1
+      for (let j = 0; j < len; j++) {
+        for (let i = 0; i < len - j; i++) {
+          if (arr[i] > arr[i + 1]) {
+            [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]
+          }
+        }
+      }
     }
   }
 };

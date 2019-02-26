@@ -9,7 +9,7 @@ export function composite (params) {
 
 export function Ahp () {
   return request({
-    url: 'ahp/find',
+    url: '/ahp/find',
     method: 'post'
   })
 }

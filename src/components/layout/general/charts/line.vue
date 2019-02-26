@@ -35,6 +35,7 @@ export default {
         this.lineData.Ydata[i].smooth=true
       }
       const mychart = echarts.init(this.$el);
+      mychart.clear()
       mychart.setOption({
         color: ["#4cabce", "#d14a61", "#675bba"],
         legend: {},

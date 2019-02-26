@@ -90,7 +90,7 @@
 					<el-input v-model="updateNewsForm.religion" autocomplete="off"></el-input>
 				</el-form-item>
 				<el-form-item label="人物">
-					<el-input v-model="updateNewsForm.religion" autocomplete="off"></el-input>
+					<el-input v-model="updateNewsForm.person" autocomplete="off"></el-input>
 				</el-form-item>
 			</el-form>
 			<div slot="footer" class="dialog-footer">

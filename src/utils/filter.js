@@ -40,6 +40,7 @@ export function formatterDateStr (val) {
   return String(year) + '-' + String(month) +
   '-' + String(day)
 }
+
 export function formatterMonthStr (val) {
   var date = new Date(val)
   var year = date.getFullYear()

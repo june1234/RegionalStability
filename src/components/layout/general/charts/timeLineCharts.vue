@@ -10,7 +10,8 @@ import echarts from"echarts"
 export default {
   name: "USALine",
   props:{
-      all:Object
+	  all:Object,
+	  title:String
   },
   watch:{
       all:function ( newData , oldData ){
@@ -18,7 +19,13 @@ export default {
             this.all=newData
             this.line()
          }
-    }
+	},
+	title:function (newData,oldData) {
+		if(newData){
+            this.title=newData
+            this.line()
+         }
+	}
   },
   data() {
     return {
@@ -32,7 +39,8 @@ export default {
   },
   methods: {
     line() {
-      var myChart = echarts.init(this.$el);
+	  var myChart = echarts.init(this.$el);
+      myChart.clear()
       var a1 = this.all.data.topic1;
       var a2 = this.all.data.topic2;
       var a3 = this.all.data.topic3;
@@ -53,7 +61,7 @@ export default {
       var option = {
 				baseOption: {
 					title: {
-						text: '中美贸易战态势趋势图',
+						text: this.title+'态势趋势图',
 						x: 'center',
 						top: '5%'
 					},
@@ -297,6 +305,7 @@ export default {
 						},
 						{
 							position: 'bottom',
+							boundaryGap: false,
                             type: 'category',
                             data:this.all.xzhou
 						}],
@@ -2127,6 +2136,5 @@ export default {
   box-shadow: 10px 10px 10px #d2d2d2;
   border: 1px solid #fff;
   padding: 20px;
-
 }
 </style>

@@ -15,15 +15,12 @@ import { mapGetters } from 'vuex'
 	export default {
 		data(){
          return {
-           
+           username:''
          } 
 		},
-		computed:{
-          ...mapGetters([
-				'username'
-			])
-		},
 		created(){
+		const storage = window.localStorage
+		this.username=storage.username
 		},
 		methods:{
 			logout(){

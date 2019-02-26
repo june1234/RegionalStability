@@ -34,6 +34,7 @@ export default {
         this.hotData[i].symbolSize=Math.random()*50
       }
       const mychart = echarts.init(this.$el);
+      mychart.clear()
       mychart.setOption({
         color:["#5ab1ef","#e5cf0d","#dc69aa","#a0a7e6"],
         legend: {

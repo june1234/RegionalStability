@@ -274,6 +274,7 @@ export default {
     //加载政治事件列表信息
     loadPoliticsEventPageList() {
       event(this.politicsFormData).then(res => {
+        console.log(res)
         this.total = res.data.total;
         this.politicsTableData = res.data.list;
       });

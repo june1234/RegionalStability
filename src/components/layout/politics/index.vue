@@ -189,44 +189,44 @@
       >
         <el-table-column
           prop="area"
-          label="area"
+          label="地区"
           width="180"
         >
         </el-table-column>
         <el-table-column
           prop="arms"
-          label="arms"
+          label="武器"
           width="180"
         >
         </el-table-column>
         <el-table-column
           prop="infrastructure"
-          label="infrastructure"
+          label="宗教"
         >
         </el-table-column>
         <el-table-column
           prop="natural_disaster"
-          label="natural_disaster"
+          label="自然灾害"
         >
         </el-table-column>
         <el-table-column
           prop="party_group"
-          label="party_group"
+          label="政党"
         >
         </el-table-column>
         <el-table-column
           prop="person"
-          label="person"
+          label="人物"
         >
         </el-table-column>
         <el-table-column
           prop="position"
-          label="position"
+          label="职位"
         >
         </el-table-column>
         <el-table-column
           prop="religion"
-          label="religion"
+          label="宗教"
         >
         </el-table-column>
       </el-table>
@@ -360,7 +360,6 @@ export default {
         this.pSunData = res.data;
       });
       frequency(this.politicsFormData).then(res => {
-        console.log(res.data.keys)
         this.dimensions = res.data.value;
         this.tableData=res.data.keys
       });

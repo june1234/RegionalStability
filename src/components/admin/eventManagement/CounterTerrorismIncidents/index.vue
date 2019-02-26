@@ -16,12 +16,6 @@
 							</el-option>
 						</el-select>
 					</el-form-item>
-					<el-form-item label="等级" v-if="this.formInline.dimensionality != 6">
-						<el-select v-model="formInline.levelId" placeholder="选择等级">
-							<el-option v-for="item in level" :key="item.value" :label="item.label" :value="item.value">
-							</el-option>
-						</el-select>
-					</el-form-item>
 					<el-form-item>
 						<el-button type="primary" @click="listloading">查询</el-button>
 					</el-form-item>
@@ -130,8 +124,6 @@
 						<el-table-column prop="countryfullname" label="国家" min-width="20%">
 						</el-table-column>
 						<el-table-column prop="areaRemark" label="备注信息" min-width="20%">
-						</el-table-column>
-						<el-table-column prop="levelId" label="影响等级" min-width="20%">
 						</el-table-column>
 						<el-table-column fixed="right" label="操作" min-width="20%">
 							<template slot-scope="scope">
@@ -247,11 +239,39 @@ export default {
       formInline: {
         countryId: 0,
         dimensionality: 0,
-        levelId: 0,
         pageSize: 5,
         pageNum: 1
       },
-      country: [],
+      country: [
+        {
+          value: "PRK",
+          label: "朝鲜"
+        },
+        {
+          value: "IND",
+          label: "印度"
+        },
+        {
+          value: "JPN",
+          label: "日本"
+        },
+        {
+          value: "CHN",
+          label: "中国"
+        },
+        {
+          value: "USA",
+          label: "美国"
+        },
+        {
+          value: "PAK",
+          label: "巴基斯坦"
+        },
+        {
+          value: "KOR",
+          label: "韩国"
+        }
+      ],
       dimension: [
         {
           value: 6,
@@ -268,52 +288,6 @@ export default {
         {
           value: 9,
           label: "地理位置"
-        }
-      ],
-      level: [
-        {
-          value: 0,
-          label: "全部"
-        },
-        {
-          value: 1,
-          label: "等级一"
-        },
-        {
-          value: 2,
-          label: "等级二"
-        },
-        {
-          value: 3,
-          label: "等级三"
-        },
-        {
-          value: 4,
-          label: "等级四"
-        },
-        {
-          value: 5,
-          label: "等级五"
-        },
-        {
-          value: 6,
-          label: "等级六"
-        },
-        {
-          value: 7,
-          label: "等级七"
-        },
-        {
-          value: 8,
-          label: "等级八"
-        },
-        {
-          value: 9,
-          label: "等级九"
-        },
-        {
-          value: 10,
-          label: "等级十"
         }
       ],
       casualties: [],
@@ -381,7 +355,6 @@ export default {
     this.formInline = {
       countryId: 92,
       dimensionality: 6,
-      levelId: 0
     };
     this.listloading();
   },

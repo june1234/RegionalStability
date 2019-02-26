@@ -8,9 +8,9 @@
 				<el-select v-model="GTDFormData.nation" filterable placeholder="选择国家">
 					<el-option
 						v-for="item in countries"
-						:key="item.number"
-						:label="item.internetname"
-						:value="item.countrykeys">
+						:key="item.value"
+						:label="item.label"
+						:value="item.value">
 				    </el-option>
 			    </el-select>  
 		    </el-form-item>
@@ -41,9 +41,9 @@
    	    <div class="content">
    	    	<!-- GTD table表格 -->
    		    <el-table :data="tableGTDData" border>
-	   			<el-table-column prop="eventName" label="事件名称" align="center" :formatter="formatterEventName"></el-table-column>
 	   			<el-table-column prop="eventTime" label="时间" align="center" :formatter="formatterEventTime"></el-table-column>
-	   			<el-table-column prop="countryTxt" label="地点" align="center"></el-table-column>
+	   			<el-table-column prop="countryTxt" label="国家" align="center"></el-table-column>
+	   			<el-table-column prop="city" label="城市" align="center"></el-table-column>
 	   			<el-table-column prop="gnames" label="冲突方" align="center" :formatter="formatterGnames"></el-table-column>
 	   			<el-table-column prop="weaptype1" label="武器" align="center" :formatter="formatterWeaptype"></el-table-column>
    		    </el-table>
@@ -80,7 +80,36 @@
 				total:0,
                 
                 //国家信息
-				countries:[],
+				countries:[
+					{
+					value: "PRK",
+					label: "朝鲜"
+					},
+					{
+					value: "IND",
+					label: "印度"
+					},
+					{
+					value: "JPN",
+					label: "日本"
+					},
+					{
+					value: "CHN",
+					label: "中国"
+					},
+					{
+					value: "USA",
+					label: "美国"
+					},
+					{
+					value: "PAK",
+					label: "巴基斯坦"
+					},
+					{
+					value: "KOR",
+					label: "韩国"
+					}
+				],
 
 				//GTD数据
 				tableGTDData:[],
@@ -91,7 +120,6 @@
 		},
 		created(){
 	       this.loadGTDPageList();
-	       this.getCountryAll();
 		},
 		methods:{
 			//加载GTD列表
@@ -99,14 +127,7 @@
 	    		getGTDList(this.GTDFormData).then(res => {
 	    			this.total=res.data.total
 	    			this.tableGTDData=res.data.list
-	    			
 	    		})
-			},
-			//获取国家信息
-			getCountryAll(){
-	            getCountryAll().then(res=>{
-	           	    this.countries=res.data
-	            })
 			},
 			//查询GTD数据
 	         selectGTD(){
@@ -125,11 +146,6 @@
 			handleCurrentChange(val) {
 				this.GTDFormData.pageNum=val
 				this.loadGTDPageList()
-			},
-
-			formatterEventName(row){
-               const eventName=row.eventName==='***'?'':row.eventName
-               return eventName
 			},
 			//格式化发生时间
 			formatterEventTime(row){

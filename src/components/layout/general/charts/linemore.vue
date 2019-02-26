@@ -30,6 +30,7 @@ this.line()
   methods: {
       line(){
       const VicCharts = echarts.init(this.$el);
+      VicCharts.clear()
       const option = {
         color: ["#f54e96", "#8ed41b", "#7631a6", "#eadc27"],
         title: {

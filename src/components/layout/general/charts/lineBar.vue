@@ -51,6 +51,7 @@ export default {
       }]
       
       const mychart = echarts.init(this.$el);
+      mychart.clear()
     //  mychart.showLoading();
       const option={
         series: {

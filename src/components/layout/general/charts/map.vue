@@ -30,6 +30,7 @@ export default {
   methods: {
       world(){
       const sitCharts = echarts.init(this.$el);
+      sitCharts.clear()
       sitCharts.setOption({
         title: {
           text:"全球反恐统计",

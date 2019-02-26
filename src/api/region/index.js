@@ -31,3 +31,17 @@ export function worldBankData (params) {
     data: params
   })
 }
+// 新闻矩阵
+export function ahpbynews () {
+  return request({
+    url: '/ahp/ahpbynews',
+    method: 'post'
+  })
+}
+// 宏观矩阵
+export function ahpbybase () {
+  return request({
+    url: '/ahp/ahpbybase',
+    method: 'post'
+  })
+}

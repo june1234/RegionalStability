@@ -5,7 +5,7 @@
         <h2 class="title">区域稳定性分析</h2>
       </el-col>
       <el-col :span="18">
-        <el-button type="text">说明</el-button>
+        <el-button type="text" @click="isDescription=true">说明</el-button>
       </el-col>
     </el-row>
     <el-form
@@ -76,7 +76,7 @@
         </el-col>
       </el-row>
     </div>
-    <india></india>
+    <india :IndiaData="compareData"></india>
     <div class="overall">
       <h4>综合参数</h4>
       <div class="parameter">
@@ -196,41 +196,41 @@
               <el-col
                 :span="6"
                 style="background-color:#d7d7d7;color:#fff;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbynewsData.syn_matrix10}}</span></el-col>
               <el-col
                 :span="6"
                 style="background-color:rgb(241,141,0);color:#fff;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>2</span></el-col>
+              ><span>{{ahpbynewsData.syn_matrix11}}</span></el-col>
               <el-col
                 :span="6"
                 style="background-color:rgb(243,152,57);color:#fff;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.33</span></el-col>
+              ><span>{{ahpbynewsData.syn_matrix12}}</span></el-col>
               <el-col :span="6"><span>政治</span></el-col>
               <el-col
                 :span="6"
                 style="color:#fff;background-color:rgb(241,141,0);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.5</span></el-col>
+              ><span>{{ahpbynewsData.syn_matrix20}}</span></el-col>
               <el-col
                 :span="6"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbynewsData.syn_matrix21}}</span></el-col>
               <el-col
                 :span="6"
                 style="color:#fff;background-color:rgb(249,194,112);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.17</span></el-col>
+              ><span>{{ahpbynewsData.syn_matrix22}}</span></el-col>
               <el-col :span="6"><span>反恐</span></el-col>
               <el-col
                 :span="6"
                 style="color:#fff;background-color:rgb(243,152,57);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>3</span></el-col>
+              ><span>{{ahpbynewsData.syn_matrix30}}</span></el-col>
               <el-col
                 :span="6"
                 style="color:#fff;background-color:rgb(249,194,112);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>6</span></el-col>
+              ><span>{{ahpbynewsData.syn_matrix31}}</span></el-col>
               <el-col
                 :span="6"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbynewsData.syn_matrix32}}</span></el-col>
             </el-row>
           </el-col>
           <el-col
@@ -247,36 +247,36 @@
               <el-col
                 :span="5"
                 style="background-color:#d7d7d7;color:#fff;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbynewsData.matrix_110}}</span></el-col>
               <el-col
                 :span="5"
                 style="background-color:rgb(237,110,61);color:#fff;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>3</span></el-col>
+              ><span>{{ahpbynewsData.matrix_111}}</span></el-col>
               <el-col
                 :span="5"
                 style="background-color:rgb(236,214,202);color:#fff;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.3</span></el-col>
+              ><span>{{ahpbynewsData.matrix_112}}</span></el-col>
               <el-col
                 :span="5"
                 style="background-color:rgb(243,152,57);color:#fff;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.5</span></el-col>
+              ><span>{{ahpbynewsData.matrix_113}}</span></el-col>
               <el-col :span="5"><span>负数</span></el-col>
               <el-col
                 :span="5"
                 style="background-color:rgb(237,110,61);color:#fff;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.33</span></el-col>
+              ><span>{{ahpbynewsData.matrix_120}}</span></el-col>
               <el-col
                 :span="5"
                 style="background-color:#d7d7d7;color:#fff;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbynewsData.matrix_121}}</span></el-col>
               <el-col
                 :span="5"
                 style="background-color:rgb(227,204,169);color:#fff;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.11</span></el-col>
+              ><span>{{ahpbynewsData.matrix_122}}</span></el-col>
               <el-col
                 :span="5"
                 style="background-color:rgb(236,214,202);color:#fff;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.33</span></el-col>
+              ><span>{{ahpbynewsData.matrix_123}}</span></el-col>
               <el-col
                 :span="5"
                 style=""
@@ -284,36 +284,36 @@
               <el-col
                 :span="5"
                 style="background-color:rgb(236,214,202);color:#fff;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>3</span></el-col>
+              ><span>{{ahpbynewsData.matrix_130}}</span></el-col>
               <el-col
                 :span="5"
                 style="background-color:rgb(227,204,169);color:#fff;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>9</span></el-col>
+              ><span>{{ahpbynewsData.matrix_131}}</span></el-col>
               <el-col
                 :span="5"
                 style="background-color:#d7d7d7;color:#fff;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbynewsData.matrix_132}}</span></el-col>
               <el-col
                 :span="5"
                 style="background-color:rgb(237,110,61);color:#fff;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>4</span></el-col>
+              ><span>{{ahpbynewsData.matrix_133}}</span></el-col>
               <el-col :span="5"><span>正数</span></el-col>
               <el-col
                 :span="5"
                 style="background-color:rgb(243,152,57);color:#fff;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>2</span></el-col>
+              ><span>{{ahpbynewsData.matrix_140}}</span></el-col>
               <el-col
                 :span="5"
                 style="background-color:rgb(236,214,202);color:#fff;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>3</span></el-col>
+              ><span>{{ahpbynewsData.matrix_141}}</span></el-col>
               <el-col
                 :span="5"
                 style="background-color:rgb(237,110,61);color:#fff;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.25</span></el-col>
+              ><span>{{ahpbynewsData.matrix_142}}</span></el-col>
               <el-col
                 :span="5"
                 style="background-color:#d7d7d7;color:#fff;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbynewsData.matrix_143}}</span></el-col>
             </el-row>
           </el-col>
           <el-col
@@ -330,19 +330,19 @@
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbynewsData.matrix_210}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(237,110,61);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>5</span></el-col>
+              ><span>{{ahpbynewsData.matrix_211}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(227,204,169);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.2</span></el-col>
+              ><span>{{ahpbynewsData.matrix_212}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(243,152,57);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.5</span></el-col>
+              ><span>{{ahpbynewsData.matrix_213}}</span></el-col>
               <el-col
                 :span="5"
                 style=""
@@ -350,53 +350,53 @@
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(237,110,61);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.2</span></el-col>
+              ><span>{{ahpbynewsData.matrix_220}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbynewsData.matrix_221}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(236,214,202);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.33</span></el-col>
+              ><span>{{ahpbynewsData.matrix_222}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(236,214,202);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.33</span></el-col>
+              ><span>{{ahpbynewsData.matrix_223}}</span></el-col>
               <el-col :span="5"><span>正分</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(227,204,169);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>3</span></el-col>
+              ><span>{{ahpbynewsData.matrix_230}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(236,214,202);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>5</span></el-col>
+              ><span>{{ahpbynewsData.matrix_231}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbynewsData.matrix_232}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(237,110,61);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>5</span></el-col>
+              ><span>{{ahpbynewsData.matrix_233}}</span></el-col>
               <el-col :span="5"><span>正数</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(243,152,57);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.5</span></el-col>
+              ><span>{{ahpbynewsData.matrix_240}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(236,214,202);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.33</span></el-col>
+              ><span>{{ahpbynewsData.matrix_241}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(237,110,61);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.2</span></el-col>
+              ><span>{{ahpbynewsData.matrix_242}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbynewsData.matrix_243}}</span></el-col>
             </el-row>
           </el-col>
           <el-col
@@ -413,70 +413,70 @@
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbynewsData.matrix_310}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(237,110,61);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>4</span></el-col>
+              ><span>{{ahpbynewsData.matrix_311}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(236,214,202);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.33</span></el-col>
+              ><span>{{ahpbynewsData.matrix_312}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(243,152,57);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.5</span></el-col>
+              ><span>{{ahpbynewsData.matrix_313}}</span></el-col>
               <el-col :span="5"><span>负数</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(237,110,61);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.25</span></el-col>
+              ><span>{{ahpbynewsData.matrix_320}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbynewsData.matrix_321}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(227,204,169);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.2</span></el-col>
+              ><span>{{ahpbynewsData.matrix_322}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(243,152,57);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.5</span></el-col>
+              ><span>{{ahpbynewsData.matrix_323}}</span></el-col>
               <el-col :span="5"><span>正分</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(236,214,202);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>3</span></el-col>
+              ><span>{{ahpbynewsData.matrix_330}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(227,204,169);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>5</span></el-col>
+              ><span>{{ahpbynewsData.matrix_331}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbynewsData.matrix_332}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(237,110,61);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>4</span></el-col>
+              ><span>{{ahpbynewsData.matrix_333}}</span></el-col>
               <el-col :span="5"><span>正数</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(243,152,57);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>2</span></el-col>
+              ><span>{{ahpbynewsData.matrix_340}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(243,152,57);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>2</span></el-col>
+              ><span>{{ahpbynewsData.matrix_341}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(237,110,61);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.25</span></el-col>
+              ><span>{{ahpbynewsData.matrix_342}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbynewsData.matrix_343}}</span></el-col>
             </el-row>
           </el-col>
         </el-row>
@@ -500,70 +500,70 @@
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.syn_matrix10}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(177, 212, 219);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.6</span></el-col>
+              ><span>{{ahpbybaseData.syn_matrix11}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(34, 174, 230);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1.7</span></el-col>
+              ><span>{{ahpbybaseData.syn_matrix12}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(89,195,226);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.syn_matrix13}}</span></el-col>
               <el-col :span="5"><span>经济</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(177, 212, 219);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1.8</span></el-col>
+              ><span>{{ahpbybaseData.syn_matrix20}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.syn_matrix21}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(41,131,177);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>3</span></el-col>
+              ><span>{{ahpbybaseData.syn_matrix22}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(34,174,230);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1.8</span></el-col>
+              ><span>{{ahpbybaseData.syn_matrix23}}</span></el-col>
               <el-col :span="5"><span>能源</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(34, 174, 230);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.6</span></el-col>
+              ><span>{{ahpbybaseData.syn_matrix30}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(41,131,177);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.3</span></el-col>
+              ><span>{{ahpbybaseData.syn_matrix31}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.syn_matrix32}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(177,212,219);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.6</span></el-col>
+              ><span>{{ahpbybaseData.syn_matrix33}}</span></el-col>
               <el-col :span="5"><span>科技</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(89,195,226);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.syn_matrix40}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(34,174,230);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.56</span></el-col>
+              ><span>{{ahpbybaseData.syn_matrix41}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(177,212,219);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1.67</span></el-col>
+              ><span>{{ahpbybaseData.syn_matrix42}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.syn_matrix43}}</span></el-col>
             </el-row>
           </el-col>
           <el-col
@@ -580,70 +580,70 @@
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.matrix_110}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(89,195,226);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.6</span></el-col>
+              ><span>{{ahpbybaseData.matrix_111}}6</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(41,131,177);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>3</span></el-col>
+              ><span>{{ahpbybaseData.matrix_112}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(89,195,226);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.6</span></el-col>
+              ><span>{{ahpbybaseData.matrix_113}}</span></el-col>
               <el-col :span="5"><span>UEM</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(89,195,226);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1.67</span></el-col>
+              ><span>{{ahpbybaseData.matrix_120}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.matrix_121}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(41,131,177);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>5</span></el-col>
+              ><span>{{ahpbybaseData.matrix_122}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(34,174,230);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.matrix_123}}</span></el-col>
               <el-col :span="5"><span>URB</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(41,131,177);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.33</span></el-col>
+              ><span>{{ahpbybaseData.matrix_130}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(41,131,177);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.2</span></el-col>
+              ><span>{{ahpbybaseData.matrix_131}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.matrix_132}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(177,212,219);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.2</span></el-col>
+              ><span>{{ahpbybaseData.matrix_133}}</span></el-col>
               <el-col :span="5"><span>POP</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(89,195,226);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1.67</span></el-col>
+              ><span>{{ahpbybaseData.matrix_140}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(34,174,230);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.33</span></el-col>
+              ><span>{{ahpbybaseData.matrix_141}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(177,212,219);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.matrix_142}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.matrix_143}}</span></el-col>
             </el-row>
           </el-col>
           <el-col
@@ -660,70 +660,70 @@
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.matrix_210}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(41,131,177);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>2.33</span></el-col>
+              ><span>{{ahpbybaseData.matrix_211}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(34,174,230);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1.4</span></el-col>
+              ><span>{{ahpbybaseData.matrix_212}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(41,131,177);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>2.33</span></el-col>
+              ><span>{{ahpbybaseData.matrix_213}}</span></el-col>
               <el-col :span="5"><span>IND</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(41,131,177);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.43</span></el-col>
+              ><span>{{ahpbybaseData.matrix_220}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.matrix_221}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(177,212,219);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.6</span></el-col>
+              ><span>{{ahpbybaseData.matrix_222}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(89,195,226);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.matrix_223}}</span></el-col>
               <el-col :span="5"><span>GNS</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(34,174,230);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.71</span></el-col>
+              ><span>{{ahpbybaseData.matrix_230}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(177,212,219);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1.67</span></el-col>
+              ><span>{{ahpbybaseData.matrix_231}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.matrix_232}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(34,174,230);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1.67</span></el-col>
+              ><span>{{ahpbybaseData.matrix_233}}</span></el-col>
               <el-col :span="5"><span>CPI</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(41,131,177);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.43</span></el-col>
+              ><span>{{ahpbybaseData.matrix_240}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(89,195,226);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.matrix_241}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(34,174,230);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.6</span></el-col>
+              ><span>{{ahpbybaseData.matrix_242}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.matrix_243}}</span></el-col>
             </el-row>
           </el-col>
           <el-col
@@ -740,70 +740,70 @@
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.matrix_310}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(89,195,226);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.6</span></el-col>
+              ><span>{{ahpbybaseData.matrix_311}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(177,212,219);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.43</span></el-col>
+              ><span>{{ahpbybaseData.matrix_312}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(34,174,230);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.matrix_313}}</span></el-col>
               <el-col :span="5"><span>ELC</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(89,195,226);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1.67</span></el-col>
+              ><span>{{ahpbybaseData.matrix_320}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.matrix_321}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(89,195,226);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.71</span></el-col>
+              ><span>{{ahpbybaseData.matrix_322}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(41,131,177);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1.67</span></el-col>
+              ><span>{{ahpbybaseData.matrix_323}}</span></el-col>
               <el-col :span="5"><span>USE</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(177,212,219);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>2.33</span></el-col>
+              ><span>{{ahpbybaseData.matrix_330}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(89,195,226);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1.4</span></el-col>
+              ><span>{{ahpbybaseData.matrix_331}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.matrix_332}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(41,131,177);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>2.33</span></el-col>
+              ><span>{{ahpbybaseData.matrix_333}}</span></el-col>
               <el-col :span="5"><span>VAL</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(34,174,230);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.matrix_340}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(41,131,177);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.6</span></el-col>
+              ><span>{{ahpbybaseData.matrix_341}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(41,131,177);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.43</span></el-col>
+              ><span>{{ahpbybaseData.matrix_342}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.matrix_343}}</span></el-col>
             </el-row>
           </el-col>
           <el-col
@@ -820,70 +820,70 @@
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.matrix_410}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(177,212,219);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.56</span></el-col>
+              ><span>{{ahpbybaseData.matrix_411}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(89,195,226);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1.67</span></el-col>
+              ><span>{{ahpbybaseData.matrix_412}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(34,174,230);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>5</span></el-col>
+              ><span>{{ahpbybaseData.matrix_413}}</span></el-col>
               <el-col :span="5"><span>TER</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(177,212,219);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1.8</span></el-col>
+              ><span>{{ahpbybaseData.matrix_420}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.matrix_421}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(34,174,230);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>3</span></el-col>
+              ><span>{{ahpbybaseData.matrix_422}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(41,131,177);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>9</span></el-col>
+              ><span>{{ahpbybaseData.matrix_420}}</span></el-col>
               <el-col :span="5"><span>PAT</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(89,195,226);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.6</span></el-col>
+              ><span>{{ahpbybaseData.matrix_430}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(34,174,230);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.33</span></el-col>
+              ><span>{{ahpbybaseData.matrix_431}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.matrix_432}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(34,174,230);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>3</span></el-col>
+              ><span>{{ahpbybaseData.matrix_433}}</span></el-col>
               <el-col :span="5"><span>GRN</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(34,174,230);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.2</span></el-col>
+              ><span>{{ahpbybaseData.matrix_440}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(41,131,177);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.11</span></el-col>
+              ><span>{{ahpbybaseData.matrix_441}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:rgb(34,174,230);box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>0.33</span></el-col>
+              ><span>{{ahpbybaseData.matrix_442}}</span></el-col>
               <el-col
                 :span="5"
                 style="color:#fff;background-color:#d7d7d7;box-shadow: 10px 10px 10px #d2d2d2;"
-              ><span>1</span></el-col>
+              ><span>{{ahpbybaseData.matrix_443}}</span></el-col>
             </el-row>
           </el-col>
         </el-row>
@@ -891,7 +891,6 @@
       <p style="margin-top:40px;font-size:20px;line-height:40px;">
         获得上图的比较矩阵以后，首先需要判断是否符合一致性，即计算CI值：CI=(λ-1)/(n-1)，λ为矩阵最大特征值；然后对每个矩阵A计算其最大特征向量W，即对 运算：AW=λW，W即为每个矩阵对应层次的权重，最后根据每个层次对应的权重，来求出权重矩阵P。 </p>
     </div>
-
     <div class="original">
       <h5>事件分析</h5>
       <original
@@ -927,6 +926,10 @@
       </el-table>
     </div>
     <news></news>
+
+    <el-dialog title="说明" :visible.sync="isDescription">
+      <p style="line-height:50px;font-size:24px;" v-for="(item,index) in descriptionData" :key="index">&nbsp; &nbsp; {{item}}</p>
+    </el-dialog>
   </div>
 </template>
 
@@ -941,9 +944,11 @@ import {
   scoresource,
   score,
   enventData,
-  worldBankData
+  worldBankData,
+  ahpbynews,
+  ahpbybase
 } from "@/api/region/index";
-import { Ahp } from "@/api/index/index";
+import { Ahp,compare } from "@/api/index/index";
 import { event, deleteEvent, findEmotion,getDes } from "@/api/common";
 export default {
   data() {
@@ -984,6 +989,47 @@ export default {
         pageNum: 1,
         pageSize: 5
       },
+      form:{
+        countrycode:'',
+        date:'',
+        countries: [
+          {
+            countryid: 44,
+            countrycode: "CHN",
+            countryname: "中国"
+          },
+          {
+            countryid: 217,
+            countrycode: "USA",
+            countryname: "美国"
+          },
+          {
+            countryid: 184,
+            countrycode: "KOR",
+            countryname: "韩国"
+          },
+          {
+            countryid: 149,
+            countrycode: "PRK",
+            countryname: "朝鲜"
+          },
+          {
+            countryid: 101,
+            countrycode: "JPN",
+            countryname: "日本"
+          },
+          {
+            countryid: 92,
+            countrycode: "IND",
+            countryname: "印度"
+          },
+          {
+            countryid: 153,
+            countrycode: "PAK",
+            countryname: "巴基斯坦"
+          }
+        ],
+      },
       Pform: {
         countryCode: "",
         date: "",
@@ -1021,6 +1067,11 @@ export default {
       Influencediagram: {},
       Quantitativegraph: {},
       worldBankDataList: {},
+      compareData:{},
+      isDescription:false,
+      descriptionData:'',
+      ahpbynewsData:{},
+      ahpbybaseData:{},
       usajianjie:
         "美利坚合众国（英语：United States of America），简称“美国”（United States），是由华盛顿哥伦比亚特区、50个州和关岛等众多海外领土组成的联邦共和立宪制国家。其主体部分位于北美洲中部，美国中央情报局《世界概况》1989年至1996年初始版美国总面积是937.3万平方公里，1997年修正为983.4万平方公里（加上五大湖中美国主权部分和河口、港湾、内海等沿海水域面积），人口3.2亿，通用英语，是一个移民国家。",
       indiajianjie:
@@ -1053,6 +1104,7 @@ export default {
     this.Politics();
     this.Economy();
     this.Ctd();
+    this.getdes()
   },
   methods: {
     onSubmit() {
@@ -1062,6 +1114,12 @@ export default {
       });
       //国家样式变化
       this.ChangeCountry();
+      this.form.countrycode=this.formInline.countrycode
+      this.form.date=this.formInline.date
+      compare(this.form).then(res=>{
+         this.compareData=res.data
+         this.compareData.country=this.countryName
+      })
       Ahp().then(res => {
         this.ahpData = res.data;
         this.tableData.push(this.ahpData.Tbody);
@@ -1074,20 +1132,21 @@ export default {
         date: this.formInline.date,
         countrycode: this.formInline.countrycode
       };
-
       enventData(tmpparams).then(res => {
         this.Influencediagram = res.data.Influencediagram;
         this.Quantitativegraph = res.data.Quantitativegraph;
-
-        console.log(this.Influencediagram);
-        console.log(this.Quantitativegraph);
       });
-
       //获取国家宏观指数
       worldBankData({ countrycode: this.formInline.countrycode }).then(res => {
         this.worldBankDataList = res.data;
       });
-
+      // 矩阵
+      ahpbynews().then(res=>{
+        this.ahpbynewsData=res.data
+      })
+      ahpbybase().then(res=>{
+        this.ahpbybaseData=res.data
+      })
       //事件数据变化
       this.Politics();
       this.Economy();
@@ -1107,7 +1166,6 @@ export default {
     },
     ChangeCountry() {
       let countrynum = this.formInline.countrycode;
-
       switch (countrynum) {
         case "PRK":
           this.countryDetail = this.chaoxianjianjie;
@@ -1189,7 +1247,7 @@ export default {
     },
     getdes(){
       getDes('area').then(res=>{
-        console.log(res)
+        this.descriptionData=res.data
       })
     }
   }

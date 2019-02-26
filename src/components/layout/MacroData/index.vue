@@ -211,6 +211,7 @@ export default {
   methods: {
     Select() {
         composite(this.MacroDataForm).then(res=>{
+          console.log(res)
           this.lineData=res.data
         })
         worldbank(this.MacroDataForm).then(res=>{

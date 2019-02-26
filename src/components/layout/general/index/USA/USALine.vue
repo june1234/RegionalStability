@@ -6,6 +6,7 @@
 
 <script>
 import echarts from"echarts"
+import USALineData from "@/assets/usa/USALine.json";
 
 export default {
   name: "USALine",

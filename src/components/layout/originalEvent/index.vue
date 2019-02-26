@@ -187,7 +187,6 @@ export default {
         this.ctd = res.data;
       });
       findEmotion(this.Cform).then(res => {
-        console.log(res);
         this.CEmotion=res.data
       });
     },

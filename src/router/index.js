@@ -9,152 +9,235 @@ export default new Router({
     {
       path: '/',
       name: 'layout',
-      component: () => import('@/components/layout/Layout.vue'),
+      component: resolve => require(['@/components/layout/Layout.vue'], resolve),
       children: [{
         path: '',
         name: 'index',
-        component: () => import('@/components/layout/index/Index.vue')
+        component: resolve => require(['@/components/layout/index/Index.vue'], resolve),
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path: 'region',
         name: 'region',
-        component: () => import('@/components/layout/region')
+        component: resolve => require(['@/components/layout/region'], resolve),
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path: 'Report',
         name: 'Report',
-        component: () => import('@/components/layout/report')
+        component: resolve => require(['@/components/layout/report'], resolve),
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path: 'Report/specialReport',
         name: 'ReportSpecialReport',
-        component: () => import('@/components/layout/report/specialReport.vue')
+        component: resolve => require(['@/components/layout/report/specialReport.vue'], resolve),
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path: 'NewsList',
         name: 'newsList',
-        component: () => import('@/components/layout/news')
+        component: resolve => require(['@/components/layout/news'], resolve),
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path: 'NewsList/NewsDetail',
         name: 'newsListDetail',
-        component: () => import('@/components/layout/news/NewsDetail.vue')
+        component: resolve => require(['@/components/layout/news/NewsDetail.vue'], resolve),
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path: 'EconomyEvent',
         name: 'EconomyEvent',
-        component: () => import('@/components/layout/economy')
+        component: resolve => require(['@/components/layout/economy'], resolve),
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path: 'EconomyEvent/economyEventList',
         name: 'economyEventList',
-        component: () => import('../components/layout/economy/economyEventList.vue')
+        component: resolve => require(['@/components/layout/economy/economyEventList.vue'], resolve),
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path: 'AntiTerrorismEvent',
         name: 'AntiTerrorismEvent',
-        component: () => import('@/components/layout/anti-terrorism')
+        component: resolve => require(['@/components/layout/anti-terrorism'], resolve),
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path: 'AntiTerrorismEvent/Anti-terrorismEventList',
         name: 'Anti-terrorismEventList',
-        component: () => import('@/components/layout/anti-terrorism/Anti-terrorismEventList.vue')
+        component: resolve => require(['@/components/layout/anti-terrorism/Anti-terrorismEventList.vue'], resolve),
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path: 'PoliticsEvent',
         name: 'PoliticsEvent',
-        component: () => import('@/components/layout/politics')
+        component: resolve => require(['@/components/layout/politics'], resolve),
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path: 'PoliticsEvent/PoliticsEventList',
         name: 'PoliticsEventList',
-        component: () => import('@/components/layout/politics/PoliticsEventList.vue')
+        component: resolve => require(['@/components/layout/politics/PoliticsEventList.vue'], resolve),
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path: 'EventTiming',
         name: 'EventTiming',
-        component: () => import('@/components/layout/eventTiming')
+        component: resolve => require(['@/components/layout/eventTiming'], resolve),
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path: 'OriginalEvents',
         name: 'OriginalEvents',
-        component: () => import('@/components/layout/originalEvent')
+        component: resolve => require(['@/components/layout/originalEvent'], resolve),
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path: 'MacroData',
         name: 'MacroData',
-        component: () => import('../components/layout/MacroData')
+        component: resolve => require(['@/components/layout/MacroData'], resolve),
+        meta: {
+          keepAlive: true
+        }
       }
       ]
     },
     {
       path: '/Error/error404',
       name: '404',
-      component: () => import('@/components/error/error404.vue')
+      component: () => import('@/components/error/error404.vue'),
+      meta: {
+        keepAlive: false
+      }
     },
     {
       path: '/Error/error500',
       name: '500',
-      component: () => import('@/components/error/error500.vue')
+      component: () => import('@/components/error/error500.vue'),
+      meta: {
+        keepAlive: false
+      }
     },
     {
       path: '/login',
       name: 'login',
-      component: () => import('@/components/Login.vue')
+      component: resolve => require(['@/components/Login.vue'], resolve),
+      meta: {
+        keepAlive: false
+      }
     },
     {
       path: '/admin',
       name: 'admin',
-      component: () => import('@/components/admin/admin.vue'),
+      component: resolve => require(['@/components/admin/admin.vue'], resolve),
       children: [{
+        path: '',
+        name: 'index',
+        component: resolve => require(['@/components/admin/index'], resolve),
+        meta: {
+          keepAlive: true
+        }
+      }, {
         path: 'UserManage',
         name: 'UserManage',
-        component: () => import('@/components/admin/user')
+        component: resolve => require(['@/components/admin/user'], resolve),
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path: 'UserManage/userDetail',
         name: 'userDetail',
-        component: () => import('@/components/admin/user/UserDetail.vue')
+        component: resolve => require(['@/components/admin/user/UserDetail.vue'], resolve),
+        meta: {
+          keepAlive: true
+        }
       },
       {
-        path: 'GTD/GTDManage',
+        path: 'GTDManage',
         name: 'GTDManage',
-        component: () => import('@/components/admin/data/GTD')
+        component: resolve => require(['@/components/admin/data/GTD'], resolve),
+        meta: {
+          keepAlive: true
+        }
       },
       {
-        path: 'WordBank',
-        name: 'WordBank',
-        component: () => import('@/components/admin/data/WordBank')
-      },
-      {
-        path: 'News/newsManage',
+        path: 'newsManage',
         name: 'newsManage',
-        component: () => import('@/components/admin/data/News')
+        component: resolve => require(['@/components/admin/data/News'], resolve),
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path: 'politicalevents',
         name: 'politicalevents',
-        component: () => import('@/components/admin/eventManagement/politicalEvents')
+        component: resolve => require(['@/components/admin/eventManagement/politicalEvents'], resolve),
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path: 'economicevents',
         name: 'economicevents',
-        component: () => import('@/components/admin/eventManagement/economicEvents')
+        component: resolve => require(['@/components/admin/eventManagement/economicEvents'], resolve),
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path: 'counterterrorismincidents',
         name: 'counterterrorismincidents',
-        component: () => import('@/components/admin/eventManagement/counterTerrorismincidents')
+        component: resolve => require(['@/components/admin/eventManagement/counterTerrorismincidents'], resolve),
+        meta: {
+          keepAlive: true
+        }
       },
       {
-        path: 'Log/OpreateLog',
+        path: 'OpreateLog',
         name: 'OpreateLog',
-        component: () => import('@/components/admin/log/OpreateLog')
+        component: resolve => require(['@/components/admin/log/OpreateLog'], resolve),
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path: 'expert',
         name: 'expert',
-        component: () => import('@/components/admin/expertparameters')
+        component: resolve => require(['@/components/admin/expertparameters'], resolve),
+        meta: {
+          keepAlive: true
+        }
       }
       ]
     }

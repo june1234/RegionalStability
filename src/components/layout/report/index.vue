@@ -85,8 +85,16 @@
                 label="不显示"
               ></el-radio>
             </el-radio-group>
+            <el-select v-model="value" @change="changeSelete" placeholder="请选择">
+              <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+              </el-option>
+            </el-select>
           </el-form-item>
-          <time-charts :all="usaTimeLineData"></time-charts>
+          <time-charts :all="usaTimeLineData" :title="title"></time-charts>
         </div>
         <!-- <div class="news">
           <el-form-item label="新闻">
@@ -422,6 +430,34 @@ export default {
         pageNum: 1,
         pageSize: 10
       },
+      options:[{
+          label:'中美贸易战',
+          value:'zhongmei'
+        },{
+          label:'中国政治经济',
+          value:'zhongguo'
+        },{
+          label:'印度政治经济',
+          value:'yindu'
+        },{
+          label:'日本政治经济',
+          value:'riben'
+        },{
+          label:'朝鲜政治经济',
+          value:'chaoxian'
+        },{
+          label:'韩国政治经济',
+          value:'hanguo'
+        },{
+          label:'美国政治经济',
+          value:'meiguo'
+        },{
+          label:'朝核问题',
+          value:'chaohe'
+        }
+      ],
+      value:'zhongmei',
+      title:'',
       Pform: {
         countryCode: "",
         date: "",
@@ -520,7 +556,8 @@ export default {
       cTotal: 0,
       topic:{
         name:'事件演变',
-        display:false
+        display:false,
+        value:''
       },
       news:{
         name:'新闻统计',
@@ -567,8 +604,16 @@ export default {
       this.Politics();
       this.Economy();
       this.Ctd();
-      TrendData('zhongmei').then(res=>{
-        this.usaTimeLineData=res.data
+      this.changeSelete()
+    },
+    changeSelete(){
+      TrendData(this.value).then(res=>{
+              this.usaTimeLineData=res.data
+              for(let i in this.options){
+                if(this.value===this.options[i].value){
+                  this.title=this.options[i].label
+                }
+              }
       })
     },
     EconomySelectionChange(val) {
@@ -588,6 +633,7 @@ export default {
     generated() {
       if(this.form.topicDisplay==="显示"){
         this.topic.display=true
+        this.topic.value=this.value
       }
       if(this.form.newsDisplay==="显示"){
         this.news.display=true
@@ -599,7 +645,7 @@ export default {
       if(this.form.eventDisplay==="显示"&&this.form.pDisplay==="显示"){
           this.event.Politics.display=true
           this.event.Politics.pEventList=this.pEventList
-          this.event.Politics.PEventDec=this.form.PEventDec
+          this.event.Politics.pEventDec=this.form.PEventDec
           this.event.Politics.pScatter=this.pScatter
       }
       if(this.form.eventDisplay==="显示"&&this.form.eDisplay==="显示"){
@@ -659,11 +705,6 @@ export default {
     },
     formatterTime(val) {
       return formatterDateStr(val.startTime);
-    },
-    getdes(){
-      getDes('report').then(res=>{
-        console.log(res)
-      })
     }
   }
 };

@@ -14,7 +14,7 @@ import { getToken } from '@/utils/auth'
 const service = axios.create({
   // baseURL: 'http://192.168.10.222:8080/dev', // api的base_url 服务器地址
   // baseURL: 'http://192.168.10.231:8080/dev', // 本地地址
-  baseURL: 'http://192.168.17.217:8080/dev', // 本地地址
+  baseURL: 'http://192.168.17.248:8080/dev', // 本地地址
   timeout: 540000 // 请求超时时间
 })
 
@@ -65,7 +65,12 @@ service.interceptors.response.use(
           })
         })
       }
+      debugger
       return Promise.reject(new Error('error'))
+    } else if (res.retcode === 404) {
+      this.$router.push('/Error/error404')
+    } else if (res.retcode === 500) {
+      this.$router.push('/Error/error500')
     } else {
       return response.data
     }
